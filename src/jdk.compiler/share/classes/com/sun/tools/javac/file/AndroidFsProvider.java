@@ -1,8 +1,10 @@
 package com.sun.tools.javac.file;
 
+import java.io.IOException;
 import java.net.URI;
 import java.nio.file.FileSystem;
 import java.nio.file.spi.FileSystemProvider;
+import java.util.HashMap;
 
 import com.itsaky.androidide.zipfs.ZipFileSystemProvider;
 import jdk.internal.jrtfs.JrtFileSystemProvider;
