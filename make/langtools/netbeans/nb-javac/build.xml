@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<project name="nb-javac" default="default" basedir=".">
+    <description>Builds, tests, and runs the project nb-javac.</description>
+    <import file="nbproject/build-impl.xml"/>
+    <!--
+
+    There exist several targets which are by default empty and which can be 
+    used for execution of your tasks. These targets are usually executed 
+    before and after some main targets. They are: 
+
+      -pre-init:                 called before initialization of project properties
+      -post-init:                called after initialization of project properties
+      -pre-compile:              called before javac compilation
+      -post-compile:             called after javac compilation
+      -pre-compile-single:       called before javac compilation of single file
+      -post-compile-single:      called after javac compilation of single file
+      -pre-compile-test:         called before javac compilation of JUnit tests
+      -post-compile-test:        called after javac compilation of JUnit tests
+      -pre-compile-test-single:  called before javac compilation of single JUnit test
+      -post-compile-test-single: called after javac compilation of single JUunit test
+      -pre-jar:                  called before JAR building
+      -post-jar:                 called after JAR building
+      -post-clean:               called after cleaning build products
+
+    (Targets beginning with '-' are not intended to be called on their own.)
+
+    Example of inserting an obfuscator after compilation could look like this:
+
+        <target name="-post-compile">
+            <obfuscate>
+                <fileset dir="${build.classes.dir}"/>
+            </obfuscate>
+        </target>
+
+    For list of available properties check the imported 
+    nbproject/build-impl.xml file. 
+
+
+    Another way to customize the build is by overriding existing main targets.
+    The targets of interest are: 
+
+      -init-macrodef-javac:     defines macro for javac compilation
+      -init-macrodef-junit:     defines macro for junit execution
+      -init-macrodef-debug:     defines macro for class debugging
+      -init-macrodef-java:      defines macro for class execution
+      -do-jar-with-manifest:    JAR building (if you are using a manifest)
+      -do-jar-without-manifest: JAR building (if you are not using a manifest)
+      run:                      execution of project 
+      -javadoc-build:           Javadoc generation
+      test-report:              JUnit report generation
+
+    An example of overriding the target for project execution could look like this:
+
+        <target name="run" depends="nb-javac-impl.jar">
+            <exec dir="bin" executable="launcher.exe">
+                <arg file="${dist.jar}"/>
+            </exec>
+        </target>
+
+    Notice that the overridden target depends on the jar target and not only on 
+    the compile target as the regular run target does. Again, for a list of available 
+    properties which you can use, check the target you are overriding in the
+    nbproject/build-impl.xml file. 
+
+    -->
+
+    <fail message="Please use JDK8 to build nb-javac!">
+        <condition>
+            <available classname="java.lang.Module"/>
+        </condition>
+    </fail>
+
+    <!-- suppress javadoc generation for this library, as its wrappers do it -->
+    <target name="-javadoc-build"/>
+    
+    <target name="-post-init">
+        <available file="../../../../../nbbuild/netbeans/java/modules/ext" type="dir" property="modules.ext.exists"/>
+    </target>
+    
+    <target name="-pre-compile">
+        <mkdir dir="${build.dir}/depr-src/java/lang" />
+        <echo file="${build.dir}/depr-src/java/lang/Deprecated.java">package java.lang; @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME) public @interface Deprecated {public String since() default ""; }</echo>
+        <mkdir dir="${build.dir}/depr-classes/" />
+        <property name="build.depr.classes" location="${build.dir}/depr-classes/" />
+        <javac srcdir="${build.dir}/depr-src/java/lang" destdir="${build.depr.classes}" />
+    </target>
+    
+    <target name="-separate-jars">
+        <jar destfile="${dist.dir}/nb-javac-${nb-javac-ver}-api.jar">
+            <fileset dir="${build.classes.dir}">
+               <!-- <include name="com/sun/javadoc/**/*"/> -->
+                <include name="com/sun/source/**/*"/>
+                <include name="javax/lang/**/*"/>
+                <include name="javax/tools/*"/>
+                <include name="jdk/internal/PreviewFeature*"/>
+                <include name="javax/annotation/**/*"/>
+            </fileset>
+            <fileset dir="${nb.javac.dir}">
+                <include name="README.md"/>
+                <include name="LICENSE.txt"/>
+                <include name="SECURITY.md"/>
+            </fileset>
+        </jar>
+        <jar destfile="${dist.dir}/nb-javac-${nb-javac-ver}-impl.jar">
+            <fileset dir="${build.classes.dir}">
+                <include name="com/sun/tools/**/*"/>
+		<include name="jdk/internal/shellsupport/**/*"/>
+                <include name="jdk/internal/PreviewFeature*"/>
+                <include name="java/lang/**/*"/>
+            </fileset>
+            <fileset dir="${nb.javac.dir}">
+                <include name="README.md"/>
+                <include name="LICENSE.txt"/>
+                <include name="SECURITY.md"/>
+            </fileset>
+        </jar>
+        <delete file="${dist.jar}"/>
+    </target>
+    
+    <target name="-copy-jars-to-build" if="modules.ext.exists">
+        <copy file="${dist.dir}/nb-javac-${nb-javac-ver}-api.jar" tofile="../../../../../nbbuild/netbeans/java/modules/ext/nb-javac-api.jar" />
+        <copy file="${dist.dir}/nb-javac-${nb-javac-ver}-impl.jar" tofile="../../../../../nbbuild/netbeans/java/modules/ext/nb-javac-impl.jar" />
+        <touch file="../../../../../nbbuild/netbeans/java/.lastModified" />
+    </target>
+    <target name="-post-jar" depends="-post-init,-separate-jars,-copy-jars-to-build">
+    </target>
+
+    <target name="-pre-compile-test" depends="jar"/>
+
+    <target name="zip-nb-javac-sources" depends="init">
+        <zip basedir="../../../../" destfile="dist/nb-javac-${nb-javac-ver}-sources.zip">
+            <exclude name="**/build/"/>
+            <exclude name="**/dist/"/>
+            <exclude name="**/nbproject/private/"/>
+            <exclude name="**/nb-javac-sources.zip"/>
+            <include name="src/jdk.compiler/**"/>
+            <include name="src/java.compiler/**"/>
+            <include name="src/jdk.jdeps/**"/>
+            <include name="make/langtools/netbeans/nb-javac/**"/>
+            <include name="README.md"/>
+            <include name="SECURITY.md"/>
+            <include name="LICENSE.txt"/>
+            <include name=".hgignore"/>
+            <include name=".hgtags"/>
+            <include name="CONTRIBUTING.md"/>
+            <include name="make/langtools/tools/**"/>
+            <include name="make/langtools/build.xml"/>
+            <include name="make/langtools/build.properties"/>
+        </zip>
+    </target>
+
+    <!--
+        Publishing to maven central / OSSRH requires an account from sonatype.
+        The credentials for this account need to be made available to maven
+        using the configured id below.
+
+        With the credentials configured, running
+
+        ant publish-to-ossrh-snapshots
+
+        will publish to the snapshot repository.
+
+        ant publish-to-maven-central
+
+        will publish into a staging repository, that needs to be manually
+        released.
+    -->
+
+    <property name="maven-snapshots-repository-id" value="oss.sonatype.org" />
+    <property name="maven-snapshots-repository-url" value="https://oss.sonatype.org/content/repositories/snapshots/" />
+    <property name="maven-staging-repository-id" value="oss.sonatype.org" />
+    <property name="maven-staging-repository-url" value="https://oss.sonatype.org/service/local/staging/deploy/maven2/" />
+
+    <target name="-prepare-maven-version" depends="clean,jar">
+        <property name="maven.version" value="${nb-javac-ver}"/>
+    </target>
+    <target name="-prepare-maven-snapshot-version" depends="clean,jar">
+        <property name="maven.version" value="${nb-javac-ver}-SNAPSHOT"/>
+    </target>
+
+    <target name="-prepare-maven" depends="clean,jar,zip-nb-javac-sources">
+        <fail message="Version must be specified!" unless="maven.version"></fail>
+        <fail message="Specify -Dmaven.groupId=..." unless="maven.groupId"></fail>
+
+        <zip basedir="../../../../" destfile="dist/nb-javac-${nb-javac-ver}-doc.zip">
+            <include name="README.md"/>
+            <include name="SECURITY.md"/>
+            <include name="LICENSE.txt"/>
+            <include name="CONTRIBUTING.md"/>
+        </zip>
+
+        <copy file="pom-nb-javac.xml" todir="build" />
+
+        <replaceregexp match="(&lt;version&gt;).*(&lt;/version&gt;)"
+                       replace="\1${maven.version}\2"
+                       file="build/pom-nb-javac.xml"/>
+
+        <replaceregexp match="(&lt;groupId&gt;).*(&lt;/groupId&gt;)"
+                       replace="\1${maven.groupId}\2"
+                       file="build/pom-nb-javac.xml"/>
+    </target>
+
+    <target name="publish-to-ossrh-snapshots"
+            description="Build nb-javac and publish to Snapshot Repository of OSSRH"
+            depends="-prepare-maven-snapshot-version,-prepare-maven">
+
+        <exec executable="mvn" output="build/maven-publish.log" failonerror="true">
+            <arg value="org.apache.maven.plugins:maven-deploy-plugin:2.7:deploy-file"/>
+            <arg value="-Durl=${maven-snapshots-repository-url}"/>
+            <arg value="-DrepositoryId=${maven-snapshots-repository-id}"/>
+            <arg value="-DpomFile=build/pom-nb-javac.xml"/>
+            <arg value="-Dfile=dist/nb-javac-${nb-javac-ver}-impl.jar"/>
+            <arg value="-Dfiles=dist/nb-javac-${nb-javac-ver}-api.jar,dist/nb-javac-${nb-javac-ver}-sources.zip,dist/nb-javac-${nb-javac-ver}-doc.zip"/>
+            <arg value="-Dtypes=jar,jar,jar" />
+            <arg value="-Dclassifiers=api,sources,javadoc" />
+        </exec>
+    </target>
+
+    <target name="publish-to-maven-central" 
+            description="Build nb-javac and stage for maven central"
+            depends="-prepare-maven-version,-prepare-maven">
+
+        <exec executable="mvn" output="build/maven-publish.log" failonerror="true">
+            <arg value="org.apache.maven.plugins:maven-gpg-plugin:1.4:sign-and-deploy-file"/>
+            <arg value="-Durl=${maven-staging-repository-url}"/>
+            <arg value="-DrepositoryId=${maven-staging-repository-id}"/>
+            <arg value="-DpomFile=build/pom-nb-javac.xml"/>
+            <arg value="-Dfile=dist/nb-javac-${nb-javac-ver}-impl.jar"/>
+            <arg value="-Dfiles=dist/nb-javac-${nb-javac-ver}-api.jar,dist/nb-javac-${nb-javac-ver}-sources.zip,dist/nb-javac-${nb-javac-ver}-doc.zip"/>
+            <arg value="-Dtypes=jar,jar,jar" />
+            <arg value="-Dclassifiers=api,sources,javadoc" />
+            <arg value="-Dgpg.useagent=true"/>
+        </exec>
+    </target>
+</project>

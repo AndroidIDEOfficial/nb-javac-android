@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+  http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>TEMPLATE</groupId>
+  <artifactId>nb-javac</artifactId>
+  <version>TEMPLATE</version>
+  <packaging>jar</packaging>
+
+  <name>nb-javac</name>
+  <description>"nb-javac" is a patched version of OpenJDK "javac", i.e., the Java compiler. This has long been part of NetBeans, providing a highly tuned Java compiler specifically for the Java editor i.e., parsing and lexing for features such as syntax coloring, code completion.</description>
+  <url>https://github.com/oracle/nb-javac</url>
+
+  <licenses>
+      <license>
+          <name>GPLv2-CPE</name>
+          <url>https://openjdk.java.net/legal/gplv2+ce.html</url>
+          <distribution>repo</distribution>
+      </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:https://github.com/oracle/nb-javac.git</connection>
+    <developerConnection>scm:git:git@github.com:oracle/nb-javac.git</developerConnection>
+    <url>https://github.com/oracle/nb-javac</url>
+  </scm>
+
+  <developers>
+    <developer>
+      <email>akhilesh.s.singh@oracle.com</email>
+      <name>Akhilesh Singh</name>
+      <url>https://github.com/singh-akhilesh</url>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <email>akshay.ag.gupta@oracle.com</email>
+      <name>Akshay Gupta</name>
+      <url>https://github.com/Akshay-Gupta-Oracle</url>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
+
+</project>

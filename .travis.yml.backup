@@ -1,0 +1,13 @@
+--- 
+addons: 
+  apt: 
+    packages: 
+      - ant
+language: java
+matrix: 
+  include: 
+    - 
+      jdk: openjdk8
+      name: "Simple Build"
+      script: 
+        - "ant -f ./make/langtools/netbeans/nb-javac clean jar"

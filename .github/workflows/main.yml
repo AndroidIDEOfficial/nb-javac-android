@@ -1,0 +1,49 @@
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+jobs: 
+  linux: 
+    name: "Linux Build"
+    runs-on: ubuntu-latest
+    steps: 
+      - 
+        uses: actions/checkout@v2
+      - name: Set up JDK 8    
+        uses: actions/setup-java@v1
+        with:
+          java-version: '8'     
+      - 
+        name: "Build nb-javac"
+        run: "ant -f ./make/langtools/netbeans/nb-javac clean jar"
+      -  
+        name: "Unit Test nb-javac"
+        run: ant -f ./make/langtools/netbeans/nb-javac -Dnb.internal.action.name=test -Dignore.failing.tests=true test
+
+  macos: 
+    name: "MacOS build"
+    runs-on: macos-latest
+    steps: 
+      - 
+        name: Checkout
+        uses: actions/checkout@v2
+      - 
+        name: "Build nb-javac"
+        run: "ant -f ./make/langtools/netbeans/nb-javac clean jar"  
+      -  
+        name: "Unit Test nb-javac"
+        run: ant -f ./make/langtools/netbeans/nb-javac -Dnb.internal.action.name=test -Dignore.failing.tests=true test
+
+  windows: 
+    name: "Windows build"
+    runs-on: windows-latest
+    steps: 
+      - 
+        name: Checkout
+        uses: actions/checkout@v2
+      - 
+        name: "Build nb-javac"
+        run: "ant -f ./make/langtools/netbeans/nb-javac clean jar"

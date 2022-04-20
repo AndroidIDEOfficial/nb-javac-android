@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.java.j2seproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
+            <name>nb-javac</name>
+            <minimum-ant-version>1.6.5</minimum-ant-version>
+            <source-roots>
+                <root id="src.classes2.dir" name="java.compiler"/>
+                <root id="src.classes3.dir" name="jdk.compiler"/>
+                <root id="src.classes4.dir" name="jdk.jdeps"/>
+            </source-roots>
+            <test-roots>
+                <root id="test.test.dir"/>
+            </test-roots>
+        </data>
+    </configuration>
+</project>
