@@ -192,8 +192,8 @@
             <arg value="-Durl=${maven-snapshots-repository-url}" />
             <arg value="-DrepositoryId=${maven-snapshots-repository-id}" />
             <arg value="-DpomFile=build/pom-nb-javac.xml" />
-            <arg value="-Dfile=dist/nb-javac-${nb-javac-ver}-impl.jar" />
-            <arg value="-Dfiles=dist/nb-javac-${nb-javac-ver}-api.jar,dist/nb-javac-${nb-javac-ver}-sources.zip,dist/nb-javac-${nb-javac-ver}-doc.zip" />
+            <arg value="-Dfile=dist/nb-javac-${nb-javac-ver}-android.jar" />
+            <arg value="-Dfiles=dist/nb-javac-${nb-javac-ver}-sources.zip,dist/nb-javac-${nb-javac-ver}-doc.zip" />
             <arg value="-Dtypes=jar,jar,jar" />
             <arg value="-Dclassifiers=api,sources,javadoc" />
         </exec>
@@ -206,8 +206,8 @@
             <arg value="-Durl=${maven-staging-repository-url}" />
             <arg value="-DrepositoryId=${maven-staging-repository-id}" />
             <arg value="-DpomFile=build/pom-nb-javac.xml" />
-            <arg value="-Dfile=dist/nb-javac-${nb-javac-ver}-impl.jar" />
-            <arg value="-Dfiles=dist/nb-javac-${nb-javac-ver}-api.jar,dist/nb-javac-${nb-javac-ver}-sources.zip,dist/nb-javac-${nb-javac-ver}-doc.zip" />
+            <arg value="-Dfile=dist/nb-javac-${nb-javac-ver}-android.jar" />
+            <arg value="-Dfiles=dist/nb-javac-${nb-javac-ver}-sources.zip,dist/nb-javac-${nb-javac-ver}-doc.zip" />
             <arg value="-Dtypes=jar,jar,jar" />
             <arg value="-Dclassifiers=api,sources,javadoc" />
             <arg value="-Dgpg.useagent=true" />
