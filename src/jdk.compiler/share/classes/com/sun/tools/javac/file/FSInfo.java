@@ -58,8 +58,6 @@ import java.nio.file.Paths;
  */
 public class FSInfo {
 
-    public static String JS_PROVIDER_CLASS = "com.itsaky.androidide.javac.file.JarFsProvider";
-
     /** Get the FSInfo instance for this context.
      *  @param context the context
      *  @return the Paths instance for this context
@@ -159,10 +157,9 @@ public class FSInfo {
         }
         
         try {
-            final Class<?> klass = Class.forName(JS_PROVIDER_CLASS);
-            final Method getFs = klass.getDeclaredMethod("getJarFsProvider");
-            getFs.setAccessible(true);
-            return (FileSystemProvider) getFs.invoke(null)
+            if (com.sun.tools.javac.util.PlatformUtils.isAndroid()) {
+                return jarFSProvider = AndroidFsProvider.INSTANCE.zipFsProvider();
+            }
         } catch (Throwable throwable) {
             // ignored
         }

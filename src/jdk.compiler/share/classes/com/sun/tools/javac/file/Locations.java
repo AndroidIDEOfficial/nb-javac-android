@@ -1919,7 +1919,9 @@ public class Locations {
                     URI jrtURI = URI.create("jrt:/");
                     FileSystem jrtfs;
 
-                    if (isCurrentPlatform(systemJavaHome)) {
+                    if (com.sun.tools.javac.util.PlatformUtils.isAndroid()) {
+                        jrtfs = com.sun.tools.javac.file.AndroidFsProvider.INSTANCE.jrtFileSystem();
+                    } else if (isCurrentPlatform(systemJavaHome)) {
                         jrtfs = FileSystems.getFileSystem(jrtURI);
                     } else {
                         try {
