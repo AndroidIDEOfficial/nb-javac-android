@@ -655,7 +655,7 @@ public class JavacTrees extends DocTrees {
         return null;
     }
 
-    private VarSymbol findField(ClassSymbol tsym, Name fieldName) {
+    public VarSymbol findField(ClassSymbol tsym, Name fieldName) {
         return searchField(tsym, fieldName, new HashSet<>());
     }
 
@@ -705,7 +705,7 @@ public class JavacTrees extends DocTrees {
         return null;
     }
 
-    MethodSymbol findConstructor(ClassSymbol tsym, List<Type> paramTypes) {
+    public MethodSymbol findConstructor(ClassSymbol tsym, List<Type> paramTypes) {
         for (Symbol sym : tsym.members().getSymbolsByName(names.init)) {
             if (sym.kind == MTH) {
                 if (hasParameterTypes((MethodSymbol) sym, paramTypes)) {
@@ -716,7 +716,7 @@ public class JavacTrees extends DocTrees {
         return null;
     }
 
-    private MethodSymbol findMethod(ClassSymbol tsym, Name methodName, List<Type> paramTypes) {
+    public MethodSymbol findMethod(ClassSymbol tsym, Name methodName, List<Type> paramTypes) {
         return searchMethod(tsym, methodName, paramTypes, new HashSet<>());
     }
 
@@ -801,7 +801,7 @@ public class JavacTrees extends DocTrees {
         return null;
     }
 
-    private boolean hasParameterTypes(MethodSymbol method, List<Type> paramTypes) {
+    public boolean hasParameterTypes(MethodSymbol method, List<Type> paramTypes) {
         if (paramTypes == null)
             return true;
 
