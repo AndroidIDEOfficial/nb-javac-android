@@ -4,9 +4,9 @@
   http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.github.itsaky</groupId>
+  <groupId>TEMPLATE</groupId>
   <artifactId>nb-javac-android</artifactId>
-  <version>1.0.0</version>
+  <version>TEMPLATE</version>
   <packaging>jar</packaging>
 
   <name>nb-javac-android</name>

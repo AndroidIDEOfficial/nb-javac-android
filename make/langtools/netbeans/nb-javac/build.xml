@@ -155,9 +155,9 @@
     -->
 
     <property name="maven-snapshots-repository-id" value="oss.sonatype.org" />
-    <property name="maven-snapshots-repository-url" value="https://oss.sonatype.org/content/repositories/snapshots/" />
+    <property name="maven-snapshots-repository-url" value="https://s01.oss.sonatype.org/content/repositories/snapshots/" />
     <property name="maven-staging-repository-id" value="oss.sonatype.org" />
-    <property name="maven-staging-repository-url" value="https://oss.sonatype.org/service/local/staging/deploy/maven2/" />
+    <property name="maven-staging-repository-url" value="https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/" />
 
     <target name="-prepare-maven-version" depends="clean,jar">
         <property name="maven.version" value="${nb-javac-ver}" />
@@ -193,8 +193,9 @@
             <arg value="-DpomFile=build/pom-nb-javac.xml" />
             <arg value="-Dfile=dist/nb-javac-${nb-javac-ver}-android.jar" />
             <arg value="-Dfiles=dist/nb-javac-${nb-javac-ver}-sources.zip,dist/nb-javac-${nb-javac-ver}-doc.zip" />
-            <arg value="-Dtypes=jar,jar,jar" />
-            <arg value="-Dclassifiers=api,sources,javadoc" />
+            <arg value="-Dtypes=jar,jar" />
+            <arg value="-Dclassifiers=sources,javadoc" />
+            <arg value="-Dgpg.useagent=true" />
         </exec>
     </target>
 
@@ -207,8 +208,8 @@
             <arg value="-DpomFile=build/pom-nb-javac.xml" />
             <arg value="-Dfile=dist/nb-javac-${nb-javac-ver}-android.jar" />
             <arg value="-Dfiles=dist/nb-javac-${nb-javac-ver}-sources.zip,dist/nb-javac-${nb-javac-ver}-doc.zip" />
-            <arg value="-Dtypes=jar,jar,jar" />
-            <arg value="-Dclassifiers=api,sources,javadoc" />
+            <arg value="-Dtypes=jar,jar" />
+            <arg value="-Dclassifiers=sources,javadoc" />
             <arg value="-Dgpg.useagent=true" />
         </exec>
     </target>
