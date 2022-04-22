@@ -21,3 +21,9 @@ jobs:
       -  
         name: "Unit Test nb-javac"
         run: ant -f ./make/langtools/netbeans/nb-javac -Dnb.internal.action.name=test -Dignore.failing.tests=true test
+      - name: Upload JAR
+        uses: actions/upload-artifact@v2
+        if: ${{ !github.head_ref }}
+        with:
+          name: nb-javac-android
+          path: ./make/langtools/netbeans/nb-javac/dist/nb-javac-*-android.jar
