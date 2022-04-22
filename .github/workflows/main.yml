@@ -6,8 +6,7 @@ on:
   push:
     branches: [ main ]
 jobs: 
-  linux: 
-    name: "Linux Build"
+  name: "Linux Build"
     runs-on: ubuntu-latest
     steps: 
       - 
@@ -22,28 +21,3 @@ jobs:
       -  
         name: "Unit Test nb-javac"
         run: ant -f ./make/langtools/netbeans/nb-javac -Dnb.internal.action.name=test -Dignore.failing.tests=true test
-
-  macos: 
-    name: "MacOS build"
-    runs-on: macos-latest
-    steps: 
-      - 
-        name: Checkout
-        uses: actions/checkout@v2
-      - 
-        name: "Build nb-javac"
-        run: "ant -f ./make/langtools/netbeans/nb-javac clean jar"  
-      -  
-        name: "Unit Test nb-javac"
-        run: ant -f ./make/langtools/netbeans/nb-javac -Dnb.internal.action.name=test -Dignore.failing.tests=true test
-
-  windows: 
-    name: "Windows build"
-    runs-on: windows-latest
-    steps: 
-      - 
-        name: Checkout
-        uses: actions/checkout@v2
-      - 
-        name: "Build nb-javac"
-        run: "ant -f ./make/langtools/netbeans/nb-javac clean jar"
