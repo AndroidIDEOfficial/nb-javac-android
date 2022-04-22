@@ -4,13 +4,6 @@
 
 `nb-javac-android` is a patched version of `nb-javac`. It allows developers to use `javac` i.e. the Java Compiler in android applications.
 
-## Add nb-javac-android to your project
-Declare the dependency in your `build.gradle` :
-```gradle
-implementation 'io.github.itsaky:nb-javac-android:<latest-version>'
-```
-Replace `<latest-version>` with the version shown above.
-
 # Building nb-javac jar files
 
 ## Prerequisite
