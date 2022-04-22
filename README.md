@@ -1,17 +1,29 @@
-# About nb-javac!
-"nb-javac" is a patched version of OpenJDK "javac", i.e., the Java compiler. This has long been part of NetBeans, providing a highly tuned Java compiler specifically for the Java editor i.e., parsing and lexing for features such as syntax coloring, code completion.
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.itsaky/nb-javac-android.svg?label=Maven%20Central)]((https://search.maven.org/search?q=io.github.itsaky%20nb-javac-android))
+# nb-javac-android
+[nb-javac](https://github.com/oracle/nb-javac) is a patched version of OpenJDK "javac", i.e., the Java compiler. This has long been part of NetBeans, providing a highly tuned Java compiler specifically for the Java editor i.e., parsing and lexing for features such as syntax coloring, code completion.
 
-# Prerequisite
-  - Git
-  - Ant 1.9.9 or above
-  - JDK 8 or above (to build nb-javac)
-  - Apache Maven
+`nb-javac-android` is a patched version of `nb-javac`. It allows developers to use `javac` i.e. the Java Compiler in android applications.
+
+## Add nb-javac-android to your project
+Declare the dependency in your `build.gradle` :
+```gradle
+implementation 'io.github.itsaky:nb-javac-android:<latest-version>'
+```
+Replace `<latest-version>` with the version shown above.
 
 # Building nb-javac jar files
+
+## Prerequisite
+  - Git
+  - Ant 1.9.9 or above
+  - JDK 8 (to build nb-javac). Other versions are not recommended.
+  - Apache Maven
+
+## Build the project
 1. Obtain the code with the following command
 
 ```
-$ git clone https://github.com/oracle/nb-javac.git
+$ git clone https://github.com/itsaky/nb-javac-android.git
 ```
 
 2. To get a specific version use the following command
@@ -26,8 +38,7 @@ $ git checkout <release_tag_name>
 $ ant -f ./make/langtools/netbeans/nb-javac clean jar
 ```
 
-Two jars namely `javac-api*.jar` and `javac-impl*.jar` are going to appear
-at location `./make/langtools/netbeans/nb-javac/dist/`
+A JAR named `nb-javac-<ver>-android.jar` will be generatead at location `./make/langtools/netbeans/nb-javac/dist/`
 
 4. Run below command to zip the source code of nb-javac
 
@@ -56,23 +67,6 @@ $ ant -f ./make/langtools/netbeans/nb-javac zip-nb-javac-sources
    to stage the release, which will get promoted to maven central, after it has
    been manually released.
 
-# Installation/Usage
-
-#### 1. Copy jars by following commands
-
-```bash
-cp nb-javac/make/langtools/netbeans/nb-javac/dist/nb-javac-$ver-api.jar netbeans/java/libs.javacapi/external/nb-javac-$ver-api.jar
-cp nb-javac/make/langtools/netbeans/nb-javac/dist/nb-javac-$ver-impl.jar netbeans/java/libs.javacimpl/external/nb-javac-$ver-impl.jar
-```
-
-#### 2. Open Netbeans and activate Java SE by creating or opening a ant, maven or gradle then copy jars by these commands
-
-```bash
-cp nb-javac/make/langtools/netbeans/nb-javac/dist/nb-javac-$ver-impl.jar netbeans/nbbuild/testuserdir/modules/ext/nb-javac-$ver-impl.jar
-cp nb-javac/make/langtools/netbeans/nb-javac/dist/nb-javac-$ver-api.jar netbeans/nbbuild/testuserdir/modules/ext/nb-javac-$ver-api.jar
-touch netbeans/nbbuild/testuserdir/.lastmodified
-```
-
 # Documentation 
 
 - https://cwiki.apache.org/confluence/display/NETBEANS/Overview%3A+nb-javac
@@ -80,7 +74,7 @@ touch netbeans/nbbuild/testuserdir/.lastmodified
 - https://confluence.oraclecorp.com/confluence/display/NB/nb-javac+JDK14+uptake
 - https://wiki.se.oracle.com/display/JPG/Behavior+without+NB-Javac
 
-# Help
+# nb-javac help
 - Subscribe or mail the users@netbeans.apache.org list - Ask questions, find answers, and also help other users.
 - Subscribe or mail the dev@netbeans.apache.org list - Join development discussions, propose new ideas and connect with contributors.
 
