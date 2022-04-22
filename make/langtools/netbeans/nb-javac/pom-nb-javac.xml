@@ -4,14 +4,14 @@
   http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>TEMPLATE</groupId>
-  <artifactId>nb-javac</artifactId>
-  <version>TEMPLATE</version>
+  <groupId>com.itsaky.androidide</groupId>
+  <artifactId>nb-javac-android</artifactId>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
 
-  <name>nb-javac</name>
-  <description>"nb-javac" is a patched version of OpenJDK "javac", i.e., the Java compiler. This has long been part of NetBeans, providing a highly tuned Java compiler specifically for the Java editor i.e., parsing and lexing for features such as syntax coloring, code completion.</description>
-  <url>https://github.com/oracle/nb-javac</url>
+  <name>nb-javac-android</name>
+  <description>"nb-javac-android" (a fork of nb-javac) is patched to work in Android Runtime (ART).</description>
+  <url>https://github.com/itsaky/nb-javac-android</url>
 
   <licenses>
       <license>
@@ -22,9 +22,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:https://github.com/oracle/nb-javac.git</connection>
-    <developerConnection>scm:git:git@github.com:oracle/nb-javac.git</developerConnection>
-    <url>https://github.com/oracle/nb-javac</url>
+    <connection>scm:git:https://github.com/itsaky/nb-javac-android.git</connection>
+    <developerConnection>scm:git:git@github.com:itsaky/nb-javac-android.git</developerConnection>
+    <url>https://github.com/itsaky/nb-javac-android</url>
   </scm>
 
   <developers>
@@ -44,6 +44,13 @@
         <role>Developer</role>
       </roles>
     </developer>
+    <developer>
+      <email>itsaky01@gmail.com</email>
+      <name>Akash Yadav</name>
+      <url>https://github.com/itsaky</url>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
   </developers>
-
 </project>
