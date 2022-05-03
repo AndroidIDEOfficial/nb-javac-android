@@ -4,6 +4,8 @@
 
 `nb-javac-android` is a patched version of `nb-javac`. It allows developers to use `javac` i.e. the Java Compiler in android applications.
 
+**This version of `nb-javac` is meant to be used with [`AndroidIDE`](https://github.com/itsaky/AndroidIDE). If you want to use it in your project, you might need to do some modifications. See [`Issue #1`](https://github.com/itsaky/nb-javac-android/issues/1) for more information.**
+
 # Building nb-javac jar files
 
 ## Prerequisite
