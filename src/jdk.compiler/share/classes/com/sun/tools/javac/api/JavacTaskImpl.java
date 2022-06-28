@@ -247,7 +247,7 @@ public class JavacTaskImpl extends BasicJavacTask {
         return sb.toString();
     }
 
-    void cleanup() {
+    public void cleanup() {
         if (compiler != null)
             compiler.close();
         if (fileManager instanceof BaseFileManager && ((BaseFileManager) fileManager).autoClose) {
