@@ -39,20 +39,22 @@ import com.sun.tools.javac.util.JCDiagnostic.Fragment;
 
 import static com.sun.tools.javac.main.Option.*;
 
-/** The source language version accepted.
+/**
+ * The source language version accepted.
  *
- *  <p><b>This is NOT part of any supported API.
- *  If you write code that depends on this, you do so at your own risk.
- *  This code and its internal interfaces are subject to change or
- *  deletion without notice.</b>
+ * <p>
+ * <b>This is NOT part of any supported API.
+ * If you write code that depends on this, you do so at your own risk.
+ * This code and its internal interfaces are subject to change or
+ * deletion without notice.</b>
  */
 
 public enum Source {
     /** 1.0 had no inner classes, and so could not pass the JCK. */
-    // public static final Source JDK1_0 =              new Source("1.0");
+    // public static final Source JDK1_0 = new Source("1.0");
 
     /** 1.1 did not have strictfp, and so could not pass the JCK. */
-    // public static final Source JDK1_1 =              new Source("1.1");
+    // public static final Source JDK1_1 = new Source("1.1");
 
     /** 1.2 introduced strictfp. */
     JDK1_2("1.2"),
@@ -63,8 +65,10 @@ public enum Source {
     /** 1.4 introduced assert. */
     JDK1_4("1.4"),
 
-    /** 1.5 introduced generics, attributes, foreach, boxing, static import,
-     *  covariant return, enums, varargs, et al. */
+    /**
+     * 1.5 introduced generics, attributes, foreach, boxing, static import,
+     * covariant return, enums, varargs, et al.
+     */
     JDK5("5"),
 
     /** 1.6 reports encoding problems as errors instead of warnings. */
@@ -101,18 +105,18 @@ public enum Source {
     JDK14("14"),
 
     /**
-      * 15, text blocks
-      */
+     * 15, text blocks
+     */
     JDK15("15"),
 
     /**
-      * 16, tbd
-      */
+     * 16, tbd
+     */
     JDK16("16"),
 
     /**
-      * 17, tbd
-      */
+     * 17, tbd
+     */
     JDK17("17");
 
     private static final Context.Key<Source> sourceKey = new Context.Key<>();
@@ -122,8 +126,10 @@ public enum Source {
         if (instance == null) {
             Options options = Options.instance(context);
             String sourceString = options.get(SOURCE);
-            if (sourceString != null) instance = lookup(sourceString);
-            if (instance == null) instance = DEFAULT;
+            if (sourceString != null)
+                instance = lookup(sourceString);
+            if (instance == null)
+                instance = DEFAULT;
             context.put(sourceKey, instance);
         }
         return instance;
@@ -131,7 +137,7 @@ public enum Source {
 
     public final String name;
 
-    private static final Map<String,Source> tab = new HashMap<>();
+    private static final Map<String, Source> tab = new HashMap<>();
     static {
         for (Source s : values()) {
             tab.put(s.name, s);
@@ -165,34 +171,52 @@ public enum Source {
 
     public Target requiredTarget() {
 
-	if (this.compareTo(JDK17) >= 0) return Target.JDK1_17;
-        if (this.compareTo(JDK16) >= 0) return Target.JDK1_16;
-        if (this.compareTo(JDK15) >= 0) return Target.JDK1_15;
-        if (this.compareTo(JDK14) >= 0) return Target.JDK1_14;
-        if (this.compareTo(JDK13) >= 0) return Target.JDK1_13;
-        if (this.compareTo(JDK12) >= 0) return Target.JDK1_12;
-        if (this.compareTo(JDK11) >= 0) return Target.JDK1_11;
-        if (this.compareTo(JDK10) >= 0) return Target.JDK1_10;
-        if (this.compareTo(JDK9) >= 0) return Target.JDK1_9;
-        if (this.compareTo(JDK8) >= 0) return Target.JDK1_8;
-        if (this.compareTo(JDK7) >= 0) return Target.JDK1_7;
-        if (this.compareTo(JDK6) >= 0) return Target.JDK1_6;
-        if (this.compareTo(JDK5) >= 0) return Target.JDK1_5;
-        if (this.compareTo(JDK1_4) >= 0) return Target.JDK1_4;
+        if (this.compareTo(JDK17) >= 0)
+            return Target.JDK1_17;
+        if (this.compareTo(JDK16) >= 0)
+            return Target.JDK1_16;
+        if (this.compareTo(JDK15) >= 0)
+            return Target.JDK1_15;
+        if (this.compareTo(JDK14) >= 0)
+            return Target.JDK1_14;
+        if (this.compareTo(JDK13) >= 0)
+            return Target.JDK1_13;
+        if (this.compareTo(JDK12) >= 0)
+            return Target.JDK1_12;
+        if (this.compareTo(JDK11) >= 0)
+            return Target.JDK1_11;
+        if (this.compareTo(JDK10) >= 0)
+            return Target.JDK1_10;
+        if (this.compareTo(JDK9) >= 0)
+            return Target.JDK1_9;
+        if (this.compareTo(JDK8) >= 0)
+            return Target.JDK1_8;
+        if (this.compareTo(JDK7) >= 0)
+            return Target.JDK1_7;
+        if (this.compareTo(JDK6) >= 0)
+            return Target.JDK1_6;
+        if (this.compareTo(JDK5) >= 0)
+            return Target.JDK1_5;
+        if (this.compareTo(JDK1_4) >= 0)
+            return Target.JDK1_4;
         return Target.JDK1_1;
 
     }
 
     /**
-     * Models a feature of the Java programming language. Each feature can be associated with a
-     * minimum source level, a maximum source level and a diagnostic fragment describing the feature,
-     * which is used to generate error messages of the kind {@code feature XYZ not supported in source N}.
+     * Models a feature of the Java programming language. Each feature can be
+     * associated with a
+     * minimum source level, a maximum source level and a diagnostic fragment
+     * describing the feature,
+     * which is used to generate error messages of the kind
+     * {@code feature XYZ not supported in source N}.
      */
     public enum Feature {
 
         DIAMOND(JDK7, Fragments.FeatureDiamond, DiagKind.NORMAL),
         MODULES(JDK9, Fragments.FeatureModules, DiagKind.PLURAL),
-        EFFECTIVELY_FINAL_VARIABLES_IN_TRY_WITH_RESOURCES(JDK9, Fragments.FeatureVarInTryWithResources, DiagKind.PLURAL),
+        EFFECTIVELY_FINAL_VARIABLES_IN_TRY_WITH_RESOURCES(JDK9, Fragments.FeatureVarInTryWithResources,
+                DiagKind.PLURAL),
         DEPRECATION_ON_IMPORT(MIN, JDK8),
         POLY(JDK8),
         LAMBDA(JDK8, Fragments.FeatureLambda, DiagKind.PLURAL),
@@ -260,6 +284,9 @@ public enum Source {
         }
 
         public boolean allowedInSource(Source source) {
+            if (optFragment == Fragments.FeatureModules) {
+                return false;
+            }
             return source.compareTo(minLevel) >= 0 &&
                     source.compareTo(maxLevel) <= 0;
         }
@@ -276,57 +303,57 @@ public enum Source {
 
         public Fragment fragment(String sourceName) {
             Assert.checkNonNull(optFragment);
-            return optKind == DiagKind.NORMAL ?
-                    Fragments.FeatureNotSupportedInSource(optFragment, sourceName, minLevel.name) :
-                    Fragments.FeatureNotSupportedInSourcePlural(optFragment, sourceName, minLevel.name);
+            return optKind == DiagKind.NORMAL
+                    ? Fragments.FeatureNotSupportedInSource(optFragment, sourceName, minLevel.name)
+                    : Fragments.FeatureNotSupportedInSourcePlural(optFragment, sourceName, minLevel.name);
         }
 
         public Error error(String sourceName) {
             Assert.checkNonNull(optFragment);
-            return optKind == DiagKind.NORMAL ?
-                    Errors.FeatureNotSupportedInSource(optFragment, sourceName, minLevel.name) :
-                    Errors.FeatureNotSupportedInSourcePlural(optFragment, sourceName, minLevel.name);
+            return optKind == DiagKind.NORMAL
+                    ? Errors.FeatureNotSupportedInSource(optFragment, sourceName, minLevel.name)
+                    : Errors.FeatureNotSupportedInSourcePlural(optFragment, sourceName, minLevel.name);
         }
     }
 
     public static SourceVersion toSourceVersion(Source source) {
 
-        switch(source) {
-        case JDK1_2:
-            return RELEASE_2;
-        case JDK1_3:
-            return RELEASE_3;
-        case JDK1_4:
-            return RELEASE_4;
-        case JDK5:
-            return RELEASE_5;
-        case JDK6:
-            return RELEASE_6;
-        case JDK7:
-            return RELEASE_7;
-        case JDK8:
-            return RELEASE_8;
-        case JDK9:
-            return RELEASE_9;
-        case JDK10:
-            return RELEASE_10;
-        case JDK11:
-            return RELEASE_11;
-        case JDK12:
-            return RELEASE_12;
-        case JDK13:
-            return RELEASE_13;
-        case JDK14:
-            return RELEASE_14;
-        case JDK15:
-            return RELEASE_15;
-        case JDK16:
-            return RELEASE_16;
-	case JDK17:
-            return RELEASE_17;
+        switch (source) {
+            case JDK1_2:
+                return RELEASE_2;
+            case JDK1_3:
+                return RELEASE_3;
+            case JDK1_4:
+                return RELEASE_4;
+            case JDK5:
+                return RELEASE_5;
+            case JDK6:
+                return RELEASE_6;
+            case JDK7:
+                return RELEASE_7;
+            case JDK8:
+                return RELEASE_8;
+            case JDK9:
+                return RELEASE_9;
+            case JDK10:
+                return RELEASE_10;
+            case JDK11:
+                return RELEASE_11;
+            case JDK12:
+                return RELEASE_12;
+            case JDK13:
+                return RELEASE_13;
+            case JDK14:
+                return RELEASE_14;
+            case JDK15:
+                return RELEASE_15;
+            case JDK16:
+                return RELEASE_16;
+            case JDK17:
+                return RELEASE_17;
 
-        default:
-            return null;
+            default:
+                return null;
         }
 
     }

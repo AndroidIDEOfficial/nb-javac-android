@@ -80,12 +80,8 @@ public class JRTIndex {
     }
 
     public static boolean isAvailable() {
-        try {
-            FileSystems.getFileSystem(URI.create("jrt:/"));
-            return true;
-        } catch (ProviderNotFoundException | FileSystemNotFoundException e) {
-            return false;
-        }
+        // AndroidIDE changed: No JRT file system on Android
+        return false;
     }
 
 

@@ -78,22 +78,23 @@ import javax.lang.model.element.TypeElement;
  * a class library for usages of those APIs.
  *
  * TODO:
- *  - audit error handling throughout, but mainly in scan package
- *  - handling of covariant overrides
- *  - handling of override of method found in multiple superinterfaces
- *  - convert type/method/field output to Java source like syntax, e.g.
- *      instead of java/lang/Character.isJavaLetter(C)Z
- *      print void java.lang.Character.isJavaLetter(char)boolean
- *  - more example output in man page
- *  - more rigorous GNU style option parsing; use joptsimple?
+ * - audit error handling throughout, but mainly in scan package
+ * - handling of covariant overrides
+ * - handling of override of method found in multiple superinterfaces
+ * - convert type/method/field output to Java source like syntax, e.g.
+ * instead of java/lang/Character.isJavaLetter(C)Z
+ * print void java.lang.Character.isJavaLetter(char)boolean
+ * - more example output in man page
+ * - more rigorous GNU style option parsing; use joptsimple?
  *
  * FUTURES:
- *  - add module support: --add-modules, --module-path, module arg
- *  - load deprecation declarations from a designated class library instead
- *    of the JDK
- *  - load deprecation declarations from a module
- *  - scan a module (but a modular jar can be treated just a like an ordinary jar)
- *  - multi-version jar
+ * - add module support: --add-modules, --module-path, module arg
+ * - load deprecation declarations from a designated class library instead
+ * of the JDK
+ * - load deprecation declarations from a module
+ * - scan a module (but a modular jar can be treated just a like an ordinary
+ * jar)
+ * - multi-version jar
  */
 public class Main implements DiagnosticListener<JavaFileObject> {
     final PrintStream out;
@@ -109,9 +110,9 @@ public class Main implements DiagnosticListener<JavaFileObject> {
     // that allows querying of supported releases.
     final Set<String> releasesWithoutForRemoval = Set.of("6", "7", "8");
     final Set<String> releasesWithForRemoval = // "9", "10", "11", ...
-        IntStream.rangeClosed(9, Runtime.version().feature())
-        .mapToObj(Integer::toString)
-        .collect(Collectors.toUnmodifiableSet());
+            IntStream.rangeClosed(9, Runtime.version().feature())
+                    .mapToObj(Integer::toString)
+                    .collect(Collectors.toUnmodifiableSet());
 
     final Set<String> validReleases;
     {
@@ -145,7 +146,7 @@ public class Main implements DiagnosticListener<JavaFileObject> {
 
         // TODO: not sure this is necessary...
         if (fm instanceof JavacFileManager) {
-            ((JavacFileManager)fm).setSymbolFileEnabled(false);
+            ((JavacFileManager) fm).setSymbolFileEnabled(false);
         }
 
         fm.setLocation(StandardLocation.CLASS_PATH, classPath);
@@ -158,15 +159,14 @@ public class Main implements DiagnosticListener<JavaFileObject> {
         }
 
         LoadProc proc = new LoadProc();
-        JavaCompiler.CompilationTask task =
-            compiler.getTask(null, fm, this, options, classNames, null);
+        JavaCompiler.CompilationTask task = compiler.getTask(null, fm, this, options, classNames, null);
         task.setProcessors(List.of(proc));
         boolean r = task.call();
         if (r) {
             if (forRemoval) {
                 deprList = proc.getDeprecations().stream()
-                               .filter(DeprData::isForRemoval)
-                               .toList();
+                        .filter(DeprData::isForRemoval)
+                        .toList();
             } else {
                 deprList = proc.getDeprecations();
             }
@@ -185,12 +185,12 @@ public class Main implements DiagnosticListener<JavaFileObject> {
      */
     boolean doFileNames(Stream<String> filenames) throws IOException {
         return doClassNames(
-            filenames.filter(name -> name.endsWith(".class"))
-                     .filter(name -> !name.endsWith("package-info.class"))
-                     .filter(name -> !name.endsWith("module-info.class"))
-                     .map(s -> s.replaceAll("\\.class$", ""))
-                     .map(s -> s.replace(File.separatorChar, '.'))
-                     .toList());
+                filenames.filter(name -> name.endsWith(".class"))
+                        .filter(name -> !name.endsWith("package-info.class"))
+                        .filter(name -> !name.endsWith("module-info.class"))
+                        .map(s -> s.replaceAll("\\.class$", ""))
+                        .map(s -> s.replace(File.separatorChar, '.'))
+                        .toList());
     }
 
     /**
@@ -205,8 +205,8 @@ public class Main implements DiagnosticListener<JavaFileObject> {
     String convertModularFileName(String filename) {
         int slash = filename.indexOf('/');
         return filename.substring(0, slash)
-               + "/"
-               + filename.substring(slash+1).replace('/', '.');
+                + "/"
+                + filename.substring(slash + 1).replace('/', '.');
     }
 
     /**
@@ -222,12 +222,12 @@ public class Main implements DiagnosticListener<JavaFileObject> {
      */
     boolean doModularFileNames(Stream<String> filenames) throws IOException {
         return doClassNames(
-            filenames.filter(name -> name.endsWith(".class"))
-                     .filter(name -> !name.endsWith("package-info.class"))
-                     .filter(name -> !name.endsWith("module-info.class"))
-                     .map(s -> s.replaceAll("\\.class$", ""))
-                     .map(this::convertModularFileName)
-                     .toList());
+                filenames.filter(name -> name.endsWith(".class"))
+                        .filter(name -> !name.endsWith("package-info.class"))
+                        .filter(name -> !name.endsWith("module-info.class"))
+                        .map(s -> s.replaceAll("\\.class$", ""))
+                        .map(this::convertModularFileName)
+                        .toList());
     }
 
     /**
@@ -235,7 +235,7 @@ public class Main implements DiagnosticListener<JavaFileObject> {
      * should be the root of a package hierarchy. If classNames is
      * empty, walks the directory hierarchy to find all classes.
      *
-     * @param dirname the name of the directory to process
+     * @param dirname    the name of the directory to process
      * @param classNames the names of classes to process
      * @return true for success, false for failure
      * @throws IOException if an I/O error occurs
@@ -252,10 +252,9 @@ public class Main implements DiagnosticListener<JavaFileObject> {
             Path base = Paths.get(dirname);
             int baseCount = base.getNameCount();
             try (Stream<Path> paths = Files.walk(base)) {
-                Stream<String> files =
-                    paths.filter(p -> p.getNameCount() > baseCount)
-                         .map(p -> p.subpath(baseCount, p.getNameCount()))
-                         .map(Path::toString);
+                Stream<String> files = paths.filter(p -> p.getNameCount() > baseCount)
+                        .map(p -> p.subpath(baseCount, p.getNameCount()))
+                        .map(Path::toString);
                 return doFileNames(files);
             }
         } else {
@@ -272,9 +271,8 @@ public class Main implements DiagnosticListener<JavaFileObject> {
      */
     boolean doJarFile(String jarname) throws IOException {
         try (JarFile jf = new JarFile(jarname)) {
-            Stream<String> files =
-                jf.stream()
-                  .map(JarEntry::getName);
+            Stream<String> files = jf.stream()
+                    .map(JarEntry::getName);
             return doFileNames(files);
         }
     }
@@ -283,7 +281,7 @@ public class Main implements DiagnosticListener<JavaFileObject> {
      * Processes named class files from the given jar file,
      * or all classes if classNames is empty.
      *
-     * @param jarname the name of the jar file to process
+     * @param jarname    the name of the jar file to process
      * @param classNames the names of classes to process
      * @return true for success, false for failure
      * @throws IOException if an I/O error occurs
@@ -302,7 +300,7 @@ public class Main implements DiagnosticListener<JavaFileObject> {
      * Processes named class files from rt.jar of a JDK version 7 or 8.
      * If classNames is empty, processes all classes.
      *
-     * @param jdkHome the path to the "home" of the JDK to process
+     * @param jdkHome    the path to the "home" of the JDK to process
      * @param classNames the names of classes to process
      * @return true for success, false for failure
      * @throws IOException if an I/O error occurs
@@ -344,14 +342,13 @@ public class Main implements DiagnosticListener<JavaFileObject> {
 
         if (classes.isEmpty()) {
             Path modules = FileSystems.getFileSystem(URI.create("jrt:/"))
-                                      .getPath("/modules");
+                    .getPath("/modules");
 
             // names are /modules/<modulename>/pkg/.../Classname.class
             try (Stream<Path> paths = Files.walk(modules)) {
-                Stream<String> files =
-                    paths.filter(p -> p.getNameCount() > 2)
-                         .map(p -> p.subpath(1, p.getNameCount()))
-                         .map(Path::toString);
+                Stream<String> files = paths.filter(p -> p.getNameCount() > 2)
+                        .map(p -> p.subpath(1, p.getNameCount()))
+                        .map(Path::toString);
                 return doModularFileNames(files);
             }
         } else {
@@ -383,50 +380,53 @@ public class Main implements DiagnosticListener<JavaFileObject> {
 
         options.addAll(List.of("--release", release));
 
-        if (hasModules) {
-            List<String> rootMods = hasJavaSE_EE ? List.of("java.se", "java.se.ee")
-                                                 : List.of("java.se");
-            TraverseProc proc = new TraverseProc(rootMods);
-            JavaCompiler.CompilationTask task =
-                compiler.getTask(null, fm, this,
-                                 // options
-                                 List.of("--add-modules", String.join(",", rootMods),
-                                         "--release", release),
-                                 // classes
-                                 List.of("java.lang.Object"),
-                                 null);
-            task.setProcessors(List.of(proc));
-            if (!task.call()) {
-                return false;
-            }
-            Map<PackageElement, List<TypeElement>> types = proc.getPublicTypes();
-            options.add("--add-modules");
-            options.add(String.join(",", rootMods));
-            return doClassNames(
-                types.values().stream()
-                     .flatMap(List::stream)
-                     .map(TypeElement::toString)
-                     .toList());
-        } else {
-            JDKPlatformProvider pp = new JDKPlatformProvider();
-            if (StreamSupport.stream(pp.getSupportedPlatformNames().spliterator(),
-                                 false)
-                             .noneMatch(n -> n.equals(release))) {
-                return false;
-            }
-            JavaFileManager fm = pp.getPlatform(release, "").getFileManager();
-            List<String> classNames = new ArrayList<>();
-            for (JavaFileObject fo : fm.list(StandardLocation.PLATFORM_CLASS_PATH,
-                                             "",
-                                             EnumSet.of(Kind.CLASS),
-                                             true)) {
-                classNames.add(fm.inferBinaryName(StandardLocation.PLATFORM_CLASS_PATH, fo));
-            }
+        // AndroidIDE changed: No module support!
+        /* #region(collapsed) */
+          // if (hasModules) {
+          // List<String> rootMods = hasJavaSE_EE ? List.of("java.se", "java.se.ee")
+          // : List.of("java.se");
+          // TraverseProc proc = new TraverseProc(rootMods);
+          // JavaCompiler.CompilationTask task = compiler.getTask(null, fm, this,
+          // // options
+          // List.of("--add-modules", String.join(",", rootMods),
+          // "--release", release),
+          // // classes
+          // List.of("java.lang.Object"),
+          // null);
+          // task.setProcessors(List.of(proc));
+          // if (!task.call()) {
+          // return false;
+          // }
+          // Map<PackageElement, List<TypeElement>> types = proc.getPublicTypes();
+          // options.add("--add-modules");
+          // options.add(String.join(",", rootMods));
+          // return doClassNames(
+          // types.values().stream()
+          // .flatMap(List::stream)
+          // .map(TypeElement::toString)
+          // .toList());
+          // } else {
+          // }
+        /* #endregion */
 
-            options.add("-Xlint:-options");
-
-            return doClassNames(classNames);
+        JDKPlatformProvider pp = new JDKPlatformProvider();
+        if (StreamSupport.stream(pp.getSupportedPlatformNames().spliterator(),
+                false)
+                .noneMatch(n -> n.equals(release))) {
+            return false;
         }
+        JavaFileManager fm = pp.getPlatform(release, "").getFileManager();
+        List<String> classNames = new ArrayList<>();
+        for (JavaFileObject fo : fm.list(StandardLocation.PLATFORM_CLASS_PATH,
+                "",
+                EnumSet.of(Kind.CLASS),
+                true)) {
+            classNames.add(fm.inferBinaryName(StandardLocation.PLATFORM_CLASS_PATH, fo));
+        }
+
+        options.add("-Xlint:-options");
+
+        return doClassNames(classNames);
     }
 
     /**
@@ -514,8 +514,8 @@ public class Main implements DiagnosticListener<JavaFileObject> {
                         case "--class-path":
                             classPath.clear();
                             Arrays.stream(args.remove().split(File.pathSeparator))
-                                  .map(File::new)
-                                  .forEachOrdered(classPath::add);
+                                    .map(File::new)
+                                    .forEachOrdered(classPath::add);
                             break;
                         case "--for-removal":
                             forRemoval = true;
@@ -601,7 +601,7 @@ public class Main implements DiagnosticListener<JavaFileObject> {
                 throw new UsageException();
             }
 
-            if (    forRemoval && loadMode == LoadMode.RELEASE &&
+            if (forRemoval && loadMode == LoadMode.RELEASE &&
                     releasesWithoutForRemoval.contains(release)) {
                 throw new UsageException();
             }
@@ -676,8 +676,8 @@ public class Main implements DiagnosticListener<JavaFileObject> {
             case ARGS:
                 DeprDB db = DeprDB.loadFromList(deprList);
                 List<String> cp = classPath.stream()
-                                           .map(File::toString)
-                                           .toList();
+                        .map(File::toString)
+                        .toList();
                 Scan scan = new Scan(out, err, cp, db, verbose);
 
                 for (String a : args) {
@@ -701,8 +701,7 @@ public class Main implements DiagnosticListener<JavaFileObject> {
 
     private void printHelp(PrintStream out) {
         JDKPlatformProvider pp = new JDKPlatformProvider();
-        String supportedReleases =
-                String.join("|", pp.getSupportedPlatformNames());
+        String supportedReleases = String.join("|", pp.getSupportedPlatformNames());
         out.println(Messages.get("main.usage", supportedReleases));
     }
 

@@ -246,7 +246,7 @@ public enum SourceVersion {
      * {@return the latest source version that can be modeled}
      */
     public static SourceVersion latest() {
-        return RELEASE_17;
+        return RELEASE_8;
     }
 
     private static final SourceVersion latestSupported = getLatestSupported();

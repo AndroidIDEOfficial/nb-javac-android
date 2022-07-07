@@ -216,8 +216,9 @@ public final class JavacTool implements JavaCompiler {
 
     @Override @DefinedBy(Api.COMPILER)
     public Set<SourceVersion> getSourceVersions() {
+        // AndroidIDE changed: Allow upto Java 11
         return Collections.unmodifiableSet(EnumSet.range(SourceVersion.RELEASE_3,
-                                                         SourceVersion.latest()));
+                                                         SourceVersion.RELEASE_11));
     }
 
     @Override @DefinedBy(Api.COMPILER)
