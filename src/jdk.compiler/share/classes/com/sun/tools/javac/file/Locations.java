@@ -132,6 +132,7 @@ public class Locations {
 
     private PathFactory pathFactory = Paths::get;
 
+    // AndroidIDE changed: Allow overriding java home.
     static final Path javaHome = FileSystems.getDefault().getPath(com.itsaky.androidide.config.JavacConfigProvider.getJavaHome());
     static final Path thisSystemModules = javaHome.resolve("lib").resolve("modules");
 

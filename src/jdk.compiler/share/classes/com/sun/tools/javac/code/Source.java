@@ -285,6 +285,7 @@ public enum Source {
         }
 
         public boolean allowedInSource(Source source) {
+            // AndroidIDE changed: Modules are allowed only when enabled.
             if (!JavacConfigProvider.isModulesEnabled() && optFragment == Fragments.FeatureModules) {
                 return false;
             }

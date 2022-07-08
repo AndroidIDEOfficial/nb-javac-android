@@ -247,6 +247,7 @@ public enum SourceVersion {
      * {@return the latest source version that can be modeled}
      */
     public static SourceVersion latest() {
+        // AndroidIDE changed: Allow overriding latest source version.
         return JavacConfigProvider.getLatestSourceVersion();
     }
 

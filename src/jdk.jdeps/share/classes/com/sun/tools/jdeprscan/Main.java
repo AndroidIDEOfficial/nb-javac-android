@@ -379,6 +379,7 @@ public class Main implements DiagnosticListener<JavaFileObject> {
             hasJavaSE_EE = false;
         }
 
+        // AndroidIDE changed: Has modules only when enabled.
         hasModules = JavacConfigProvider.isModulesEnabled() && hasModules;
 
         options.addAll(List.of("--release", release));

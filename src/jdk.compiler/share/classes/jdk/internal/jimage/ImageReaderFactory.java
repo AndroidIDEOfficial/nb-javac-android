@@ -46,6 +46,7 @@ import java.util.function.Function;
 public class ImageReaderFactory {
     private ImageReaderFactory() {}
 
+    // AndroidIDE changed: Allow overriding java home.
     private static final String JAVA_HOME = com.itsaky.androidide.config.JavacConfigProvider.getJavaHome();
     private static final Path BOOT_MODULES_JIMAGE =
         Paths.get(JAVA_HOME, "lib", "modules");

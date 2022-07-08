@@ -304,6 +304,7 @@ public class JdepsConfiguration implements AutoCloseable {
     }
 
     static class SystemModuleFinder implements ModuleFinder {
+        // AndroidIDE changed: Allow overriding java home.
         private static final String JAVA_HOME = com.itsaky.androidide.config.JavacConfigProvider.getJavaHome();
 
         private final FileSystem fileSystem;

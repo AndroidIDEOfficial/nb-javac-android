@@ -394,6 +394,7 @@ public class JDKPlatformProvider implements PlatformProvider {
     }
 
     static Path findCtSym() {
+        // AndroidIDE changed: Allow overriding java home.
         String javaHome = com.itsaky.androidide.config.JavacConfigProvider.getJavaHome();
         Path file = Paths.get(javaHome);
         // file == ${jdk.home}

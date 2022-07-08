@@ -81,6 +81,7 @@ public class JRTIndex {
     }
 
     public static boolean isAvailable() {
+        // AndroidIDE changed: Available only if modules are enabled.
         if (!JavacConfigProvider.isModulesEnabled()) {
             return false;
         }
