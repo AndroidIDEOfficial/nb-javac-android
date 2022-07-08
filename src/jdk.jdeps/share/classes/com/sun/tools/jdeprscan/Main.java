@@ -62,6 +62,7 @@ import javax.tools.StandardJavaFileManager;
 import javax.tools.StandardLocation;
 import javax.tools.ToolProvider;
 
+import com.itsaky.androidide.config.JavacConfigProvider;
 import com.sun.tools.javac.file.JavacFileManager;
 import com.sun.tools.javac.platform.JDKPlatformProvider;
 
@@ -378,55 +379,54 @@ public class Main implements DiagnosticListener<JavaFileObject> {
             hasJavaSE_EE = false;
         }
 
+        hasModules = JavacConfigProvider.isModulesEnabled() && hasModules;
+
         options.addAll(List.of("--release", release));
 
         // AndroidIDE changed: No module support!
-        /* #region(collapsed) */
-          // if (hasModules) {
-          // List<String> rootMods = hasJavaSE_EE ? List.of("java.se", "java.se.ee")
-          // : List.of("java.se");
-          // TraverseProc proc = new TraverseProc(rootMods);
-          // JavaCompiler.CompilationTask task = compiler.getTask(null, fm, this,
-          // // options
-          // List.of("--add-modules", String.join(",", rootMods),
-          // "--release", release),
-          // // classes
-          // List.of("java.lang.Object"),
-          // null);
-          // task.setProcessors(List.of(proc));
-          // if (!task.call()) {
-          // return false;
-          // }
-          // Map<PackageElement, List<TypeElement>> types = proc.getPublicTypes();
-          // options.add("--add-modules");
-          // options.add(String.join(",", rootMods));
-          // return doClassNames(
-          // types.values().stream()
-          // .flatMap(List::stream)
-          // .map(TypeElement::toString)
-          // .toList());
-          // } else {
-          // }
-        /* #endregion */
+        if (hasModules) {
+            List<String> rootMods = hasJavaSE_EE ? List.of("java.se", "java.se.ee")
+                    : List.of("java.se");
+            TraverseProc proc = new TraverseProc(rootMods);
+            JavaCompiler.CompilationTask task = compiler.getTask(null, fm, this,
+                    // options
+                    List.of("--add-modules", String.join(",", rootMods),
+                            "--release", release),
+                    // classes
+                    List.of("java.lang.Object"),
+                    null);
+            task.setProcessors(List.of(proc));
+            if (!task.call()) {
+                return false;
+            }
+            Map<PackageElement, List<TypeElement>> types = proc.getPublicTypes();
+            options.add("--add-modules");
+            options.add(String.join(",", rootMods));
+            return doClassNames(
+                    types.values().stream()
+                            .flatMap(List::stream)
+                            .map(TypeElement::toString)
+                            .toList());
+        } else {
+            JDKPlatformProvider pp = new JDKPlatformProvider();
+            if (StreamSupport.stream(pp.getSupportedPlatformNames().spliterator(),
+                    false)
+                    .noneMatch(n -> n.equals(release))) {
+                return false;
+            }
+            JavaFileManager fm = pp.getPlatform(release, "").getFileManager();
+            List<String> classNames = new ArrayList<>();
+            for (JavaFileObject fo : fm.list(StandardLocation.PLATFORM_CLASS_PATH,
+                    "",
+                    EnumSet.of(Kind.CLASS),
+                    true)) {
+                classNames.add(fm.inferBinaryName(StandardLocation.PLATFORM_CLASS_PATH, fo));
+            }
 
-        JDKPlatformProvider pp = new JDKPlatformProvider();
-        if (StreamSupport.stream(pp.getSupportedPlatformNames().spliterator(),
-                false)
-                .noneMatch(n -> n.equals(release))) {
-            return false;
+            options.add("-Xlint:-options");
+
+            return doClassNames(classNames);
         }
-        JavaFileManager fm = pp.getPlatform(release, "").getFileManager();
-        List<String> classNames = new ArrayList<>();
-        for (JavaFileObject fo : fm.list(StandardLocation.PLATFORM_CLASS_PATH,
-                "",
-                EnumSet.of(Kind.CLASS),
-                true)) {
-            classNames.add(fm.inferBinaryName(StandardLocation.PLATFORM_CLASS_PATH, fo));
-        }
-
-        options.add("-Xlint:-options");
-
-        return doClassNames(classNames);
     }
 
     /**

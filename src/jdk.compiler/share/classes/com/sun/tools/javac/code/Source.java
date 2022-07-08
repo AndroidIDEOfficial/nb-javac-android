@@ -30,6 +30,7 @@ import java.util.*;
 import javax.lang.model.SourceVersion;
 import static javax.lang.model.SourceVersion.*;
 
+import com.itsaky.androidide.config.JavacConfigProvider;
 import com.sun.tools.javac.jvm.Target;
 import com.sun.tools.javac.resources.CompilerProperties.Errors;
 import com.sun.tools.javac.resources.CompilerProperties.Fragments;
@@ -284,7 +285,7 @@ public enum Source {
         }
 
         public boolean allowedInSource(Source source) {
-            if (optFragment == Fragments.FeatureModules) {
+            if (!JavacConfigProvider.isModulesEnabled() && optFragment == Fragments.FeatureModules) {
                 return false;
             }
             return source.compareTo(minLevel) >= 0 &&

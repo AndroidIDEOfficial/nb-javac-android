@@ -28,6 +28,7 @@ package javax.lang.model;
 import java.util.Collections;
 import java.util.Set;
 import java.util.HashSet;
+import com.itsaky.androidide.config.JavacConfigProvider;
 
 /**
  * Source versions of the Java programming language.
@@ -246,7 +247,7 @@ public enum SourceVersion {
      * {@return the latest source version that can be modeled}
      */
     public static SourceVersion latest() {
-        return RELEASE_8;
+        return JavacConfigProvider.getLatestSourceVersion();
     }
 
     private static final SourceVersion latestSupported = getLatestSupported();

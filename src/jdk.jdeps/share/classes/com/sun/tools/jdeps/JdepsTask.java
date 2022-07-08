@@ -1244,7 +1244,7 @@ class JdepsTask {
         Pattern includePattern;
         boolean inverse = false;
         boolean compileTimeView = false;
-        String systemModulePath = com.sun.tools.javac.util.JavaHomeProvider.getJavaHome();
+        String systemModulePath = com.itsaky.androidide.config.JavacConfigProvider.getJavaHome();
         String upgradeModulePath;
         String modulePath;
         Set<String> rootModules = new HashSet<>();

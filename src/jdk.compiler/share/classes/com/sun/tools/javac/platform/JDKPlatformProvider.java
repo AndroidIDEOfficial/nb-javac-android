@@ -394,7 +394,7 @@ public class JDKPlatformProvider implements PlatformProvider {
     }
 
     static Path findCtSym() {
-        String javaHome = com.sun.tools.javac.util.JavaHomeProvider.getJavaHome();
+        String javaHome = com.itsaky.androidide.config.JavacConfigProvider.getJavaHome();
         Path file = Paths.get(javaHome);
         // file == ${jdk.home}
         for (String name : symbolFileLocation)

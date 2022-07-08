@@ -40,6 +40,7 @@ import java.util.Set;
 import javax.lang.model.SourceVersion;
 import javax.tools.*;
 
+import com.itsaky.androidide.config.JavacConfigProvider;
 import com.sun.source.util.JavacTask;
 import com.sun.tools.javac.file.JavacFileManager;
 import com.sun.tools.javac.main.Arguments;
@@ -218,7 +219,7 @@ public final class JavacTool implements JavaCompiler {
     public Set<SourceVersion> getSourceVersions() {
         // AndroidIDE changed: Allow upto Java 11
         return Collections.unmodifiableSet(EnumSet.range(SourceVersion.RELEASE_3,
-                                                         SourceVersion.RELEASE_11));
+                                                         JavacConfigProvider.getLatestSupportedSourceVersion()));
     }
 
     @Override @DefinedBy(Api.COMPILER)

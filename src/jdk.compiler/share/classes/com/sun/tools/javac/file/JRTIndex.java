@@ -47,6 +47,7 @@ import java.util.Set;
 
 import javax.tools.FileObject;
 
+import com.itsaky.androidide.config.JavacConfigProvider;
 import com.sun.tools.javac.file.RelativePath.RelativeDirectory;
 import com.sun.tools.javac.util.Context;
 
@@ -80,8 +81,15 @@ public class JRTIndex {
     }
 
     public static boolean isAvailable() {
-        // AndroidIDE changed: No JRT file system on Android
-        return false;
+        if (!JavacConfigProvider.isModulesEnabled()) {
+            return false;
+        }
+        try {
+            FileSystems.getFileSystem(URI.create("jrt:/"));
+            return true;
+        } catch (ProviderNotFoundException | FileSystemNotFoundException e) {
+            return false;
+        }
     }
 
 
