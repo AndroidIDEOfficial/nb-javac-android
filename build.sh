@@ -9,4 +9,4 @@ fi
 
 echo "Using JAVA_HOME: $JAVA_HOME"
 
-ant -f ./make/langtools/netbeans/nb-javac "$@"
+ant -f ./make/langtools/netbeans/nb-javac -Dmaven.groupId=io.github.itsaky "$@"
