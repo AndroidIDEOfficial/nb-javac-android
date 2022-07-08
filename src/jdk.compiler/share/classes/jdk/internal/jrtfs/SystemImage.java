@@ -17,6 +17,8 @@ import java.security.PrivilegedAction;
 import jdk.internal.jimage.ImageReader;
 import jdk.internal.jimage.ImageReader.Node;
 
+import com.itsaky.androidide.config.JavacConfigProvider;
+
 /**
  * @implNote This class needs to maintain JDK 8 source compatibility.
  *
@@ -87,19 +89,7 @@ abstract class SystemImage {
      * otherwise the JDK home is located relative to jrt-fs.jar.
      */
     private static String findHome() {
-        // ANDROIDIDE-CHANGED: Do not bother to find JAVA_HOME
-        // Simply return the compiler module path using Environment.COMPILER_MODULE.
-        return getCompilerModulePath();
-    }
-
-    private static String getCompilerModulePath() {
-        final String className = "com.itsaky.androidide.utils.Environment";
-        try {
-            final Class<?> klass = Class.forName(className);
-            final Field field = klass.getDeclaredField("COMPILER_MODULE");
-            return ((java.io.File) field.get(null)).getAbsolutePath();
-        } catch (Throwable error) {
-            throw new IllegalStateException("Unable to get compiler module path from class: ".concat(className));
-        }
+        // AndroidIDE changed: Allow overriding java home.
+        return JavacConfigProvider.getJavaHome();
     }
 }
