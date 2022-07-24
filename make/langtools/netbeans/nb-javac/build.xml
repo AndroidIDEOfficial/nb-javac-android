@@ -169,23 +169,18 @@
     <target name="-prepare-maven" depends="clean,jar,zip-nb-javac-sources">
         <fail message="Version must be specified!" unless="maven.version"></fail>
         <fail message="Specify -Dmaven.groupId=..." unless="maven.groupId"></fail>
-
         <zip basedir="../../../../" destfile="dist/nb-javac-${nb-javac-ver}-doc.zip">
             <include name="README.md" />
             <include name="SECURITY.md" />
             <include name="LICENSE.txt" />
             <include name="CONTRIBUTING.md" />
         </zip>
-
         <copy file="pom-nb-javac.xml" todir="build" />
-
         <replaceregexp match="(&lt;version&gt;).*(&lt;/version&gt;)" replace="\1${maven.version}\2" file="build/pom-nb-javac.xml" />
-
         <replaceregexp match="(&lt;groupId&gt;).*(&lt;/groupId&gt;)" replace="\1${maven.groupId}\2" file="build/pom-nb-javac.xml" />
     </target>
 
     <target name="publish-to-ossrh-snapshots" description="Build nb-javac-android and publish to Snapshot Repository of OSSRH" depends="-prepare-maven-snapshot-version,-prepare-maven">
-
         <exec executable="mvn" output="build/maven-publish.log" failonerror="true">
             <arg value="org.apache.maven.plugins:maven-deploy-plugin:2.7:deploy-file" />
             <arg value="-Durl=${maven-snapshots-repository-url}" />
@@ -200,7 +195,6 @@
     </target>
 
     <target name="publish-to-maven-central" description="Build nb-javac-android and stage for maven central" depends="-prepare-maven-version,-prepare-maven">
-
         <exec executable="mvn" output="build/maven-publish.log" failonerror="true">
             <arg value="org.apache.maven.plugins:maven-gpg-plugin:1.4:sign-and-deploy-file" />
             <arg value="-Durl=${maven-staging-repository-url}" />
