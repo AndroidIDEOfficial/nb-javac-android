@@ -6,7 +6,7 @@ ant_dir=./make/langtools/netbeans/nb-javac
 
 # Build langtools
 cd make/langtools
-ant clean build
+ant build
 cd -
 
 # Build nb-javac-android
