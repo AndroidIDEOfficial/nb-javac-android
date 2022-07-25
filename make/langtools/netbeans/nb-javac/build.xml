@@ -85,6 +85,10 @@
         <mkdir dir="${build.dir}/depr-classes/" />
         <property name="build.depr.classes" location="${build.dir}/depr-classes/" />
         <javac srcdir="${build.dir}/depr-src/java/lang" destdir="${build.depr.classes}" />
+        <copy todir="build/generated-sources/props">
+            <fileset dir="${gensrc.jdk.compiler}" includes="**/*.java"/>
+            <fileset dir="${gensrc.jdk.jdeps}" includes="**/*.java"/>
+        </copy>
     </target>
 
     <target name="-separate-jars">
@@ -111,7 +115,7 @@
         <copy file="${dist.dir}/nb-javac-${nb-javac-ver}-impl.jar" tofile="../../../../../nbbuild/netbeans/java/modules/ext/nb-javac-impl.jar" />
         <touch file="../../../../../nbbuild/netbeans/java/.lastModified" />
     </target>
-    <target name="-post-jar" depends="-post-init,-separate-jars,-copy-jars-to-build"></target>
+    <target name="-post-jar" depends="-post-init,-separate-jars,-copy-jars-to-build"/>
 
     <target name="-pre-compile-test" depends="jar" />
 
@@ -121,6 +125,7 @@
             <exclude name="**/dist/" />
             <exclude name="**/nbproject/private/" />
             <exclude name="**/nb-javac-sources.zip" />
+            <include name="src/conflicting/**"/>
             <include name="src/jdk.compiler/**" />
             <include name="src/java.compiler/**" />
             <include name="src/jdk.jdeps/**" />
@@ -167,8 +172,8 @@
     </target>
 
     <target name="-prepare-maven" depends="clean,jar,zip-nb-javac-sources">
-        <fail message="Version must be specified!" unless="maven.version"></fail>
-        <fail message="Specify -Dmaven.groupId=..." unless="maven.groupId"></fail>
+        <fail message="Version must be specified!" unless="maven.version"/>
+        <fail message="Specify -Dmaven.groupId=..." unless="maven.groupId"/>
         <zip basedir="../../../../" destfile="dist/nb-javac-${nb-javac-ver}-doc.zip">
             <include name="README.md" />
             <include name="SECURITY.md" />

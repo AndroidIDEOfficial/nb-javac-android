@@ -25,7 +25,7 @@
 
 package com.sun.source.tree;
 
-import jdk.internal.PreviewFeature;
+import javac.internal.PreviewFeature;
 
 /**
  * A guard pattern tree.

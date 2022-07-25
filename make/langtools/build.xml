@@ -211,6 +211,7 @@
         </pathconvert>
         <multirootfileset id="source.fileset" basedirs="${src.module.dirs},${gensrc.module.dirs}">
             <include name="**/*.java"/>
+            <exclude name="**/java/lang/annotation/ElementType.java"/>
             <different targetdir="${build.prevsrc}" ignoreFileTimes="true"/>
         </multirootfileset>
         <pathconvert pathsep=" " property="source.files" refid="source.fileset"/>
@@ -220,7 +221,7 @@
             <arg value="${build.modules}" />
             <arg line="${javac.opts}" />
             <arg line="${xpatch.src.cmd}" />
-            <arg line="module-source-path ." /> 
+            <arg line="--module-source-path ." />
             <arg line="@${build.dir}/sources.txt" />
         </exec>
         <delete file="${build.dir}/sources.txt"/>

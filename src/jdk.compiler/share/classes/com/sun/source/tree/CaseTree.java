@@ -27,7 +27,7 @@ package com.sun.source.tree;
 
 import java.util.List;
 
-import jdk.internal.PreviewFeature;
+import javac.internal.PreviewFeature;
 
 /**
  * A tree node for a {@code case} in a {@code switch} statement or expression.

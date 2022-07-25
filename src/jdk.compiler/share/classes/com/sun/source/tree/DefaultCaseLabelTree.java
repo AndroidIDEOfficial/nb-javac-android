@@ -24,7 +24,7 @@
  */
 package com.sun.source.tree;
 
-import jdk.internal.PreviewFeature;
+import javac.internal.PreviewFeature;
 
 /**
  * A case label that marks {@code default} in {@code case null, default}.

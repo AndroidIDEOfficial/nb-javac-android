@@ -7,7 +7,7 @@ import java.nio.file.spi.FileSystemProvider;
 import java.util.HashMap;
 
 import com.itsaky.androidide.zipfs.ZipFileSystemProvider;
-import jdk.internal.jrtfs.JrtFileSystemProvider;
+import javac.internal.jrtfs.JrtFileSystemProvider;
 
 public class AndroidFsProvider {
 
