@@ -212,4 +212,16 @@
             <arg value="-Dgpg.useagent=true" />
         </exec>
     </target>
+
+    <target name="publish-to-maven-local" description="Build nb-javac-android and stage for maven central" depends="-prepare-maven-version,-prepare-maven">
+        <exec executable="mvn" output="build/maven-publish.log" failonerror="true">
+            <arg value="install:install-file" />
+            <arg value="-DpomFile=build/pom-nb-javac.xml" />
+            <arg value="-Dfile=dist/nb-javac-${nb-javac-ver}-android.jar" />
+            <arg value="-Dfiles=dist/nb-javac-${nb-javac-ver}-sources.zip,dist/nb-javac-${nb-javac-ver}-doc.zip" />
+            <arg value="-Dtypes=jar,jar" />
+            <arg value="-Dclassifiers=sources,javadoc" />
+            <arg value="-Dgpg.useagent=true" />
+        </exec>
+    </target>
 </project>
