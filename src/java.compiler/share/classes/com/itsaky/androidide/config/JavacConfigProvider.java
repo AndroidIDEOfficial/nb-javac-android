@@ -1,6 +1,7 @@
 package com.itsaky.androidide.config;
 
 import javax.lang.model.SourceVersion;
+import java.lang.reflect.Field;
 
 public class JavacConfigProvider {
 
@@ -13,17 +14,47 @@ public class JavacConfigProvider {
     /**
      * The latest source version that can be modeled.
      */
-    private static SourceVersion latestSourceVersion = SourceVersion.RELEASE_11;
+    private static SourceVersion latestSourceVersion;
 
     /**
      * The latest source version supported by the compiler.
      */
-    private static SourceVersion latestSupportedSourceVersion = latestSourceVersion;
+    private static SourceVersion latestSupportedSourceVersion;
 
     /**
      * Whether Java 9+ modules are enabled.
      */
     private static boolean modulesEnabled = true;
+
+    static {
+        try {
+            Field latest = tryGetRelease("RELEASE_17");
+            if (latest == null) {
+                latest = tryGetRelease("RELEASE_11");
+            }
+
+            if (latest == null) {
+                latest = tryGetRelease("RELEASE_8");
+            }
+
+            if (latest == null) {
+                throw new IllegalStateException();
+            }
+
+            latestSourceVersion = (SourceVersion)latest.get(null);
+            latestSupportedSourceVersion = latestSourceVersion;
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    static Field tryGetRelease(String release) {
+        try {
+            return SourceVersion.class.getDeclaredField(release);
+        } catch (NoSuchFieldException e) {
+            return null;
+        }
+    }
 
     /**
      * Gets the <code>androidide.java.home</code> property if it has been specified

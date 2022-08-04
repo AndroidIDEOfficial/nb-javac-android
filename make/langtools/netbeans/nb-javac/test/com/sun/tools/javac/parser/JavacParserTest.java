@@ -22,7 +22,6 @@
  * CA 95054 USA or visit www.sun.com if you need additional information or
  * have any questions.
  */
-
 package com.sun.tools.javac.parser;
 
 import com.sun.source.tree.BinaryTree;
@@ -52,6 +51,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
+import java.util.function.Consumer;
 import javax.lang.model.element.Modifier;
 import javax.tools.Diagnostic;
 import javax.tools.DiagnosticCollector;
@@ -69,11 +70,14 @@ public class JavacParserTest extends TestCase {
     }
 
     static class MyFileObject extends SimpleJavaFileObject {
+
         private String text;
+
         public MyFileObject(String text) {
             super(URI.create("myfo:/Test.java"), JavaFileObject.Kind.SOURCE);
             this.text = text;
         }
+
         @Override
         public CharSequence getCharContent(boolean ignoreEncodingErrors) {
             return text;
@@ -87,7 +91,7 @@ public class JavacParserTest extends TestCase {
 
         String code = "package test; public class Test {public Test() {super();}}";
 
-        JavacTaskImpl ct = (JavacTaskImpl)tool.getTask(null, null, null, Arrays.asList("-bootclasspath",  bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
+        JavacTaskImpl ct = (JavacTaskImpl) tool.getTask(null, null, null, Arrays.asList("-bootclasspath", bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
         CompilationUnitTree cut = ct.parse().iterator().next();
         SourcePositions pos = Trees.instance(ct).getSourcePositions();
 
@@ -114,7 +118,7 @@ public class JavacParserTest extends TestCase {
 
         String code = "package test; public enum Test {A;}";
 
-        JavacTaskImpl ct = (JavacTaskImpl)tool.getTask(null, null, null, Arrays.asList("-bootclasspath",  bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
+        JavacTaskImpl ct = (JavacTaskImpl) tool.getTask(null, null, null, Arrays.asList("-bootclasspath", bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
         CompilationUnitTree cut = ct.parse().iterator().next();
         SourcePositions pos = Trees.instance(ct).getSourcePositions();
 
@@ -142,7 +146,6 @@ public class JavacParserTest extends TestCase {
 //        assertEquals(79 - 24, pos.getStartPosition(cut, est));
 //        assertEquals(97 - 24, pos.getEndPosition(cut, est));
 //    }
-
     public void testNewClassWithEnclosing() throws IOException {
         final String bootPath = System.getProperty("sun.boot.class.path"); //NOI18N
         final JavaCompiler tool = ToolProvider.getSystemJavaCompiler();
@@ -150,7 +153,7 @@ public class JavacParserTest extends TestCase {
 
         String code = "package test; class Test { class d {} private void method() { Object o = Test.this.new d(); } }";
 
-        JavacTaskImpl ct = (JavacTaskImpl)tool.getTask(null, null, null, Arrays.asList("-bootclasspath",  bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
+        JavacTaskImpl ct = (JavacTaskImpl) tool.getTask(null, null, null, Arrays.asList("-bootclasspath", bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
         CompilationUnitTree cut = ct.parse().iterator().next();
         SourcePositions pos = Trees.instance(ct).getSourcePositions();
 
@@ -168,7 +171,7 @@ public class JavacParserTest extends TestCase {
 
         String code = "package test; public class Test {private void test() {Object o = null; boolean b = o != null && o instanceof String;} private Test() {}}";
 
-        JavacTaskImpl ct = (JavacTaskImpl)tool.getTask(null, null, null, Arrays.asList("-bootclasspath",  bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
+        JavacTaskImpl ct = (JavacTaskImpl) tool.getTask(null, null, null, Arrays.asList("-bootclasspath", bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
         CompilationUnitTree cut = ct.parse().iterator().next();
 
         ClassTree clazz = (ClassTree) cut.getTypeDecls().get(0);
@@ -182,28 +185,27 @@ public class JavacParserTest extends TestCase {
     }
 
     public void testPositionBrokenSource126732a() throws IOException {
-        String[] commands = new String[] {
+        String[] commands = new String[]{
             "return Runnable()",
             "do { } while (true)",
             "throw UnsupportedOperationException()",
             "assert true",
             "1 + 1",
-            "vartype varname",
-        };
+            "vartype varname",};
 
         for (String command : commands) {
             final String bootPath = System.getProperty("sun.boot.class.path"); //NOI18N
             final JavaCompiler tool = ToolProvider.getSystemJavaCompiler();
             assert tool != null;
 
-            String code = "package test;\n" +
-                    "public class Test {\n" +
-                    "    public static void test() {\n" +
-                    "        " + command + " {\n" +
-                    "                new Runnable() {\n" +
-                    "        };\n" +
-                    "    }\n" +
-                    "}";
+            String code = "package test;\n"
+                    + "public class Test {\n"
+                    + "    public static void test() {\n"
+                    + "        " + command + " {\n"
+                    + "                new Runnable() {\n"
+                    + "        };\n"
+                    + "    }\n"
+                    + "}";
 
             JavacTaskImpl ct = (JavacTaskImpl) tool.getTask(null, null, null, Arrays.asList("-bootclasspath", bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
             CompilationUnitTree cut = ct.parse().iterator().next();
@@ -223,28 +225,27 @@ public class JavacParserTest extends TestCase {
     }
 
     public void testPositionBrokenSource126732b() throws IOException {
-        String[] commands = new String[] {
+        String[] commands = new String[]{
             "break",
             "break A",
             "continue ",
-            "continue A",
-        };
+            "continue A",};
 
         for (String command : commands) {
             final String bootPath = System.getProperty("sun.boot.class.path"); //NOI18N
             final JavaCompiler tool = ToolProvider.getSystemJavaCompiler();
             assert tool != null;
 
-            String code = "package test;\n" +
-                    "public class Test {\n" +
-                    "    public static void test() {\n" +
-                    "        while (true) {\n" +
-                    "            " + command + " {\n" +
-                    "                new Runnable() {\n" +
-                    "        };\n" +
-                    "        }\n" +
-                    "    }\n" +
-                    "}";
+            String code = "package test;\n"
+                    + "public class Test {\n"
+                    + "    public static void test() {\n"
+                    + "        while (true) {\n"
+                    + "            " + command + " {\n"
+                    + "                new Runnable() {\n"
+                    + "        };\n"
+                    + "        }\n"
+                    + "    }\n"
+                    + "}";
 
             JavacTaskImpl ct = (JavacTaskImpl) tool.getTask(null, null, null, Arrays.asList("-bootclasspath", bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
             CompilationUnitTree cut = ct.parse().iterator().next();
@@ -272,11 +273,11 @@ public class JavacParserTest extends TestCase {
 
         final List<Diagnostic<? extends JavaFileObject>> errors = new LinkedList<Diagnostic<? extends JavaFileObject>>();
 
-        JavacTaskImpl ct = (JavacTaskImpl)tool.getTask(null, null, new DiagnosticListener<JavaFileObject>() {
+        JavacTaskImpl ct = (JavacTaskImpl) tool.getTask(null, null, new DiagnosticListener<JavaFileObject>() {
             public void report(Diagnostic<? extends JavaFileObject> diagnostic) {
                 errors.add(diagnostic);
             }
-        }, Arrays.asList("-bootclasspath",  bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
+        }, Arrays.asList("-bootclasspath", bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
 
         CompilationUnitTree cut = ct.parse().iterator().next();
 
@@ -316,11 +317,11 @@ public class JavacParserTest extends TestCase {
 
         final List<Diagnostic<? extends JavaFileObject>> errors = new LinkedList<Diagnostic<? extends JavaFileObject>>();
 
-        JavacTaskImpl ct = (JavacTaskImpl)tool.getTask(null, null, new DiagnosticListener<JavaFileObject>() {
+        JavacTaskImpl ct = (JavacTaskImpl) tool.getTask(null, null, new DiagnosticListener<JavaFileObject>() {
             public void report(Diagnostic<? extends JavaFileObject> diagnostic) {
                 errors.add(diagnostic);
             }
-        }, Arrays.asList("-bootclasspath",  bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
+        }, Arrays.asList("-bootclasspath", bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
 
         final CompilationUnitTree cut = ct.parse().iterator().next();
         final Trees trees = Trees.instance(ct);
@@ -331,16 +332,19 @@ public class JavacParserTest extends TestCase {
 
             @Override
             public Void scan(Tree node, Void p) {
-                if (node == null) return null;
+                if (node == null) {
+                    return null;
+                }
 
                 long start = trees.getSourcePositions().getStartPosition(cut, node);
 
-                if (start == (-1)) return null; //synthetic tree
-
+                if (start == (-1)) {
+                    return null; //synthetic tree
+                }
                 assertTrue(node.toString() + ":" + start + "/" + parentStart, parentStart <= start);
 
                 long prevParentStart = parentStart;
-                
+
                 parentStart = start;
 
                 long end = trees.getSourcePositions().getEndPosition(cut, node);
@@ -350,7 +354,7 @@ public class JavacParserTest extends TestCase {
                 long prevParentEnd = parentEnd;
 
                 parentEnd = end;
-                
+
                 super.scan(node, p);
 
                 parentStart = prevParentStart;
@@ -364,55 +368,55 @@ public class JavacParserTest extends TestCase {
 
     public void testCorrectWilcardPositions() throws IOException {
         performWildcardPositionsTest("package test; import java.util.List; class Test { private void method() { List<? extends List<? extends String>> l; } }",
-                                     Arrays.asList("List<? extends List<? extends String>> l;",
-                                                   "List<? extends List<? extends String>>",
-                                                   "List",
-                                                   "? extends List<? extends String>",
-                                                   "List<? extends String>",
-                                                   "List",
-                                                   "? extends String",
-                                                   "String"));
+                Arrays.asList("List<? extends List<? extends String>> l;",
+                        "List<? extends List<? extends String>>",
+                        "List",
+                        "? extends List<? extends String>",
+                        "List<? extends String>",
+                        "List",
+                        "? extends String",
+                        "String"));
         performWildcardPositionsTest("package test; import java.util.List; class Test { private void method() { List<? super List<? super String>> l; } }",
-                                     Arrays.asList("List<? super List<? super String>> l;",
-                                                   "List<? super List<? super String>>",
-                                                   "List",
-                                                   "? super List<? super String>",
-                                                   "List<? super String>",
-                                                   "List",
-                                                   "? super String",
-                                                   "String"));
+                Arrays.asList("List<? super List<? super String>> l;",
+                        "List<? super List<? super String>>",
+                        "List",
+                        "? super List<? super String>",
+                        "List<? super String>",
+                        "List",
+                        "? super String",
+                        "String"));
         performWildcardPositionsTest("package test; import java.util.List; class Test { private void method() { List<? super List<?>> l; } }",
-                                     Arrays.asList("List<? super List<?>> l;",
-                                                   "List<? super List<?>>",
-                                                   "List",
-                                                   "? super List<?>",
-                                                   "List<?>",
-                                                   "List",
-                                                   "?"));
+                Arrays.asList("List<? super List<?>> l;",
+                        "List<? super List<?>>",
+                        "List",
+                        "? super List<?>",
+                        "List<?>",
+                        "List",
+                        "?"));
         performWildcardPositionsTest("package test; import java.util.List; class Test { private void method() { List<? extends List<? extends List<? extends String>>> l; } }",
-                                     Arrays.asList("List<? extends List<? extends List<? extends String>>> l;",
-                                                   "List<? extends List<? extends List<? extends String>>>",
-                                                   "List",
-                                                   "? extends List<? extends List<? extends String>>",
-                                                   "List<? extends List<? extends String>>",
-                                                   "List",
-                                                   "? extends List<? extends String>",
-                                                   "List<? extends String>",
-                                                   "List",
-                                                   "? extends String",
-                                                   "String"));
+                Arrays.asList("List<? extends List<? extends List<? extends String>>> l;",
+                        "List<? extends List<? extends List<? extends String>>>",
+                        "List",
+                        "? extends List<? extends List<? extends String>>",
+                        "List<? extends List<? extends String>>",
+                        "List",
+                        "? extends List<? extends String>",
+                        "List<? extends String>",
+                        "List",
+                        "? extends String",
+                        "String"));
         performWildcardPositionsTest("package test; import java.util.List; class Test { private void method() { List<? extends List<? extends List<? extends String   >>> l; } }",
-                                     Arrays.asList("List<? extends List<? extends List<? extends String   >>> l;",
-                                                   "List<? extends List<? extends List<? extends String   >>>",
-                                                   "List",
-                                                   "? extends List<? extends List<? extends String   >>",
-                                                   "List<? extends List<? extends String   >>",
-                                                   "List",
-                                                   "? extends List<? extends String   >",
-                                                   "List<? extends String   >",
-                                                   "List",
-                                                   "? extends String",
-                                                   "String"));
+                Arrays.asList("List<? extends List<? extends List<? extends String   >>> l;",
+                        "List<? extends List<? extends List<? extends String   >>>",
+                        "List",
+                        "? extends List<? extends List<? extends String   >>",
+                        "List<? extends List<? extends String   >>",
+                        "List",
+                        "? extends List<? extends String   >",
+                        "List<? extends String   >",
+                        "List",
+                        "? extends String",
+                        "String"));
     }
 
     public void performWildcardPositionsTest(final String code, List<String> golden) throws IOException {
@@ -422,11 +426,11 @@ public class JavacParserTest extends TestCase {
 
         final List<Diagnostic<? extends JavaFileObject>> errors = new LinkedList<Diagnostic<? extends JavaFileObject>>();
 
-        JavacTaskImpl ct = (JavacTaskImpl)tool.getTask(null, null, new DiagnosticListener<JavaFileObject>() {
+        JavacTaskImpl ct = (JavacTaskImpl) tool.getTask(null, null, new DiagnosticListener<JavaFileObject>() {
             public void report(Diagnostic<? extends JavaFileObject> diagnostic) {
                 errors.add(diagnostic);
             }
-        }, Arrays.asList("-bootclasspath",  bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
+        }, Arrays.asList("-bootclasspath", bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
 
         final CompilationUnitTree cut = ct.parse().iterator().next();
         final List<String> content = new LinkedList<String>();
@@ -435,16 +439,19 @@ public class JavacParserTest extends TestCase {
         new TreeScanner<Void, Void>() {
             @Override
             public Void scan(Tree node, Void p) {
-                if (node == null) return null;
+                if (node == null) {
+                    return null;
+                }
 
                 long start = trees.getSourcePositions().getStartPosition(cut, node);
 
-                if (start == (-1)) return null; //synthetic tree
-
+                if (start == (-1)) {
+                    return null; //synthetic tree
+                }
                 long end = trees.getSourcePositions().getEndPosition(cut, node);
 
                 content.add(code.substring((int) start, (int) end));
-                
+
                 return super.scan(node, p);
             }
 
@@ -466,7 +473,7 @@ public class JavacParserTest extends TestCase {
         MethodTree mt = (MethodTree) clazz.getMembers().get(0);
         Trees t = Trees.instance(ct);
         int start = (int) t.getSourcePositions().getStartPosition(cut, mt);
-        int end   = (int) t.getSourcePositions().getEndPosition(cut, mt);
+        int end = (int) t.getSourcePositions().getEndPosition(cut, mt);
 
         assertEquals("<T> void t() {}", code.substring(start, end));
     }
@@ -498,7 +505,7 @@ public class JavacParserTest extends TestCase {
         JavacTaskImpl ct = (JavacTaskImpl) tool.getTask(null, null, coll, Arrays.asList("-bootclasspath", bootPath, "-Xjcov"), null, Arrays.asList(new MyFileObject(code)));
 
         ct.parse();
-        
+
         List<String> codes = new LinkedList<String>();
 
         for (Diagnostic<? extends JavaFileObject> d : coll.getDiagnostics()) {
@@ -558,7 +565,7 @@ public class JavacParserTest extends TestCase {
         String code = "\nclass Test { { System.err.println(0e); } }";
 
         JavacTaskImpl ct = (JavacTaskImpl) tool.getTask(null, null, null, Arrays.asList("-bootclasspath", bootPath, "-Xjcov"/*, "-XDshouldStopPolicy=ENTER"*/), null, Arrays.asList(new MyFileObject(code)));
-        
+
         assertNotNull(ct.parse().iterator().next());
     }
 
@@ -573,7 +580,8 @@ public class JavacParserTest extends TestCase {
         CompilationUnitTree cut = ct.parse().iterator().next();
 
         new TreeScanner<Void, Void>() {
-            @Override public Void visitVariable(VariableTree node, Void p) {
+            @Override
+            public Void visitVariable(VariableTree node, Void p) {
                 if ("in".contentEquals(node.getName())) {
                     JCTree.JCVariableDecl var = (JCTree.JCVariableDecl) node;
 
@@ -595,7 +603,8 @@ public class JavacParserTest extends TestCase {
         CompilationUnitTree cut = ct.parse().iterator().next();
 
         new TreeScanner<Void, Void>() {
-            @Override public Void visitVariable(VariableTree node, Void p) {
+            @Override
+            public Void visitVariable(VariableTree node, Void p) {
                 if ("in".contentEquals(node.getName())) {
                     JCTree.JCVariableDecl var = (JCTree.JCVariableDecl) node;
 
@@ -620,9 +629,12 @@ public class JavacParserTest extends TestCase {
 
         new TreePathScanner<Void, Void>() {
             boolean record;
+
             @Override
             public Void scan(Tree node, Void p) {
-                if (node == null) return null;
+                if (node == null) {
+                    return null;
+                }
 
                 if (record) {
                     long start = trees.getSourcePositions().getStartPosition(cut, node);
@@ -668,7 +680,7 @@ public class JavacParserTest extends TestCase {
         CompilationUnitTree cut = ct.parse().iterator().next();
         assertNotNull(cut);
     }
-    
+
     public void testShouldNotSkipFirstStrictFP8005931() throws IOException {
         final String bootPath = System.getProperty("sun.boot.class.path"); //NOI18N
         final JavaCompiler tool = ToolProvider.getSystemJavaCompiler();

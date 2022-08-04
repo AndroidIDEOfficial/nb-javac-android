@@ -32,7 +32,6 @@ import com.sun.tools.javac.code.Source;
 import com.sun.tools.javac.tree.DocTreeMaker;
 import com.sun.tools.javac.tree.TreeMaker;
 import com.sun.tools.javac.util.Context;
-import com.sun.tools.javac.util.JCDiagnostic;
 import com.sun.tools.javac.util.Log;
 import com.sun.tools.javac.util.Names;
 import com.sun.tools.javac.util.Options;
@@ -57,7 +56,7 @@ public class ParserFactory {
         }
         return instance;
     }
-
+    
     final TreeMaker F;
     final DocTreeMaker docTreeMaker;
     final Log log;
@@ -90,6 +89,7 @@ public class ParserFactory {
 
     public JavacParser newParser(CharSequence input, boolean keepDocComments, boolean keepEndPos, boolean keepLineMap, boolean parseModuleInfo) {
         Lexer lexer = scannerFactory.newScanner(input, keepDocComments);
-        return new JavacParser(this, lexer, keepDocComments, keepLineMap, keepEndPos, parseModuleInfo);
+        final JavacParser parser = new JavacParser(this, lexer, keepDocComments, keepLineMap, keepEndPos, parseModuleInfo);
+        return parser;
     }
 }
