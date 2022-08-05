@@ -1,5 +1,7 @@
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.itsaky/nb-javac-android.svg?label=Maven%20Central)]((https://search.maven.org/search?q=io.github.itsaky%20nb-javac-android))
 # nb-javac-android
+
+<a href="https://github.com/itsaky/AndroidIDE"><img src="https://androidide.com/github/img/androidide.php?part&for-the-badge"/></a><br>
+
 [nb-javac](https://github.com/oracle/nb-javac) is a patched version of OpenJDK "javac", i.e., the Java compiler. This has long been part of NetBeans, providing a highly tuned Java compiler specifically for the Java editor i.e., parsing and lexing for features such as syntax coloring, code completion.
 
 `nb-javac-android` is a patched version of `nb-javac`. It allows developers to use `javac` i.e. the Java Compiler in android applications.
