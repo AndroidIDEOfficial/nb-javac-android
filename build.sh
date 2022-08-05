@@ -2,6 +2,8 @@
 
 set -e
 
+source $(dirname $0)/setup_base.sh
+
 # Build langtools
 cd make/langtools
 ant build
