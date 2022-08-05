@@ -161,10 +161,6 @@ public class JavacFileManager extends BaseFileManager implements StandardJavaFil
         setContext(context);
     }
 
-    public void cacheLocation(Location location) {
-        this.pathsAndContainersByLocationAndRelativeDirectory.computeIfAbsent(location, this::indexPathsAndContainersByRelativeDirectory);
-    }
-
     /**
      * Set the context for JavacFileManager.
      */
@@ -1023,7 +1019,7 @@ public class JavacFileManager extends BaseFileManager implements StandardJavaFil
         }
     }
 
-    private Map<RelativeDirectory, java.util.List<PathAndContainer>> indexPathsAndContainersByRelativeDirectory(
+    public Map<RelativeDirectory, java.util.List<PathAndContainer>> indexPathsAndContainersByRelativeDirectory(
             Location location) {
         Map<RelativeDirectory, java.util.List<PathAndContainer>> result = new HashMap<>();
         java.util.List<PathAndContainer> allPathsAndContainers = pathsAndContainers(location);
