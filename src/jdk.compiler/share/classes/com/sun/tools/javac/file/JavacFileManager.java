@@ -135,7 +135,7 @@ public class JavacFileManager extends BaseFileManager implements StandardJavaFil
      * for a single Location, we should know all valid RelativeDirectory mappings. Because the
      * indexing is costly for very large classpaths, this can result in a significant savings.
      */
-    private Map<Location, Map<RelativeDirectory, java.util.List<PathAndContainer>>>
+    public Map<Location, Map<RelativeDirectory, java.util.List<PathAndContainer>>>
         pathsAndContainersByLocationAndRelativeDirectory = new HashMap<>();
 
     /** Containers that have no indexing by {@link RelativeDirectory}, keyed by {@link Location}. */
@@ -159,6 +159,10 @@ public class JavacFileManager extends BaseFileManager implements StandardJavaFil
         if (register)
             context.put(JavaFileManager.class, this);
         setContext(context);
+    }
+
+    public void cacheLocation(Location location) {
+        this.pathsAndContainersByLocationAndRelativeDirectory.computeIfAbsent(location, this::indexPathsAndContainersByRelativeDirectory);
     }
 
     /**
