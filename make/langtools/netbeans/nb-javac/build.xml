@@ -85,6 +85,8 @@
         <mkdir dir="${build.dir}/depr-classes/" />
         <property name="build.depr.classes" location="${build.dir}/depr-classes/" />
         <javac srcdir="${build.dir}/depr-src/java/lang" destdir="${build.depr.classes}" />
+        <mkdir dir="${gensrc.jdk.compiler}"/>
+        <mkdir dir="${gensrc.jdk.jdeps}"/>
         <copy todir="build/generated-sources/props">
             <fileset dir="${gensrc.jdk.compiler}" includes="**/*.java"/>
             <fileset dir="${gensrc.jdk.jdeps}" includes="**/*.java"/>
