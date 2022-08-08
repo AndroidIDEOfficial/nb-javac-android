@@ -1921,7 +1921,7 @@ public class Locations {
                     FileSystem jrtfs;
 
                     if (com.sun.tools.javac.util.PlatformUtils.isAndroid()) {
-                        jrtfs = com.sun.tools.javac.file.AndroidFsProvider.INSTANCE.jrtFileSystem();
+                        jrtfs = com.itsaky.androidide.zipfs2.AndroidFsProvider.INSTANCE.jrtFileSystem();
                     } else if (isCurrentPlatform(systemJavaHome)) {
                         jrtfs = FileSystems.getFileSystem(jrtURI);
                     } else {

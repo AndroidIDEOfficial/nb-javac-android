@@ -27,7 +27,6 @@ package com.sun.source.util;
 
 import java.io.IOException;
 
-import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeMirror;
@@ -38,8 +37,6 @@ import javax.tools.JavaFileObject;
 
 import com.sun.source.tree.CompilationUnitTree;
 import com.sun.source.tree.Tree;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 /**
  * Provides access to functionality specific to the JDK Java Compiler, javac.

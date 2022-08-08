@@ -25,7 +25,6 @@
 
 package com.sun.tools.javac.code;
 
-import com.sun.source.tree.ExpressionTree;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
@@ -70,8 +69,6 @@ import com.sun.tools.javac.util.Names;
 import static com.sun.tools.javac.code.Flags.*;
 import static com.sun.tools.javac.code.Kinds.Kind.*;
 import static com.sun.tools.javac.code.TypeTag.*;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 /** A class that defines all predefined constants and operators
  *  as well as special classes such as java.lang.Object, which need

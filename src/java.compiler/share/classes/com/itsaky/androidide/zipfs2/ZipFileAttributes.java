@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, 2016, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2009, 2018, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -23,37 +23,20 @@
  * questions.
  */
 
+package com.itsaky.androidide.zipfs2;
+
+import java.nio.file.attribute.BasicFileAttributes;
+
 /**
- * Defines the Language Model, Annotation Processing, and Java Compiler APIs.
- * <p>
- * These APIs model declarations and types of the Java programming language,
- * and define interfaces for tools such as compilers which can be invoked
- * from a program.
- * <p>
- * This module is upgradeable.
+ * The attributes of a file stored in a zip file.
  *
- * @moduleGraph
- * @since 9
+ * @author Xueming Shen, Rajendra Gutupalli,Jaya Hangal
  */
-module java.compiler {
-    exports com.itsaky.androidide.config;
-    exports com.itsaky.androidide.zipfs;
-    exports com.itsaky.androidide.zipfs2;
-    exports javac.internal;
-    exports javac.internal.jimage;
-    exports javac.internal.jimage.decompressor;
-    exports javac.internal.jmod;
-    exports javac.internal.jrtfs;
-    exports javax.annotation.processing;
-    exports javax.lang.model;
-    exports javax.lang.model.element;
-    exports javax.lang.model.type;
-    exports javax.lang.model.util;
-    exports javax.tools;
-
-    uses javax.tools.DocumentationTool;
-    uses javax.tools.JavaCompiler;
-
-    opens com.itsaky.androidide.config to jdk.compiler,jdk.jdeps;
+public interface ZipFileAttributes extends BasicFileAttributes {
+    public long compressedSize();
+    public long crc();
+    public int method();
+    public byte[] extra();
+    public byte[] comment();
+    public String toString();
 }
-

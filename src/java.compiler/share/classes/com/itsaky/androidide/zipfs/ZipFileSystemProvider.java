@@ -179,7 +179,7 @@ public class ZipFileSystemProvider extends FileSystemProvider {
     }
 
     // Checks that the given file is a UnixPath
-    static final ZipPath toZipPath(Path path) {
+    public static final ZipPath toZipPath(Path path) {
         if (path == null)
             throw new NullPointerException();
         if (!(path instanceof ZipPath))

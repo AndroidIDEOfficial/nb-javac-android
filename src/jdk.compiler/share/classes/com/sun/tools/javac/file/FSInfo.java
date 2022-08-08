@@ -25,15 +25,12 @@
 
 package com.sun.tools.javac.file;
 
-import java.io.IOError;
+import com.itsaky.androidide.zipfs2.AndroidFsProvider;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.spi.FileSystemProvider;
 import java.util.ArrayList;

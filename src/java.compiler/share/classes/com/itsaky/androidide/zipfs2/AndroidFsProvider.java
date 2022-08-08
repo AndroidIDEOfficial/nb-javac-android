@@ -1,4 +1,4 @@
-package com.sun.tools.javac.file;
+package com.itsaky.androidide.zipfs2;
 
 import java.io.IOException;
 import java.net.URI;
@@ -6,7 +6,6 @@ import java.nio.file.FileSystem;
 import java.nio.file.spi.FileSystemProvider;
 import java.util.HashMap;
 
-import com.itsaky.androidide.zipfs.ZipFileSystemProvider;
 import javac.internal.jrtfs.JrtFileSystemProvider;
 
 public class AndroidFsProvider {
@@ -14,7 +13,7 @@ public class AndroidFsProvider {
     // Can be overridden to provide custom implementation
     public static AndroidFsProvider INSTANCE = new AndroidFsProvider();
 
-    public FileSystemProvider zipFsProvider () {
+    public FileSystemProvider zipFsProvider() {
         return new ZipFileSystemProvider();
     }
 
