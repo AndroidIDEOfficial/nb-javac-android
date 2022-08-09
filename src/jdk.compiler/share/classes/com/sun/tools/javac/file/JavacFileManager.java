@@ -83,6 +83,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import static java.nio.file.FileVisitOption.FOLLOW_LINKS;
+import java.util.Optional;
 
 import static javax.tools.StandardLocation.*;
 
@@ -180,7 +181,7 @@ public class JavacFileManager extends BaseFileManager implements StandardJavaFil
 
         fsInfo = FSInfo.instance(context);
         jarPackageProvider = context.get(JarPackageProvider.class);
-        if(jarPackageProvider == null) {
+        if (jarPackageProvider == null) {
             jarPackageProvider = archivePath -> Collections.emptyMap();
         }
 
@@ -338,11 +339,27 @@ public class JavacFileManager extends BaseFileManager implements StandardJavaFil
 
         BasicFileAttributes attr = null;
 
-        try {
-            attr = Files.readAttributes(realPath, BasicFileAttributes.class);
-        } catch (IOException ex) {
-            //non-existing
-            fs = MISSING_CONTAINER;
+        // AndroidIDE changed: Prefer cached attributes as computing file attributes is a bit expensive
+        // 'else' part is mostly not reached in AndroidIDE
+        if (fsInfo instanceof CacheFSInfo) {
+            Optional<BasicFileAttributes> attrs = ((CacheFSInfo) fsInfo).getAttributes(realPath);
+            if (attrs.isPresent()) {
+                attr = attrs.get();
+                if (attr == null) {
+                    //non-existing
+                    fs = MISSING_CONTAINER;
+                }
+            } else {
+                //non-existing
+                fs = MISSING_CONTAINER;
+            }
+        } else {
+            try {
+                attr = Files.readAttributes(realPath, BasicFileAttributes.class);
+            } catch (IOException ex) {
+                //non-existing
+                fs = MISSING_CONTAINER;
+            }
         }
 
         if (attr != null) {
@@ -602,22 +619,21 @@ public class JavacFileManager extends BaseFileManager implements StandardJavaFil
             FileSystemProvider jarFSProvider = fsInfo.getJarFSProvider();
             Assert.checkNonNull(jarFSProvider, "should have been caught before!");
             this.fileSystem = jarFSProvider.newFileSystem(archivePath, env);
-            this.packages = new HashMap<>();
-            
+
             if (jarPackageProvider == null) {
+                this.packages = new HashMap<>();
                 walkArchive();
                 return;
             }
-            
-            final Map<String, Path> cachedPackages = jarPackageProvider.getPackages(archivePath);
+
+            final Map<? extends Object, Path> cachedPackages = jarPackageProvider.getPackages(archivePath);
             if (cachedPackages == null || cachedPackages.isEmpty()) {
+                this.packages = new HashMap<>();
                 walkArchive();
                 return;
             }
-            
-            for(Map.Entry<String, Path> entry : cachedPackages.entrySet()) {
-                packages.put(new RelativeDirectory(entry.getKey()), entry.getValue());
-            }
+
+            packages = (Map<RelativeDirectory, Path>) cachedPackages;
         }
 
         private void walkArchive() throws IOException {
@@ -636,7 +652,7 @@ public class JavacFileManager extends BaseFileManager implements StandardJavaFil
                 });
             }
         }
-        
+
         private String trace(Throwable err) {
             final StringWriter sw = new StringWriter();
             err.printStackTrace(new PrintWriter(sw));
@@ -840,6 +856,11 @@ public class JavacFileManager extends BaseFileManager implements StandardJavaFil
         // validatePackageName(packageName);
         nullCheck(packageName);
         nullCheck(kinds);
+
+        if ("ANDROIDIDE_CACHE_LOCATION".equals(packageName)) {
+            pathsAndContainersByLocationAndRelativeDirectory.computeIfAbsent(location, this::indexPathsAndContainersByRelativeDirectory);
+            return Collections.emptyList();
+        }
 
         RelativeDirectory subdirectory = RelativeDirectory.forPackage(packageName);
         ListBuffer<JavaFileObject> results = new ListBuffer<>();
@@ -1285,7 +1306,7 @@ public class JavacFileManager extends BaseFileManager implements StandardJavaFil
     }
 
     /**
-     * Enforces the specification of a "relative" name as used in null     {@linkplain #getFileForInput(Location,String,String)
+     * Enforces the specification of a "relative" name as used in null null null     {@linkplain #getFileForInput(Location,String,String)
      * getFileForInput}. This method must follow the rules defined in that
      * method, do not make any changes without consulting the specification.
      */
@@ -1430,7 +1451,7 @@ public class JavacFileManager extends BaseFileManager implements StandardJavaFil
 
     @Override
     public boolean handleOption(Option option, String value) {
-        if (javacFileManagerOptions.contains(option)) {
+        if (javacFileManagerOptions.contains(option) && option != Option.MULTIRELEASE) {
             pathsAndContainersByLocationAndRelativeDirectory.clear();
             nonIndexingContainersByLocation.clear();
         }
