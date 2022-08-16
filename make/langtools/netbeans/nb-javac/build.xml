@@ -99,6 +99,7 @@
                 <include name="com/itsaky/**/*"/>
                 <include name="com/sun/**/*" />
                 <include name="java/lang/**/*" />
+                <include name="javac/internal/**/*"/>
                 <include name="javax/annotation/**/*" />
                 <include name="javax/lang/**/*" />
                 <include name="javax/tools/*" />
@@ -107,6 +108,7 @@
                 <include name="jdk/internal/jrtfs/**/*" />
                 <include name="jdk/internal/jmod/**/*" />
                 <include name="jdk/internal/jimage/**/*" />
+                <include name="sun/tools/**/*"/>
             </fileset>
         </jar>
         <delete file="${dist.jar}" />

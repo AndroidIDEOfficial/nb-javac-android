@@ -261,7 +261,8 @@ public enum SourceVersion {
      * need to be updated accordingly.
      */
     private static SourceVersion getLatestSupported() {
-        return latest();
+        // AndroidIDE changed: Allow overriding latest supported source version.
+        return JavacConfigProvider.getLatestSupportedSourceVersion();
     }
 
 
@@ -288,7 +289,8 @@ public enum SourceVersion {
      * which may be earlier than the {@code latest} release.
      */
     public static SourceVersion latestSupported() {
-        return latestSupported;
+        // AndroidIDE changed: Allow overriding latest supported source version.
+        return JavacConfigProvider.getLatestSupportedSourceVersion();
     }
 
     /**

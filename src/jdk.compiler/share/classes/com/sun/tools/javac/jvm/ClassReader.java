@@ -2233,7 +2233,7 @@ public class ClassReader {
 
     /** Read a method.
      */
-    MethodSymbol readMethod() {
+    protected MethodSymbol readMethod() {
         long flags = adjustMethodFlags(nextChar());
         Name name = poolReader.getName(nextChar());
         Type type = poolReader.getType(nextChar());
