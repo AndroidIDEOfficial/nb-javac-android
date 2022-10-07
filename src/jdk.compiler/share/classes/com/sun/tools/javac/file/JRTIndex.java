@@ -48,8 +48,10 @@ import java.util.Set;
 import javax.tools.FileObject;
 
 import com.itsaky.androidide.config.JavacConfigProvider;
+import com.itsaky.androidide.zipfs2.AndroidFsProvider;
 import com.sun.tools.javac.file.RelativePath.RelativeDirectory;
 import com.sun.tools.javac.util.Context;
+import com.sun.tools.javac.util.PlatformUtils;
 
 /**
  * A package-oriented index into the jrt: filesystem.
@@ -182,7 +184,11 @@ public class JRTIndex {
      * Create and initialize the index.
      */
     private JRTIndex() throws IOException {
-        jrtfs = FileSystems.getFileSystem(URI.create("jrt:/"));
+        if (PlatformUtils.isAndroid()) {
+            jrtfs = AndroidFsProvider.INSTANCE.jrtFileSystem();
+        } else {
+            jrtfs = FileSystems.getFileSystem(URI.create("jrt:/"));
+        }
         entries = new HashMap<>();
     }
 
