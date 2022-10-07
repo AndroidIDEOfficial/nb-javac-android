@@ -77,6 +77,8 @@ import javax.tools.StandardJavaFileManager;
 import javax.tools.StandardJavaFileManager.PathFactory;
 import javax.tools.StandardLocation;
 
+import com.itsaky.androidide.config.JavacConfigProvider;
+
 import com.sun.tools.javac.code.Lint;
 import com.sun.tools.javac.code.Lint.LintCategory;
 import com.sun.tools.javac.main.Option;
@@ -133,13 +135,21 @@ public class Locations {
     private PathFactory pathFactory = Paths::get;
 
     // AndroidIDE changed: Allow overriding java home.
-    static final Path javaHome = FileSystems.getDefault().getPath(com.itsaky.androidide.config.JavacConfigProvider.getJavaHome());
-    static final Path thisSystemModules = javaHome.resolve("lib").resolve("modules");
+//    static final Path javaHome = 
+//    static final Path thisSystemModules = 
 
     Map<Path, FileSystem> fileSystems = new LinkedHashMap<>();
     List<Closeable> closeables = new ArrayList<>();
     private Map<String,String> fsEnv = Collections.emptyMap();
 
+    static Path javaHome() {
+        return FileSystems.getDefault().getPath(JavacConfigProvider.getJavaHome());
+    }
+    
+    static Path thisSystemModules() {
+        return javaHome().resolve("lib").resolve("modules");
+    }
+    
     Locations() {
         initHandlers();
     }
@@ -921,7 +931,7 @@ public class Locations {
                 path.addDirectories(extdirsOpt);
             } else {
                 // Add lib/jfxrt.jar to the search path
-               Path jfxrt = javaHome.resolve("lib/jfxrt.jar");
+               Path jfxrt = javaHome().resolve("lib/jfxrt.jar");
                 if (Files.exists(jfxrt)) {
                     path.addFile(jfxrt, false);
                 }
@@ -944,12 +954,12 @@ public class Locations {
          */
         private Collection<Path> systemClasses() throws IOException {
             // Return "modules" jimage file if available
-            if (Files.isRegularFile(thisSystemModules)) {
-                return Collections.singleton(thisSystemModules);
+            if (Files.isRegularFile(thisSystemModules())) {
+                return Collections.singleton(thisSystemModules());
             }
 
             // Exploded module image
-            Path modules = javaHome.resolve("modules");
+            Path modules = javaHome().resolve("modules");
             if (Files.isDirectory(modules.resolve("java.base"))) {
                 try (Stream<Path> listedModules = Files.list(modules)) {
                     return listedModules.collect(Collectors.toList());
@@ -1801,7 +1811,7 @@ public class Locations {
 
         SystemModulesLocationHandler() {
             super(StandardLocation.SYSTEM_MODULES, Option.SYSTEM);
-            systemJavaHome = Locations.javaHome;
+            systemJavaHome = Locations.javaHome();
         }
 
         @Override
@@ -1813,7 +1823,7 @@ public class Locations {
             explicit = true;
 
             if (value == null) {
-                systemJavaHome = Locations.javaHome;
+                systemJavaHome = Locations.javaHome();
             } else if (value.equals("none")) {
                 systemJavaHome = null;
             } else {
@@ -1876,7 +1886,7 @@ public class Locations {
 
         private boolean isCurrentPlatform(Path p) {
             try {
-                return Files.isSameFile(p, Locations.javaHome);
+                return Files.isSameFile(p, Locations.javaHome());
             } catch (IOException ex) {
                 throw new IllegalArgumentException(p.toString(), ex);
             }
