@@ -323,7 +323,7 @@ public class JavacFileManager extends BaseFileManager implements StandardJavaFil
             return fs;
         }
 
-        if (fsInfo.isFile(path) && path.equals(Locations.thisSystemModules)) {
+        if (fsInfo.isFile(path) && path.equals(Locations.thisSystemModules())) {
             containers.put(path, fs = new JRTImageContainer());
             return fs;
         }
