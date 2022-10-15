@@ -233,7 +233,7 @@ public class ZipFileSystem extends FileSystem {
         return zfpath.toString();
     }
 
-    Path getZipFile() {
+    protected Path getZipFile() {
         return zfpath;
     }
 
