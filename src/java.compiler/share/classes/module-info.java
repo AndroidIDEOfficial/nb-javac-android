@@ -37,7 +37,6 @@
  */
 module java.compiler {
     exports com.itsaky.androidide.config;
-    exports com.itsaky.androidide.zipfs;
     exports com.itsaky.androidide.zipfs2;
     exports javac.internal;
     exports javac.internal.jimage;
