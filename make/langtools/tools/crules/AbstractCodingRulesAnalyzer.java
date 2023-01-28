@@ -29,21 +29,21 @@ import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import com.sun.source.util.JavacTask;
-import com.sun.tools.javac.api.BasicJavacTask;
-import com.sun.tools.javac.code.Symtab;
-import com.sun.tools.javac.model.JavacElements;
-import com.sun.tools.javac.model.JavacTypes;
-import com.sun.tools.javac.tree.JCTree;
-import com.sun.tools.javac.tree.TreeScanner;
-import com.sun.tools.javac.util.Context;
-import com.sun.tools.javac.util.JCDiagnostic;
-import com.sun.tools.javac.util.JCDiagnostic.DiagnosticType;
-import com.sun.tools.javac.util.Log;
-import com.sun.tools.javac.util.Options;
-import com.sun.tools.javac.util.RawDiagnosticFormatter;
+import openjdk.source.util.JavacTask;
+import openjdk.tools.javac.api.BasicJavacTask;
+import openjdk.tools.javac.code.Symtab;
+import openjdk.tools.javac.model.JavacElements;
+import openjdk.tools.javac.model.JavacTypes;
+import openjdk.tools.javac.tree.JCTree;
+import openjdk.tools.javac.tree.TreeScanner;
+import openjdk.tools.javac.util.Context;
+import openjdk.tools.javac.util.JCDiagnostic;
+import openjdk.tools.javac.util.JCDiagnostic.DiagnosticType;
+import openjdk.tools.javac.util.Log;
+import openjdk.tools.javac.util.Options;
+import openjdk.tools.javac.util.RawDiagnosticFormatter;
 
-import static com.sun.source.util.TaskEvent.Kind;
+import static openjdk.source.util.TaskEvent.Kind;
 
 public abstract class AbstractCodingRulesAnalyzer {
 

@@ -26,7 +26,7 @@
 #
 
 # tools currently assumes that assertions are enabled in the launcher
-ea=-ea:com.sun.tools...
+ea=-ea:openjdk.tools...
 
 # Any parameters starting with -J are passed to the JVM.
 # All other parameters become parameters of #PROGRAM#.

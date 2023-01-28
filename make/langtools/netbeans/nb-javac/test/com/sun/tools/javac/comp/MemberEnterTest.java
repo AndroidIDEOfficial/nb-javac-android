@@ -22,15 +22,15 @@
  * CA 95054 USA or visit www.sun.com if you need additional information or
  * have any questions.
  */
-package com.sun.tools.javac.comp;
+package openjdk.tools.javac.comp;
 
-import com.sun.source.tree.ClassTree;
-import com.sun.source.tree.CompilationUnitTree;
-import com.sun.source.tree.MethodTree;
-import com.sun.source.tree.VariableTree;
-import com.sun.source.util.TreePathScanner;
-import com.sun.source.util.Trees;
-import com.sun.tools.javac.api.JavacTaskImpl;
+import openjdk.source.tree.ClassTree;
+import openjdk.source.tree.CompilationUnitTree;
+import openjdk.source.tree.MethodTree;
+import openjdk.source.tree.VariableTree;
+import openjdk.source.util.TreePathScanner;
+import openjdk.source.util.Trees;
+import openjdk.tools.javac.api.JavacTaskImpl;
 import global.AnnotationProcessingTest;
 import java.io.IOException;
 import java.net.URI;
@@ -127,7 +127,7 @@ public class MemberEnterTest extends TestCase {
         String code = "package test; public class Test { private void t() { Iterable<Integer> map = null; Integer reduce = map.reduce(0, (o, t) -); } }";
 
         DiagnosticCollector<JavaFileObject> dc = new DiagnosticCollector<JavaFileObject>();
-        final JavacTaskImpl ct = (JavacTaskImpl)tool.getTask(null, null, dc, Arrays.asList("-bootclasspath",  bootPath, "-Xjcov", "-XDshouldStopPolicy=FLOW"), null, Arrays.asList(new com.sun.tools.javac.comp.AttrTest.MyFileObject(code)));
+        final JavacTaskImpl ct = (JavacTaskImpl)tool.getTask(null, null, dc, Arrays.asList("-bootclasspath",  bootPath, "-Xjcov", "-XDshouldStopPolicy=FLOW"), null, Arrays.asList(new openjdk.tools.javac.comp.AttrTest.MyFileObject(code)));
         ct.analyze();
     }
 }

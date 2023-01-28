@@ -25,7 +25,7 @@
 
 package global;
 
-import com.sun.source.util.JavacTask;
+import openjdk.source.util.JavacTask;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;

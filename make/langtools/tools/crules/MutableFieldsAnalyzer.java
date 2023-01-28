@@ -32,16 +32,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.sun.source.util.JavacTask;
-import com.sun.source.util.TaskEvent.Kind;
-import com.sun.tools.javac.tree.JCTree.JCVariableDecl;
-import com.sun.tools.javac.tree.TreeScanner;
+import openjdk.source.util.JavacTask;
+import openjdk.source.util.TaskEvent.Kind;
+import openjdk.tools.javac.tree.JCTree.JCVariableDecl;
+import openjdk.tools.javac.tree.TreeScanner;
 
-import static com.sun.tools.javac.code.Flags.ENUM;
-import static com.sun.tools.javac.code.Flags.FINAL;
-import static com.sun.tools.javac.code.Flags.STATIC;
-import static com.sun.tools.javac.code.Flags.SYNTHETIC;
-import static com.sun.tools.javac.code.Kinds.Kind.*;
+import static openjdk.tools.javac.code.Flags.ENUM;
+import static openjdk.tools.javac.code.Flags.FINAL;
+import static openjdk.tools.javac.code.Flags.STATIC;
+import static openjdk.tools.javac.code.Flags.SYNTHETIC;
+import static openjdk.tools.javac.code.Kinds.Kind.*;
 
 /**This analyzer guards against non-final static fields.*/
 public class MutableFieldsAnalyzer extends AbstractCodingRulesAnalyzer {
@@ -84,7 +84,7 @@ public class MutableFieldsAnalyzer extends AbstractCodingRulesAnalyzer {
 
     }
 
-    private static final String packageToCheck = "com.sun.tools.javac";
+    private static final String packageToCheck = "openjdk.tools.javac";
 
     private static final Map<String, Set<String>> classFieldsToIgnoreMap =
                 new HashMap<>();
@@ -94,28 +94,28 @@ public class MutableFieldsAnalyzer extends AbstractCodingRulesAnalyzer {
     };
 
     static {
-        ignoreFields("com.sun.tools.javac.util.JCDiagnostic", "fragmentFormatter");
-        ignoreFields("com.sun.tools.javac.util.JavacMessages", "defaultBundle", "defaultMessages");
-        ignoreFields("com.sun.tools.javac.file.JRTIndex", "sharedInstance");
-        ignoreFields("com.sun.tools.javac.main.JavaCompiler", "versionRB");
-        ignoreFields("com.sun.tools.javac.code.Type", "moreInfo");
-        ignoreFields("com.sun.tools.javac.util.SharedNameTable", "freelist");
-        ignoreFields("com.sun.tools.javac.util.Log", "useRawMessages");
-        ignoreFields("com.sun.tools.javac.util.JDK9Wrappers$ModuleFinder",
+        ignoreFields("openjdk.tools.javac.util.JCDiagnostic", "fragmentFormatter");
+        ignoreFields("openjdk.tools.javac.util.JavacMessages", "defaultBundle", "defaultMessages");
+        ignoreFields("openjdk.tools.javac.file.JRTIndex", "sharedInstance");
+        ignoreFields("openjdk.tools.javac.main.JavaCompiler", "versionRB");
+        ignoreFields("openjdk.tools.javac.code.Type", "moreInfo");
+        ignoreFields("openjdk.tools.javac.util.SharedNameTable", "freelist");
+        ignoreFields("openjdk.tools.javac.util.Log", "useRawMessages");
+        ignoreFields("openjdk.tools.javac.util.JDK9Wrappers$ModuleFinder",
                 "moduleFinderClass", "ofMethod");
-        ignoreFields("com.sun.tools.javac.util.JDK9Wrappers$Configuration",
+        ignoreFields("openjdk.tools.javac.util.JDK9Wrappers$Configuration",
                 "configurationClass", "resolveAndBindMethod");
-        ignoreFields("com.sun.tools.javac.util.JDK9Wrappers$Layer",
+        ignoreFields("openjdk.tools.javac.util.JDK9Wrappers$Layer",
                 "layerClass", "bootMethod", "defineModulesWithOneLoaderMethod", "configurationMethod");
-        ignoreFields("com.sun.tools.javac.util.JDK9Wrappers$Module",
+        ignoreFields("openjdk.tools.javac.util.JDK9Wrappers$Module",
                 "addExportsMethod", "addUsesMethod", "getModuleMethod", "getUnnamedModuleMethod");
-        ignoreFields("com.sun.tools.javac.util.JDK9Wrappers$ModuleDescriptor$Version",
+        ignoreFields("openjdk.tools.javac.util.JDK9Wrappers$ModuleDescriptor$Version",
                 "versionClass", "parseMethod");
-        ignoreFields("com.sun.tools.javac.util.JDK9Wrappers$ServiceLoaderHelper",
+        ignoreFields("openjdk.tools.javac.util.JDK9Wrappers$ServiceLoaderHelper",
                 "loadMethod");
-        ignoreFields("com.sun.tools.javac.util.JDK9Wrappers$VMHelper",
+        ignoreFields("openjdk.tools.javac.util.JDK9Wrappers$VMHelper",
                 "vmClass", "getRuntimeArgumentsMethod");
-        ignoreFields("com.sun.tools.javac.util.JDK9Wrappers$JmodFile",
+        ignoreFields("openjdk.tools.javac.util.JDK9Wrappers$JmodFile",
                 "jmodFileClass", "checkMagicMethod");
     }
 

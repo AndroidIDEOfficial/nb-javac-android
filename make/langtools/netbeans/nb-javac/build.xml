@@ -97,7 +97,7 @@
         <jar destfile="${dist.dir}/nb-javac-${nb-javac-ver}-android.jar">
             <fileset dir="${build.classes.dir}">
                 <include name="com/itsaky/**/*"/>
-                <include name="com/sun/**/*" />
+                <include name="openjdk/**/*" />
                 <include name="java/lang/**/*" />
                 <include name="javac/internal/**/*"/>
                 <include name="javax/annotation/**/*" />

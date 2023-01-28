@@ -45,7 +45,7 @@ public interface MessageType {
      * handy option when prototyping - but usages of custom types should be avoided in product-quality
      * resource file comments.
      *
-     * Example: 'com.sun.tools.javac.code.Flags.Flag'
+     * Example: 'openjdk.tools.javac.code.Flags.Flag'
      */
     public static class CustomType implements MessageType {
 
@@ -73,30 +73,30 @@ public interface MessageType {
      */
     public enum SimpleType implements MessageType {
 
-        ANNOTATION("annotation", "Compound", "com.sun.tools.javac.code.Attribute"),
+        ANNOTATION("annotation", "Compound", "openjdk.tools.javac.code.Attribute"),
         BOOLEAN("boolean", "boolean", null),
         COLLECTION("collection", "Collection", "java.util"),
-        FLAG("flag", "Flag", "com.sun.tools.javac.code.Flags"),
+        FLAG("flag", "Flag", "openjdk.tools.javac.code.Flags"),
         FRAGMENT("fragment", "Fragment", null),
-        DIAGNOSTIC("diagnostic", "JCDiagnostic", "com.sun.tools.javac.util"),
+        DIAGNOSTIC("diagnostic", "JCDiagnostic", "openjdk.tools.javac.util"),
         MODIFIER("modifier", "Modifier", "javax.lang.model.element"),
         FILE("file", "File", "java.io"),
         FILE_OBJECT("file object", "JavaFileObject", "javax.tools"),
         PATH("path", "Path", "java.nio.file"),
-        NAME("name", "Name", "com.sun.tools.javac.util"),
+        NAME("name", "Name", "openjdk.tools.javac.util"),
         NUMBER("number", "int", null),
-        OPTION_NAME("option name", "Option", "com.sun.tools.javac.main"),
-        PROFILE("profile", "Profile", "com.sun.tools.javac.jvm"),
-        SOURCE("source", "Source", "com.sun.tools.javac.code"),
+        OPTION_NAME("option name", "Option", "openjdk.tools.javac.main"),
+        PROFILE("profile", "Profile", "openjdk.tools.javac.jvm"),
+        SOURCE("source", "Source", "openjdk.tools.javac.code"),
         SOURCE_VERSION("source version", "SourceVersion", "javax.lang.model"),
         STRING("string", "String", null),
-        SYMBOL("symbol", "Symbol", "com.sun.tools.javac.code"),
-        SYMBOL_KIND("symbol kind", "Kind", "com.sun.tools.javac.code.Kinds"),
-        KIND_NAME("kind name", "KindName", "com.sun.tools.javac.code.Kinds"),
-        TARGET("target", "Target", "com.sun.tools.javac.jvm"),
-        TOKEN("token", "TokenKind", "com.sun.tools.javac.parser.Tokens"),
-        TREE_TAG("tree tag", "Tag", "com.sun.tools.javac.tree.JCTree"),
-        TYPE("type", "Type", "com.sun.tools.javac.code"),
+        SYMBOL("symbol", "Symbol", "openjdk.tools.javac.code"),
+        SYMBOL_KIND("symbol kind", "Kind", "openjdk.tools.javac.code.Kinds"),
+        KIND_NAME("kind name", "KindName", "openjdk.tools.javac.code.Kinds"),
+        TARGET("target", "Target", "openjdk.tools.javac.jvm"),
+        TOKEN("token", "TokenKind", "openjdk.tools.javac.parser.Tokens"),
+        TREE_TAG("tree tag", "Tag", "openjdk.tools.javac.tree.JCTree"),
+        TYPE("type", "Type", "openjdk.tools.javac.code"),
         URL("url", "URL", "java.net"),
         SET("set", "Set", "java.util"),
         LIST("list", "List", "java.util"),

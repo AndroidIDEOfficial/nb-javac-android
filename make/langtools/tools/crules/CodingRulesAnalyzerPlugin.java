@@ -34,26 +34,26 @@ import java.util.Optional;
 import javax.lang.model.element.TypeElement;
 import javax.tools.JavaFileObject;
 
-import com.sun.source.tree.Tree;
-import com.sun.source.util.JavacTask;
-import com.sun.source.util.Plugin;
-import com.sun.source.util.TaskEvent;
-import com.sun.source.util.TaskEvent.Kind;
-import com.sun.source.util.TaskListener;
-import com.sun.source.util.Trees;
-import com.sun.tools.javac.api.BasicJavacTask;
-import com.sun.tools.javac.tree.JCTree;
-import com.sun.tools.javac.util.Context;
-import com.sun.tools.javac.util.DefinedBy;
-import com.sun.tools.javac.util.DefinedBy.Api;
-import com.sun.tools.javac.util.Log;
+import openjdk.source.tree.Tree;
+import openjdk.source.util.JavacTask;
+import openjdk.source.util.Plugin;
+import openjdk.source.util.TaskEvent;
+import openjdk.source.util.TaskEvent.Kind;
+import openjdk.source.util.TaskListener;
+import openjdk.source.util.Trees;
+import openjdk.tools.javac.api.BasicJavacTask;
+import openjdk.tools.javac.tree.JCTree;
+import openjdk.tools.javac.util.Context;
+import openjdk.tools.javac.util.DefinedBy;
+import openjdk.tools.javac.util.DefinedBy.Api;
+import openjdk.tools.javac.util.Log;
 
 /*
  * This code must be run in a context that provides
  * access to the following javac internal packages:
- *      com.sun.tools.javac.api
- *      com.sun.tools.javac.tree
- *      com.sun.tools.javac.util
+ *      openjdk.tools.javac.api
+ *      openjdk.tools.javac.tree
+ *      openjdk.tools.javac.util
  */
 public class CodingRulesAnalyzerPlugin implements Plugin {
 

@@ -25,16 +25,16 @@
 
 package global;
 
-import com.sun.source.tree.CompilationUnitTree;
-import com.sun.source.tree.IdentifierTree;
-import com.sun.source.tree.VariableTree;
-import com.sun.source.util.JavacTask;
-import com.sun.source.util.TreePath;
-import com.sun.source.util.TreePathScanner;
-import com.sun.source.util.Trees;
-import com.sun.tools.javac.code.Scope;
-import com.sun.tools.javac.code.Symbol;
-import com.sun.tools.javac.code.Type;
+import openjdk.source.tree.CompilationUnitTree;
+import openjdk.source.tree.IdentifierTree;
+import openjdk.source.tree.VariableTree;
+import openjdk.source.util.JavacTask;
+import openjdk.source.util.TreePath;
+import openjdk.source.util.TreePathScanner;
+import openjdk.source.util.Trees;
+import openjdk.tools.javac.code.Scope;
+import openjdk.tools.javac.code.Symbol;
+import openjdk.tools.javac.code.Type;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Arrays;

@@ -22,29 +22,29 @@
  * CA 95054 USA or visit www.sun.com if you need additional information or
  * have any questions.
  */
-package com.sun.tools.javac.parser;
+package openjdk.tools.javac.parser;
 
-import com.sun.source.tree.BinaryTree;
-import com.sun.source.tree.BlockTree;
-import com.sun.source.tree.ClassTree;
-import com.sun.source.tree.CompilationUnitTree;
-import com.sun.source.tree.ExpressionStatementTree;
-import com.sun.source.tree.ExpressionTree;
-import com.sun.source.tree.LambdaExpressionTree;
-import com.sun.source.tree.MethodInvocationTree;
-import com.sun.source.tree.MethodTree;
-import com.sun.source.tree.ModifiersTree;
-import com.sun.source.tree.StatementTree;
-import com.sun.source.tree.Tree;
-import com.sun.source.tree.Tree.Kind;
-import com.sun.source.tree.VariableTree;
-import com.sun.source.tree.WhileLoopTree;
-import com.sun.source.util.SourcePositions;
-import com.sun.source.util.TreePathScanner;
-import com.sun.source.util.TreeScanner;
-import com.sun.source.util.Trees;
-import com.sun.tools.javac.api.JavacTaskImpl;
-import com.sun.tools.javac.tree.JCTree;
+import openjdk.source.tree.BinaryTree;
+import openjdk.source.tree.BlockTree;
+import openjdk.source.tree.ClassTree;
+import openjdk.source.tree.CompilationUnitTree;
+import openjdk.source.tree.ExpressionStatementTree;
+import openjdk.source.tree.ExpressionTree;
+import openjdk.source.tree.LambdaExpressionTree;
+import openjdk.source.tree.MethodInvocationTree;
+import openjdk.source.tree.MethodTree;
+import openjdk.source.tree.ModifiersTree;
+import openjdk.source.tree.StatementTree;
+import openjdk.source.tree.Tree;
+import openjdk.source.tree.Tree.Kind;
+import openjdk.source.tree.VariableTree;
+import openjdk.source.tree.WhileLoopTree;
+import openjdk.source.util.SourcePositions;
+import openjdk.source.util.TreePathScanner;
+import openjdk.source.util.TreeScanner;
+import openjdk.source.util.Trees;
+import openjdk.tools.javac.api.JavacTaskImpl;
+import openjdk.tools.javac.tree.JCTree;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;

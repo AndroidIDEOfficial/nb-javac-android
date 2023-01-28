@@ -22,11 +22,11 @@
  * CA 95054 USA or visit www.sun.com if you need additional information or
  * have any questions.
  */
-package com.sun.tools.javac.comp;
+package openjdk.tools.javac.comp;
 
-import com.sun.tools.classfile.ClassFile;
-import com.sun.tools.classfile.Method;
-import com.sun.tools.javac.api.JavacTaskImpl;
+import openjdk.tools.classfile.ClassFile;
+import openjdk.tools.classfile.Method;
+import openjdk.tools.javac.api.JavacTaskImpl;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

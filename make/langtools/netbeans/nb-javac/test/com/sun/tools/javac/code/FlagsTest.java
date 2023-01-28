@@ -22,7 +22,7 @@
  * CA 95054 USA or visit www.sun.com if you need additional information or
  * have any questions.
  */
-package com.sun.tools.javac.code;
+package openjdk.tools.javac.code;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;

@@ -25,11 +25,11 @@
 
 package global;
 
-import com.sun.source.tree.CompilationUnitTree;
-import com.sun.source.tree.NewClassTree;
-import com.sun.source.util.JavacTask;
-import com.sun.source.util.TreeScanner;
-import com.sun.tools.javac.tree.JCTree.JCNewClass;
+import openjdk.source.tree.CompilationUnitTree;
+import openjdk.source.tree.NewClassTree;
+import openjdk.source.util.JavacTask;
+import openjdk.source.util.TreeScanner;
+import openjdk.tools.javac.tree.JCTree.JCNewClass;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Arrays;

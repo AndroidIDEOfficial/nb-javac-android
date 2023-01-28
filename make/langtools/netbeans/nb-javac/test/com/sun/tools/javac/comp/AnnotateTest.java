@@ -23,13 +23,13 @@
  * have any questions.
  */
 
-package com.sun.tools.javac.comp;
+package openjdk.tools.javac.comp;
 
-import com.sun.source.tree.CompilationUnitTree;
-import com.sun.source.tree.IdentifierTree;
-import com.sun.source.util.TreePathScanner;
-import com.sun.source.util.Trees;
-import com.sun.tools.javac.api.JavacTaskImpl;
+import openjdk.source.tree.CompilationUnitTree;
+import openjdk.source.tree.IdentifierTree;
+import openjdk.source.util.TreePathScanner;
+import openjdk.source.util.Trees;
+import openjdk.tools.javac.api.JavacTaskImpl;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;

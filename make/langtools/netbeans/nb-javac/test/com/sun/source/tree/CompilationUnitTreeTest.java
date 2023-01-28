@@ -23,9 +23,9 @@
  * have any questions.
  */
 
-package com.sun.source.tree;
+package openjdk.source.tree;
 
-import com.sun.tools.javac.api.JavacTaskImpl;
+import openjdk.tools.javac.api.JavacTaskImpl;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Arrays;

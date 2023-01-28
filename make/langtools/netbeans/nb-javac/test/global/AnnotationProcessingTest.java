@@ -25,9 +25,9 @@
 
 package global;
 
-import com.sun.source.util.JavacTask;
-import com.sun.tools.javac.Main;
-import com.sun.tools.javac.api.JavacTaskImpl;
+import openjdk.source.util.JavacTask;
+import openjdk.tools.javac.Main;
+import openjdk.tools.javac.api.JavacTaskImpl;
 import global.ap1.AP;
 import global.ap1.ClassBasedAP;
 import global.ap1.ErrorProducingAP;

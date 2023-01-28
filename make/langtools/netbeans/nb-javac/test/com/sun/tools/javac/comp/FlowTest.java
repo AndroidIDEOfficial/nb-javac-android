@@ -22,16 +22,16 @@
  * CA 95054 USA or visit www.sun.com if you need additional information or
  * have any questions.
  */
-package com.sun.tools.javac.comp;
+package openjdk.tools.javac.comp;
 
-import com.sun.source.tree.ClassTree;
-import com.sun.source.tree.CompilationUnitTree;
-import com.sun.tools.javac.api.JavacTaskImpl;
-import com.sun.tools.javac.tree.JCTree.JCClassDecl;
-import com.sun.tools.javac.tree.JCTree.JCCompilationUnit;
-import com.sun.tools.javac.tree.TreeMaker;
-import com.sun.tools.javac.util.Context;
-import com.sun.tools.javac.util.Log;
+import openjdk.source.tree.ClassTree;
+import openjdk.source.tree.CompilationUnitTree;
+import openjdk.tools.javac.api.JavacTaskImpl;
+import openjdk.tools.javac.tree.JCTree.JCClassDecl;
+import openjdk.tools.javac.tree.JCTree.JCCompilationUnit;
+import openjdk.tools.javac.tree.TreeMaker;
+import openjdk.tools.javac.util.Context;
+import openjdk.tools.javac.util.Log;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Arrays;

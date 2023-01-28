@@ -29,20 +29,20 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.sun.source.util.JavacTask;
-import com.sun.source.util.TaskEvent.Kind;
-import com.sun.tools.javac.code.Kinds;
-import com.sun.tools.javac.code.Symbol;
-import com.sun.tools.javac.code.Symbol.MethodSymbol;
-import com.sun.tools.javac.code.Type;
-import com.sun.tools.javac.tree.JCTree.JCClassDecl;
-import com.sun.tools.javac.tree.JCTree.JCExpression;
-import com.sun.tools.javac.tree.JCTree.JCMethodInvocation;
-import com.sun.tools.javac.tree.JCTree.Tag;
-import com.sun.tools.javac.tree.TreeInfo;
-import com.sun.tools.javac.tree.TreeScanner;
-import com.sun.tools.javac.util.AbstractLog;
-import com.sun.tools.javac.util.JCDiagnostic;
+import openjdk.source.util.JavacTask;
+import openjdk.source.util.TaskEvent.Kind;
+import openjdk.tools.javac.code.Kinds;
+import openjdk.tools.javac.code.Symbol;
+import openjdk.tools.javac.code.Symbol.MethodSymbol;
+import openjdk.tools.javac.code.Type;
+import openjdk.tools.javac.tree.JCTree.JCClassDecl;
+import openjdk.tools.javac.tree.JCTree.JCExpression;
+import openjdk.tools.javac.tree.JCTree.JCMethodInvocation;
+import openjdk.tools.javac.tree.JCTree.Tag;
+import openjdk.tools.javac.tree.TreeInfo;
+import openjdk.tools.javac.tree.TreeScanner;
+import openjdk.tools.javac.util.AbstractLog;
+import openjdk.tools.javac.util.JCDiagnostic;
 
 /**This analyzer guards against legacy Log.error/warning/note methods that don't use the typed keys.*/
 public class LegacyLogMethodAnalyzer extends AbstractCodingRulesAnalyzer {
@@ -60,7 +60,7 @@ public class LegacyLogMethodAnalyzer extends AbstractCodingRulesAnalyzer {
 
         @Override
         public void visitClassDef(JCClassDecl tree) {
-            if (!tree.sym.packge().fullname.toString().startsWith("com.sun.tools.javac."))
+            if (!tree.sym.packge().fullname.toString().startsWith("openjdk.tools.javac."))
                 return ;
             super.visitClassDef(tree);
         }

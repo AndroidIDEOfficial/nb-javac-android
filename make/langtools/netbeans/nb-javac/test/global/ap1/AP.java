@@ -25,7 +25,7 @@
 
 package global.ap1;
 
-import com.sun.tools.javac.code.Symbol.ClassSymbol;
+import openjdk.tools.javac.code.Symbol.ClassSymbol;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Arrays;

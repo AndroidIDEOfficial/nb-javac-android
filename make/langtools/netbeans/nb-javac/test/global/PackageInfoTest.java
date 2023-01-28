@@ -25,8 +25,8 @@
 
 package global;
 
-import com.sun.source.tree.CompilationUnitTree;
-import com.sun.tools.javac.api.JavacTaskImpl;
+import openjdk.source.tree.CompilationUnitTree;
+import openjdk.tools.javac.api.JavacTaskImpl;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Arrays;

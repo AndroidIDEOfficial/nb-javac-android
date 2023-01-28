@@ -25,9 +25,9 @@
 
 package global;
 
-import com.sun.tools.javac.api.JavacTaskImpl;
-import com.sun.tools.javap.DisassemblerTool.DisassemblerTask;
-import com.sun.tools.javap.JavapTask;
+import openjdk.tools.javac.api.JavacTaskImpl;
+import openjdk.tools.javap.DisassemblerTool.DisassemblerTask;
+import openjdk.tools.javap.JavapTask;
 import global.ap1.AP;
 import java.io.File;
 import java.io.IOException;
@@ -523,7 +523,7 @@ public class ErrorToleranceTest extends TestCase {
             compilerOptions.addAll(Arrays.asList("-classpath", myself.toExternalForm(), "-processor", AP.class.getName(), "-s", sourceOutput.getAbsolutePath()));
         }
         JavacTaskImpl ct = (JavacTaskImpl)tool.getTask(null, mjfm, null, compilerOptions, null, Arrays.asList(new MyFileObject(code)));
-        com.sun.tools.javac.main.JavaCompiler.instance(ct.getContext()).doRepair = repair;
+        openjdk.tools.javac.main.JavaCompiler.instance(ct.getContext()).doRepair = repair;
         ct.parse();
         Iterable<? extends Element> analyze = ct.analyze();
         

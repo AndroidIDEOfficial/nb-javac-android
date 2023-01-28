@@ -31,28 +31,28 @@ import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
 import javax.tools.StandardLocation;
 
-import com.sun.source.tree.CompilationUnitTree;
-import com.sun.source.util.JavacTask;
-import com.sun.tools.javac.api.JavacTool;
-import com.sun.tools.javac.code.Flags;
-import com.sun.tools.javac.code.TypeTag;
-import com.sun.tools.javac.tree.JCTree;
-import com.sun.tools.javac.tree.JCTree.JCClassDecl;
-import com.sun.tools.javac.tree.JCTree.JCCompilationUnit;
-import com.sun.tools.javac.tree.JCTree.JCFieldAccess;
-import com.sun.tools.javac.tree.JCTree.JCIdent;
-import com.sun.tools.javac.tree.JCTree.JCImport;
-import com.sun.tools.javac.tree.JCTree.JCLiteral;
-import com.sun.tools.javac.tree.JCTree.JCMethodDecl;
-import com.sun.tools.javac.tree.JCTree.JCModifiers;
-import com.sun.tools.javac.tree.JCTree.JCVariableDecl;
-import com.sun.tools.javac.tree.Pretty;
-import com.sun.tools.javac.tree.TreeMaker;
-import com.sun.tools.javac.tree.TreeScanner;
-import com.sun.tools.javac.tree.TreeTranslator;
-import com.sun.tools.javac.util.Context;
-import com.sun.tools.javac.util.ListBuffer;
-import com.sun.tools.javac.util.Name;
+import openjdk.source.tree.CompilationUnitTree;
+import openjdk.source.util.JavacTask;
+import openjdk.tools.javac.api.JavacTool;
+import openjdk.tools.javac.code.Flags;
+import openjdk.tools.javac.code.TypeTag;
+import openjdk.tools.javac.tree.JCTree;
+import openjdk.tools.javac.tree.JCTree.JCClassDecl;
+import openjdk.tools.javac.tree.JCTree.JCCompilationUnit;
+import openjdk.tools.javac.tree.JCTree.JCFieldAccess;
+import openjdk.tools.javac.tree.JCTree.JCIdent;
+import openjdk.tools.javac.tree.JCTree.JCImport;
+import openjdk.tools.javac.tree.JCTree.JCLiteral;
+import openjdk.tools.javac.tree.JCTree.JCMethodDecl;
+import openjdk.tools.javac.tree.JCTree.JCModifiers;
+import openjdk.tools.javac.tree.JCTree.JCVariableDecl;
+import openjdk.tools.javac.tree.Pretty;
+import openjdk.tools.javac.tree.TreeMaker;
+import openjdk.tools.javac.tree.TreeScanner;
+import openjdk.tools.javac.tree.TreeTranslator;
+import openjdk.tools.javac.util.Context;
+import openjdk.tools.javac.util.ListBuffer;
+import openjdk.tools.javac.util.Name;
 import javax.tools.JavaFileManager;
 
 /**
@@ -246,7 +246,7 @@ public class GenStubs {
          */
         @Override
         public void visitModifiers(JCModifiers tree) {
-            tree.annotations = com.sun.tools.javac.util.List.nil();
+            tree.annotations = openjdk.tools.javac.util.List.nil();
             result = tree;
         }
 

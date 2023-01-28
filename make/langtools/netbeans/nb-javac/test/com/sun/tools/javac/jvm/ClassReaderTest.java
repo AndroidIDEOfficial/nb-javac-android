@@ -23,10 +23,10 @@
  * have any questions.
  */
 
-package com.sun.tools.javac.jvm;
+package openjdk.tools.javac.jvm;
 
-import com.sun.source.util.JavacTask;
-import com.sun.tools.javac.code.Symbol.ClassSymbol;
+import openjdk.source.util.JavacTask;
+import openjdk.tools.javac.code.Symbol.ClassSymbol;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

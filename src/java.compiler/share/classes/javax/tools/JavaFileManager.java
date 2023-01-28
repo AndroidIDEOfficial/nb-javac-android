@@ -352,16 +352,16 @@ public interface JavaFileManager extends Closeable, Flushable, OptionChecker {
      * located in the concatenation of the location, package name, and
      * relative name.  For example, to locate the properties file
      * "resources/compiler.properties" in the package
-     * "com.sun.tools.javac" in the {@linkplain
+     * "openjdk.tools.javac" in the {@linkplain
      * StandardLocation#SOURCE_PATH SOURCE_PATH} location, this method
      * might be called like so:
      *
-     * <pre>getFileForInput(SOURCE_PATH, "com.sun.tools.javac", "resources/compiler.properties");</pre>
+     * <pre>getFileForInput(SOURCE_PATH, "openjdk.tools.javac", "resources/compiler.properties");</pre>
      *
      * <p>If the call was executed on Windows, with SOURCE_PATH set to
      * <code>"C:\Documents&nbsp;and&nbsp;Settings\UncleBob\src\share\classes"</code>,
      * a valid result would be a file object representing the file
-     * <code>"C:\Documents&nbsp;and&nbsp;Settings\UncleBob\src\share\classes\com\sun\tools\javac\resources\compiler.properties"</code>.
+     * <code>"C:\Documents&nbsp;and&nbsp;Settings\UncleBob\src\share\classes\openjdk\tools\javac\resources\compiler.properties"</code>.
      *
      * @param location a package-oriented location
      * @param packageName a package name

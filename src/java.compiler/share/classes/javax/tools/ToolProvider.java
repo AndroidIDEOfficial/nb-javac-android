@@ -35,7 +35,7 @@ package javax.tools;
 public class ToolProvider {
 
     private static final String systemJavaCompilerModule = "jdk.compiler";
-    private static final String systemJavaCompilerName   = "com.sun.tools.javac.api.JavacTool";
+    private static final String systemJavaCompilerName   = "openjdk.tools.javac.api.JavacTool";
 
     private ToolProvider() {}
     /**

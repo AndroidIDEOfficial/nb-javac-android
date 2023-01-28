@@ -43,25 +43,25 @@ import javax.tools.JavaFileObject.Kind;
 import javax.tools.SimpleJavaFileObject;
 import javax.tools.ToolProvider;
 
-import com.sun.source.doctree.AttributeTree;
-import com.sun.source.doctree.DocCommentTree;
-import com.sun.source.doctree.DocTree;
-import com.sun.source.doctree.EndElementTree;
-import com.sun.source.doctree.EntityTree;
-import com.sun.source.doctree.InlineTagTree;
-import com.sun.source.doctree.LinkTree;
-import com.sun.source.doctree.LiteralTree;
-import com.sun.source.doctree.ParamTree;
-import com.sun.source.doctree.ReturnTree;
-import com.sun.source.doctree.StartElementTree;
-import com.sun.source.doctree.TextTree;
-import com.sun.source.doctree.ThrowsTree;
-import com.sun.source.util.DocTreeScanner;
-import com.sun.source.util.DocTrees;
-import com.sun.source.util.JavacTask;
-import com.sun.tools.javac.util.DefinedBy;
-import com.sun.tools.javac.util.DefinedBy.Api;
-import com.sun.tools.javac.util.StringUtils;
+import openjdk.source.doctree.AttributeTree;
+import openjdk.source.doctree.DocCommentTree;
+import openjdk.source.doctree.DocTree;
+import openjdk.source.doctree.EndElementTree;
+import openjdk.source.doctree.EntityTree;
+import openjdk.source.doctree.InlineTagTree;
+import openjdk.source.doctree.LinkTree;
+import openjdk.source.doctree.LiteralTree;
+import openjdk.source.doctree.ParamTree;
+import openjdk.source.doctree.ReturnTree;
+import openjdk.source.doctree.StartElementTree;
+import openjdk.source.doctree.TextTree;
+import openjdk.source.doctree.ThrowsTree;
+import openjdk.source.util.DocTreeScanner;
+import openjdk.source.util.DocTrees;
+import openjdk.source.util.JavacTask;
+import openjdk.tools.javac.util.DefinedBy;
+import openjdk.tools.javac.util.DefinedBy.Api;
+import openjdk.tools.javac.util.StringUtils;
 
 /**A javadoc to plain text formatter.
  *

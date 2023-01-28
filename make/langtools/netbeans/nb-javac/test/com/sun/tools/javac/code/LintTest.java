@@ -22,9 +22,9 @@
  * CA 95054 USA or visit www.sun.com if you need additional information or
  * have any questions.
  */
-package com.sun.tools.javac.code;
+package openjdk.tools.javac.code;
 
-import com.sun.source.util.JavacTask;
+import openjdk.source.util.JavacTask;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Arrays;

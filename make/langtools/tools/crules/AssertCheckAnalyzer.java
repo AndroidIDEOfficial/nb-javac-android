@@ -25,19 +25,19 @@
 
 package crules;
 
-import com.sun.source.tree.LambdaExpressionTree.BodyKind;
-import com.sun.source.util.JavacTask;
-import com.sun.source.util.TaskEvent.Kind;
-import com.sun.tools.javac.code.Kinds;
-import com.sun.tools.javac.code.Symbol;
-import com.sun.tools.javac.code.Type;
-import com.sun.tools.javac.tree.JCTree.JCExpression;
-import com.sun.tools.javac.tree.JCTree.JCLambda;
-import com.sun.tools.javac.tree.JCTree.JCMethodInvocation;
-import com.sun.tools.javac.tree.JCTree.Tag;
-import com.sun.tools.javac.tree.TreeInfo;
-import com.sun.tools.javac.tree.TreeScanner;
-import com.sun.tools.javac.util.Assert;
+import openjdk.source.tree.LambdaExpressionTree.BodyKind;
+import openjdk.source.util.JavacTask;
+import openjdk.source.util.TaskEvent.Kind;
+import openjdk.tools.javac.code.Kinds;
+import openjdk.tools.javac.code.Symbol;
+import openjdk.tools.javac.code.Type;
+import openjdk.tools.javac.tree.JCTree.JCExpression;
+import openjdk.tools.javac.tree.JCTree.JCLambda;
+import openjdk.tools.javac.tree.JCTree.JCMethodInvocation;
+import openjdk.tools.javac.tree.JCTree.Tag;
+import openjdk.tools.javac.tree.TreeInfo;
+import openjdk.tools.javac.tree.TreeScanner;
+import openjdk.tools.javac.util.Assert;
 
 /**This analyzer guards against complex messages (i.e. those that use string concatenation) passed
  * to various Assert.check methods.
