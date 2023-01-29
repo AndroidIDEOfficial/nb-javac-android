@@ -229,7 +229,10 @@ public class ClassGenerator {
      */
     String packageName(File file) {
         String path = file.getAbsolutePath();
-        int begin = path.lastIndexOf(File.separatorChar + "com" + File.separatorChar);
+        int begin = path.lastIndexOf(File.separatorChar + "openjdk" + File.separatorChar);
+        if (begin == -1) {
+            begin = path.lastIndexOf(File.separatorChar + "com" + File.separatorChar);
+        }
         String packagePath = path.substring(begin + 1, path.lastIndexOf(File.separatorChar));
         String packageName =  packagePath.replace(File.separatorChar, '.');
         return packageName;
