@@ -41,12 +41,12 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.TypeElement;
-import javax.lang.model.util.ElementFilter;
-import javax.tools.*;
-import javax.tools.JavaFileManager.Location;
-import javax.tools.JavaFileObject.Kind;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.TypeElement;
+import jdkx.lang.model.util.ElementFilter;
+import jdkx.tools.*;
+import jdkx.tools.JavaFileManager.Location;
+import jdkx.tools.JavaFileObject.Kind;
 import junit.framework.TestCase;
 
 /**

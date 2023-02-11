@@ -31,7 +31,7 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.code.*;
 import openjdk.tools.javac.code.Lint.LintCategory;

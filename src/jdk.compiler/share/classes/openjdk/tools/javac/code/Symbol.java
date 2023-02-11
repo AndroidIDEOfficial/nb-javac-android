@@ -36,21 +36,21 @@ import java.util.concurrent.Callable;
 import java.util.function.Supplier;
 import java.util.function.Predicate;
 
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ElementKind;
-import javax.lang.model.element.ElementVisitor;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.Modifier;
-import javax.lang.model.element.ModuleElement;
-import javax.lang.model.element.NestingKind;
-import javax.lang.model.element.PackageElement;
-import javax.lang.model.element.RecordComponentElement;
-import javax.lang.model.element.TypeElement;
-import javax.lang.model.element.TypeParameterElement;
-import javax.lang.model.element.VariableElement;
-import javax.lang.model.util.ElementScanner14;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.ElementKind;
+import jdkx.lang.model.element.ElementVisitor;
+import jdkx.lang.model.element.ExecutableElement;
+import jdkx.lang.model.element.Modifier;
+import jdkx.lang.model.element.ModuleElement;
+import jdkx.lang.model.element.NestingKind;
+import jdkx.lang.model.element.PackageElement;
+import jdkx.lang.model.element.RecordComponentElement;
+import jdkx.lang.model.element.TypeElement;
+import jdkx.lang.model.element.TypeParameterElement;
+import jdkx.lang.model.element.VariableElement;
+import jdkx.lang.model.util.ElementScanner14;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.code.Kinds.Kind;
 import openjdk.tools.javac.comp.Annotate.AnnotationTypeMetadata;
@@ -728,7 +728,7 @@ public abstract class Symbol extends AnnoConstruct implements PoolConstant, Elem
 
     /**
      * This is the implementation for {@code
-     * javax.lang.model.element.Element.getAnnotationMirrors()}.
+     * jdkx.lang.model.element.Element.getAnnotationMirrors()}.
      */
     @Override @DefinedBy(Api.LANGUAGE_MODEL)
     public List<Attribute.Compound> getAnnotationMirrors() {

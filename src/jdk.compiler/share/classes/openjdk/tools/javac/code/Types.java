@@ -38,7 +38,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
 
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.code.Attribute.RetentionPolicy;
 import openjdk.tools.javac.code.Lint.LintCategory;

@@ -33,14 +33,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ElementKind;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.Modifier;
-import javax.lang.model.type.TypeMirror;
-import javax.lang.model.util.Elements;
-import javax.lang.model.util.Types;
-import javax.tools.Diagnostic.Kind;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.ElementKind;
+import jdkx.lang.model.element.ExecutableElement;
+import jdkx.lang.model.element.Modifier;
+import jdkx.lang.model.type.TypeMirror;
+import jdkx.lang.model.util.Elements;
+import jdkx.lang.model.util.Types;
+import jdkx.tools.Diagnostic.Kind;
 
 import openjdk.source.doctree.DocCommentTree;
 import openjdk.source.tree.CompilationUnitTree;

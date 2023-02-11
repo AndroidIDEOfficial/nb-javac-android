@@ -34,7 +34,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.util.Context;
 

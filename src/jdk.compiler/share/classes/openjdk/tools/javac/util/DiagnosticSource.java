@@ -28,7 +28,7 @@ package openjdk.tools.javac.util;
 import java.io.IOException;
 import java.lang.ref.SoftReference;
 import java.nio.CharBuffer;
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.file.JavacFileManager;
 import openjdk.tools.javac.tree.EndPosTable;

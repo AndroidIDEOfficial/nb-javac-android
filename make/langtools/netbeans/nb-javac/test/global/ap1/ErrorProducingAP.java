@@ -28,13 +28,13 @@ package global.ap1;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import javax.annotation.processing.AbstractProcessor;
-import javax.annotation.processing.RoundEnvironment;
-import javax.annotation.processing.SupportedSourceVersion;
-import javax.lang.model.SourceVersion;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.TypeElement;
-import javax.tools.Diagnostic.Kind;
+import jdkx.annotation.processing.AbstractProcessor;
+import jdkx.annotation.processing.RoundEnvironment;
+import jdkx.annotation.processing.SupportedSourceVersion;
+import jdkx.lang.model.SourceVersion;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.TypeElement;
+import jdkx.tools.Diagnostic.Kind;
 
 /**
  *

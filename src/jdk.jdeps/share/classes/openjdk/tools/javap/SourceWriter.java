@@ -35,10 +35,10 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileManager.Location;
-import javax.tools.JavaFileObject;
-import javax.tools.StandardLocation;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileManager.Location;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.StandardLocation;
 
 import openjdk.tools.classfile.Attribute;
 import openjdk.tools.classfile.ClassFile;

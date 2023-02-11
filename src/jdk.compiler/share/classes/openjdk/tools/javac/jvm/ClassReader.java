@@ -38,10 +38,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.IntFunction;
 
-import javax.lang.model.element.Modifier;
-import javax.lang.model.element.NestingKind;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.Modifier;
+import jdkx.lang.model.element.NestingKind;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.code.Source.Feature;
 import openjdk.tools.javac.comp.Annotate;

@@ -31,7 +31,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.source.tree.CompilationUnitTree;
 import openjdk.source.util.TaskEvent;

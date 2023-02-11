@@ -32,10 +32,10 @@ import java.util.Set;
 import java.util.LinkedHashSet;
 import java.util.function.ToIntFunction;
 
-import javax.tools.JavaFileManager;
-import javax.tools.FileObject;
-import javax.tools.JavaFileManager.Location;
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.FileObject;
+import jdkx.tools.JavaFileManager.Location;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.code.*;
 import openjdk.tools.javac.code.Attribute.RetentionPolicy;
@@ -59,7 +59,7 @@ import static openjdk.tools.javac.code.Scope.LookupKind.NON_RECURSIVE;
 import static openjdk.tools.javac.code.TypeTag.*;
 import static openjdk.tools.javac.main.Option.*;
 
-import static javax.tools.StandardLocation.CLASS_OUTPUT;
+import static jdkx.tools.StandardLocation.CLASS_OUTPUT;
 
 /** This class provides operations to map an internal symbol table graph
  *  rooted in a ClassSymbol into a classfile.

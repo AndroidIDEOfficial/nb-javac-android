@@ -29,12 +29,12 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
-import javax.tools.Diagnostic;
-import javax.tools.DiagnosticListener;
-import javax.tools.JavaCompiler;
-import javax.tools.JavaFileObject;
-import javax.tools.SimpleJavaFileObject;
-import javax.tools.ToolProvider;
+import jdkx.tools.Diagnostic;
+import jdkx.tools.DiagnosticListener;
+import jdkx.tools.JavaCompiler;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.SimpleJavaFileObject;
+import jdkx.tools.ToolProvider;
 import junit.framework.TestCase;
 
 /**

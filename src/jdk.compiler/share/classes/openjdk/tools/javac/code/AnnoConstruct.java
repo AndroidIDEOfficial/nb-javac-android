@@ -31,7 +31,7 @@ import java.lang.annotation.Repeatable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import javax.lang.model.AnnotatedConstruct;
+import jdkx.lang.model.AnnotatedConstruct;
 
 import openjdk.tools.javac.model.AnnotationProxyMaker;
 import openjdk.tools.javac.util.DefinedBy;
@@ -58,7 +58,7 @@ public abstract class AnnoConstruct implements AnnotatedConstruct {
     public abstract List<? extends Attribute.Compound> getAnnotationMirrors();
 
 
-    // This method is part of the javax.lang.model API, do not use this in javac code.
+    // This method is part of the jdkx.lang.model API, do not use this in javac code.
     protected <A extends Annotation> Attribute.Compound getAttribute(Class<A> annoType) {
         String name = annoType.getName();
 
@@ -77,7 +77,7 @@ public abstract class AnnoConstruct implements AnnotatedConstruct {
     }
 
 
-    // This method is part of the javax.lang.model API, do not use this in javac code.
+    // This method is part of the jdkx.lang.model API, do not use this in javac code.
     @DefinedBy(Api.LANGUAGE_MODEL)
     public <A extends Annotation> A[] getAnnotationsByType(Class<A> annoType) {
 
@@ -174,7 +174,7 @@ public abstract class AnnoConstruct implements AnnotatedConstruct {
         return compounds.toArray(new Attribute.Compound[compounds.size()]);
     }
 
-    // This method is part of the javax.lang.model API, do not use this in javac code.
+    // This method is part of the jdkx.lang.model API, do not use this in javac code.
     @DefinedBy(Api.LANGUAGE_MODEL)
     public <A extends Annotation> A getAnnotation(Class<A> annoType) {
 

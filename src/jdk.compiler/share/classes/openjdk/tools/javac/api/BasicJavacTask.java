@@ -33,12 +33,12 @@ import java.util.ServiceLoader;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import javax.annotation.processing.Processor;
-import javax.lang.model.element.Element;
-import javax.lang.model.type.TypeMirror;
-import javax.lang.model.util.Elements;
-import javax.lang.model.util.Types;
-import javax.tools.JavaFileObject;
+import jdkx.annotation.processing.Processor;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.type.TypeMirror;
+import jdkx.lang.model.util.Elements;
+import jdkx.lang.model.util.Types;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.source.tree.CompilationUnitTree;
 import openjdk.source.tree.Tree;

@@ -489,10 +489,10 @@ and a limited number of previous releases, detailed in the command\-line
 help.
 .PP
 For the current release, the Java SE API consists of the
-\f[CB]java.*\f[R], \f[CB]javax.*\f[R], and \f[CB]org.*\f[R] packages that are
+\f[CB]java.*\f[R], \f[CB]jdkx.*\f[R], and \f[CB]org.*\f[R] packages that are
 exported by the Java SE modules in the release; the JDK API consists of
 the \f[CB]com.*\f[R] and \f[CB]jdk.*\f[R] packages that are exported by the
-JDK modules in the release, plus the \f[CB]javax.*\f[R] packages that are
+JDK modules in the release, plus the \f[CB]jdkx.*\f[R] packages that are
 exported by standard, but non\-Java SE, modules in the release.
 .PP
 For previous releases, the Java SE API and the JDK API are as defined in
@@ -1747,7 +1747,7 @@ The \f[CB]javac\f[R] command provides direct support for annotation
 processing.
 .PP
 The API for annotation processors is defined in the
-\f[CB]javax.annotation.processing\f[R] and \f[CB]javax.lang.model\f[R]
+\f[CB]jdkx.annotation.processing\f[R] and \f[CB]jdkx.lang.model\f[R]
 packages and subpackages.
 .SS How Annotation Processing Works
 .PP
@@ -1758,7 +1758,7 @@ The search path can be specified with the
 \f[B]\f[BC]\-processorpath\f[B]\f[R] option.
 If no path is specified, then the user class path is used.
 Processors are located by means of service provider\-configuration files
-named \f[CB]META\-INF/services/javax.annotation.processing\f[R].
+named \f[CB]META\-INF/services/jdkx.annotation.processing\f[R].
 Processor on the search path.
 Such files should contain the names of any annotation processors to be
 used, listed one per line.
@@ -1902,7 +1902,7 @@ command\-line tool.
 .RS
 .PP
 \f[B]Note\f[R]: This API should not be confused with the like\-named API
-in the \f[B]\f[BC]javax.tools\f[B]\f[R] package.
+in the \f[B]\f[BC]jdkx.tools\f[B]\f[R] package.
 .RE
 .TP
 .B The \f[CB]javac\f[R] \f[B]Legacy API\f[R]
@@ -2120,8 +2120,8 @@ For example, the following is a simple annotation processor:
 .nf
 \f[CB]
 import\ java.util.*;
-import\ javax.annotation.processing.*;
-import\ javax.lang.model.*;
+import\ jdkx.annotation.processing.*;
+import\ jdkx.lang.model.*;
 import\ javaz.lang.model.element.*;
 
 \@SupportedAnnotationTypes("NotAnno")

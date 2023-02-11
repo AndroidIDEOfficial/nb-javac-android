@@ -27,8 +27,8 @@ package openjdk.tools.javap;
 
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
-import javax.tools.DiagnosticListener;
-import javax.tools.JavaFileObject;
+import jdkx.tools.DiagnosticListener;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.file.JavacFileManager;
 import openjdk.tools.javac.util.Context;

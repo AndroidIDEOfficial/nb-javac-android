@@ -27,7 +27,7 @@ package openjdk.tools.javac.util;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.code.Lint.LintCategory;
 import openjdk.tools.javac.util.JCDiagnostic.DiagnosticFlag;

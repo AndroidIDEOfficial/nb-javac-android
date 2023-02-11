@@ -197,8 +197,8 @@ Compile the following \f[CB]HelloWorldFrame\f[R] class:
 \f[CB]
 import\ java.awt.Graphics;
 
-import\ javax.swing.JFrame;
-import\ javax.swing.JPanel;
+import\ jdkx.swing.JFrame;
+import\ jdkx.swing.JPanel;
 
 public\ class\ HelloWorldFrame\ extends\ JFrame\ {
 
@@ -229,7 +229,7 @@ the following:
 .nf
 \f[CB]
 Compiled\ from\ "HelloWorldFrame.java"
-public\ class\ HelloWorldFrame\ extends\ javax.swing.JFrame\ {
+public\ class\ HelloWorldFrame\ extends\ jdkx.swing.JFrame\ {
 \ \ java.lang.String\ message;
 \ \ public\ HelloWorldFrame();
 \ \ public\ static\ void\ main(java.lang.String[]);
@@ -243,13 +243,13 @@ yields the following:
 .nf
 \f[CB]
 Compiled\ from\ "HelloWorldFrame.java"
-public\ class\ HelloWorldFrame\ extends\ javax.swing.JFrame\ {
+public\ class\ HelloWorldFrame\ extends\ jdkx.swing.JFrame\ {
 \ \ java.lang.String\ message;
 
 \ \ public\ HelloWorldFrame();
 \ \ \ \ Code:
 \ \ \ \ \ \ \ 0:\ aload_0
-\ \ \ \ \ \ \ 1:\ invokespecial\ #1\ \ \ \ \ \ \ \ //\ Method\ javax/swing/JFrame."<init>":()V
+\ \ \ \ \ \ \ 1:\ invokespecial\ #1\ \ \ \ \ \ \ \ //\ Method\ jdkx/swing/JFrame."<init>":()V
 \ \ \ \ \ \ \ 4:\ aload_0
 \ \ \ \ \ \ \ 5:\ ldc\ \ \ \ \ \ \ \ \ \ \ #2\ \ \ \ \ \ \ \ //\ String\ Hello\ World!
 \ \ \ \ \ \ \ 7:\ putfield\ \ \ \ \ \ #3\ \ \ \ \ \ \ \ //\ Field\ message:Ljava/lang/String;

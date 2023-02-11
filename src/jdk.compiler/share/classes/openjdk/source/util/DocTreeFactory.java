@@ -27,9 +27,9 @@ package openjdk.source.util;
 
 import java.util.List;
 
-import javax.lang.model.element.Name;
-import javax.tools.Diagnostic;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.Name;
+import jdkx.tools.Diagnostic;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.source.doctree.AttributeTree;
 import openjdk.source.doctree.AttributeTree.ValueKind;
@@ -413,7 +413,7 @@ public interface DocTreeFactory {
     /**
      * Sets the position to be recorded in subsequent tree nodes created by this factory.
      * The position should be a character offset relative to the beginning of the source file
-     * or {@link javax.tools.Diagnostic#NOPOS NOPOS}.
+     * or {@link jdkx.tools.Diagnostic#NOPOS NOPOS}.
      * @param pos the position
      * @return this object, to facilitate method chaining
      */

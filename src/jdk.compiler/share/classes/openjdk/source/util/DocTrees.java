@@ -29,13 +29,13 @@ import java.io.IOException;
 import java.text.BreakIterator;
 import java.util.List;
 
-import javax.annotation.processing.ProcessingEnvironment;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.PackageElement;
-import javax.lang.model.type.TypeMirror;
-import javax.tools.Diagnostic;
-import javax.tools.FileObject;
-import javax.tools.JavaCompiler.CompilationTask;
+import jdkx.annotation.processing.ProcessingEnvironment;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.PackageElement;
+import jdkx.lang.model.type.TypeMirror;
+import jdkx.tools.Diagnostic;
+import jdkx.tools.FileObject;
+import jdkx.tools.JavaCompiler.CompilationTask;
 
 import openjdk.source.doctree.DocCommentTree;
 import openjdk.source.doctree.DocTree;

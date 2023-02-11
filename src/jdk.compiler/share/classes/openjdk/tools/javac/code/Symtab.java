@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import javax.lang.model.element.ElementVisitor;
+import jdkx.lang.model.element.ElementVisitor;
 
 import openjdk.tools.javac.code.Scope.WriteableScope;
 import openjdk.tools.javac.code.Source.Feature;

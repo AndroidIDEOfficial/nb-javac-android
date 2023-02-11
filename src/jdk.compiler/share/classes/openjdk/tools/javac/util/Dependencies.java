@@ -48,7 +48,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Stack;
 
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 /**
  *  This class is used to track dependencies in the javac symbol completion process.

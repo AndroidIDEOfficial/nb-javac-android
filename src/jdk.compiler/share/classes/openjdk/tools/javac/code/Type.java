@@ -32,7 +32,7 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import javax.lang.model.type.*;
+import jdkx.lang.model.type.*;
 
 import openjdk.tools.javac.code.Symbol.*;
 import openjdk.tools.javac.code.TypeMetadata.Entry;
@@ -684,7 +684,7 @@ public abstract class Type extends AnnoConstruct implements TypeMirror, PoolCons
     }
 
     public static class JCPrimitiveType extends Type
-            implements javax.lang.model.type.PrimitiveType {
+            implements jdkx.lang.model.type.PrimitiveType {
 
         TypeTag tag;
 
@@ -818,7 +818,7 @@ public abstract class Type extends AnnoConstruct implements TypeMirror, PoolCons
     }
 
     public static class WildcardType extends Type
-            implements javax.lang.model.type.WildcardType {
+            implements jdkx.lang.model.type.WildcardType {
 
         public Type type;
         public BoundKind kind;
@@ -946,7 +946,7 @@ public abstract class Type extends AnnoConstruct implements TypeMirror, PoolCons
     }
 
     public static class ClassType extends Type implements DeclaredType, openjdk.tools.javac.jvm.PoolConstant.LoadableConstant,
-                                                          javax.lang.model.type.ErrorType {
+                                                          jdkx.lang.model.type.ErrorType {
 
         /** The enclosing type of this type. If this is the type of an inner
          *  class, outer_field refers to the type of its enclosing
@@ -1302,7 +1302,7 @@ public abstract class Type extends AnnoConstruct implements TypeMirror, PoolCons
     }
 
     public static class ArrayType extends Type
-            implements openjdk.tools.javac.jvm.PoolConstant.LoadableConstant, javax.lang.model.type.ArrayType {
+            implements openjdk.tools.javac.jvm.PoolConstant.LoadableConstant, jdkx.lang.model.type.ArrayType {
 
         public Type elemtype;
 
@@ -2336,7 +2336,7 @@ public abstract class Type extends AnnoConstruct implements TypeMirror, PoolCons
     }
 
     public static class ErrorType extends ClassType
-            implements javax.lang.model.type.ErrorType {
+            implements jdkx.lang.model.type.ErrorType {
 
         private Type originalType = null;
 

@@ -35,13 +35,13 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.function.Supplier;
 
-import javax.lang.model.SourceVersion;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileManager.Location;
-import javax.tools.JavaFileObject;
-import javax.tools.JavaFileObject.Kind;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.StandardLocation;
+import jdkx.lang.model.SourceVersion;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileManager.Location;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject.Kind;
+import jdkx.tools.StandardJavaFileManager;
+import jdkx.tools.StandardLocation;
 
 import openjdk.tools.javac.api.ClassNamesForFileOraculum;
 import openjdk.tools.javac.code.Scope.WriteableScope;
@@ -61,7 +61,7 @@ import openjdk.tools.javac.platform.PlatformDescription;
 import openjdk.tools.javac.resources.CompilerProperties.Fragments;
 import openjdk.tools.javac.util.*;
 
-import static javax.tools.StandardLocation.*;
+import static jdkx.tools.StandardLocation.*;
 
 import static openjdk.tools.javac.code.Flags.*;
 import static openjdk.tools.javac.code.Kinds.Kind.*;
@@ -342,7 +342,7 @@ public class ClassFinder {
      * Tries to complete lexically enclosing classes if c looks like a
      * nested class.  This is similar to completeOwners but handles
      * the situation when a nested class is accessed directly as it is
-     * possible with the Tree API or javax.lang.model.*.
+     * possible with the Tree API or jdkx.lang.model.*.
      */
     private void completeEnclosing(ClassSymbol c) {
         if (c.owner.kind == PCK) {

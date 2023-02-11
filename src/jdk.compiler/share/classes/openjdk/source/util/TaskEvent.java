@@ -25,8 +25,8 @@
 
 package openjdk.source.util;
 
-import javax.lang.model.element.TypeElement;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.TypeElement;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.source.tree.CompilationUnitTree;
 

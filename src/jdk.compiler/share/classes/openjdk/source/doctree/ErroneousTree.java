@@ -25,8 +25,8 @@
 
 package openjdk.source.doctree;
 
-import javax.tools.Diagnostic;
-import javax.tools.JavaFileObject;
+import jdkx.tools.Diagnostic;
+import jdkx.tools.JavaFileObject;
 
 /**
  * A tree node to stand in for malformed text.

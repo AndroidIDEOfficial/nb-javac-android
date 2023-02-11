@@ -25,10 +25,10 @@
 
 package openjdk.tools.javac.code;
 
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ElementKind;
-import javax.lang.model.type.TypeKind;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.ElementKind;
+import jdkx.lang.model.type.TypeKind;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.code.Attribute.TypeCompound;
 import openjdk.tools.javac.code.Symbol.ClassSymbol;

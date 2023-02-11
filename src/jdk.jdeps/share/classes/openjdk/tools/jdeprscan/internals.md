@@ -67,7 +67,7 @@ JDeprScan Internals
         Loads deprecation data from the running JDK image by
         traversing the entire jrt: filesystem. This differs from
         -release 9, which traverses modules, packages, and classes by
-        starting from a set of root modules and using javax.lang.model
+        starting from a set of root modules and using jdkx.lang.model
         mechanisms (as opposed to filesystem mechanisms) for
         traversing contained elements recursively.
 
@@ -154,7 +154,7 @@ Fields are defined as follows:
 
  * _kind_ - one of CONSTRUCTOR, FIELD, METHOD, ENUM\_CONSTANT,
    CLASS, INTERFACE, ENUM, or ANNOTATION\_TYPE. These correspond to
-   enumeration constants from the `javax.lang.model.element.ElementKind`
+   enumeration constants from the `jdkx.lang.model.element.ElementKind`
    enum.
 
  * _typeName_ - the fully qualified name of the type (if *kind* is

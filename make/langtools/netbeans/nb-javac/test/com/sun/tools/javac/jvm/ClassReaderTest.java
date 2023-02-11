@@ -38,17 +38,17 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import javax.lang.model.element.TypeElement;
-import javax.lang.model.util.ElementFilter;
-import javax.tools.FileObject;
-import javax.tools.ForwardingJavaFileManager;
-import javax.tools.JavaCompiler;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileObject;
-import javax.tools.JavaFileObject.Kind;
-import javax.tools.SimpleJavaFileObject;
-import javax.tools.StandardLocation;
-import javax.tools.ToolProvider;
+import jdkx.lang.model.element.TypeElement;
+import jdkx.lang.model.util.ElementFilter;
+import jdkx.tools.FileObject;
+import jdkx.tools.ForwardingJavaFileManager;
+import jdkx.tools.JavaCompiler;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject.Kind;
+import jdkx.tools.SimpleJavaFileObject;
+import jdkx.tools.StandardLocation;
+import jdkx.tools.ToolProvider;
 import junit.framework.TestCase;
 
 /**

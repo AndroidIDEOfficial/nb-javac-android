@@ -44,7 +44,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import javax.lang.model.element.Modifier;
+import jdkx.lang.model.element.Modifier;
 
 import openjdk.tools.javac.util.Assert;
 import openjdk.tools.javac.util.StringUtils;

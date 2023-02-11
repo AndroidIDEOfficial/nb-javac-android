@@ -32,8 +32,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import javax.tools.*;
-import javax.tools.JavaFileObject.Kind;
+import jdkx.tools.*;
+import jdkx.tools.JavaFileObject.Kind;
 
 import openjdk.tools.javac.util.ClientCodeException;
 import openjdk.tools.javac.util.DefinedBy;
@@ -44,7 +44,7 @@ import openjdk.tools.javac.util.DefinedBy.Api;
  * might override some of these methods and might also provide
  * additional fields and methods.
  *
- * <p>This class might be moved to {@link javax.tools} in a future
+ * <p>This class might be moved to {@link jdkx.tools} in a future
  * release.
  *
  * <p><b>This is NOT part of any supported API.

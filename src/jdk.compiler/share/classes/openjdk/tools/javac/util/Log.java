@@ -36,8 +36,8 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.function.Predicate;
 
-import javax.tools.DiagnosticListener;
-import javax.tools.JavaFileObject;
+import jdkx.tools.DiagnosticListener;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.api.DiagnosticFormatter;
 import openjdk.tools.javac.main.Main;
@@ -90,7 +90,7 @@ public class Log extends AbstractLog {
      * client has finished using a handler, the client should call
      * {@code log.removeDiagnosticHandler();}
      *
-     * Note that javax.tools.DiagnosticListener (if set) is called later in the
+     * Note that jdkx.tools.DiagnosticListener (if set) is called later in the
      * diagnostic pipeline.
      */
     public static abstract class DiagnosticHandler {

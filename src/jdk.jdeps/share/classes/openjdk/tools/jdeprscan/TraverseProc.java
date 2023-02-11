@@ -34,22 +34,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.annotation.processing.AbstractProcessor;
-import javax.annotation.processing.Messager;
-import javax.annotation.processing.ProcessingEnvironment;
-import javax.annotation.processing.RoundEnvironment;
-import javax.annotation.processing.SupportedAnnotationTypes;
-import javax.annotation.processing.SupportedSourceVersion;
+import jdkx.annotation.processing.AbstractProcessor;
+import jdkx.annotation.processing.Messager;
+import jdkx.annotation.processing.ProcessingEnvironment;
+import jdkx.annotation.processing.RoundEnvironment;
+import jdkx.annotation.processing.SupportedAnnotationTypes;
+import jdkx.annotation.processing.SupportedSourceVersion;
 
-import javax.lang.model.SourceVersion;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ElementKind;
-import javax.lang.model.element.Modifier;
-import javax.lang.model.element.ModuleElement;
-import javax.lang.model.element.PackageElement;
-import javax.lang.model.element.TypeElement;
-import javax.lang.model.util.Elements;
-import javax.tools.Diagnostic;
+import jdkx.lang.model.SourceVersion;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.ElementKind;
+import jdkx.lang.model.element.Modifier;
+import jdkx.lang.model.element.ModuleElement;
+import jdkx.lang.model.element.PackageElement;
+import jdkx.lang.model.element.TypeElement;
+import jdkx.lang.model.util.Elements;
+import jdkx.tools.Diagnostic;
 
 @SupportedAnnotationTypes("*")
 public class TraverseProc extends AbstractProcessor {

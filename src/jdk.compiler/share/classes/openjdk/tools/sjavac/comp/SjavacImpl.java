@@ -56,7 +56,7 @@ import openjdk.tools.sjavac.options.SourceLocation;
 import openjdk.tools.sjavac.server.Sjavac;
 import java.io.UncheckedIOException;
 
-import javax.tools.JavaFileManager;
+import jdkx.tools.JavaFileManager;
 
 /**
  * The sjavac implementation that interacts with javac and performs the actual

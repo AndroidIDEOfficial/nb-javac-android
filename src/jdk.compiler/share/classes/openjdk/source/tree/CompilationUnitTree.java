@@ -26,7 +26,7 @@
 package openjdk.source.tree;
 
 import java.util.List;
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 /**
  * Represents the abstract syntax tree for ordinary compilation units

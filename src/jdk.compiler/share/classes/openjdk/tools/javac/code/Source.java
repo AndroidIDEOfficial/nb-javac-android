@@ -27,8 +27,8 @@ package openjdk.tools.javac.code;
 
 import java.util.*;
 
-import javax.lang.model.SourceVersion;
-import static javax.lang.model.SourceVersion.*;
+import jdkx.lang.model.SourceVersion;
+import static jdkx.lang.model.SourceVersion.*;
 
 import com.itsaky.androidide.config.JavacConfigProvider;
 import openjdk.tools.javac.jvm.Target;

@@ -52,14 +52,14 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import javax.annotation.processing.Processor;
-import javax.tools.ForwardingJavaFileObject;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileManager.Location;
-import javax.tools.JavaFileObject;
-import javax.tools.JavaFileObject.Kind;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.StandardLocation;
+import jdkx.annotation.processing.Processor;
+import jdkx.tools.ForwardingJavaFileObject;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileManager.Location;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject.Kind;
+import jdkx.tools.StandardJavaFileManager;
+import jdkx.tools.StandardLocation;
 
 import openjdk.source.util.Plugin;
 import openjdk.tools.javac.code.Source;

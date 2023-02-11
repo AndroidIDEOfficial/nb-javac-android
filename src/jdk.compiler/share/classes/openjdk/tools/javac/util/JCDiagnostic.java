@@ -30,8 +30,8 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import javax.tools.Diagnostic;
-import javax.tools.JavaFileObject;
+import jdkx.tools.Diagnostic;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.api.DiagnosticFormatter;
 import openjdk.tools.javac.code.Lint.LintCategory;
@@ -773,7 +773,7 @@ public class JCDiagnostic implements Diagnostic<JavaFileObject> {
     @Deprecated
     private static DiagnosticFormatter<JCDiagnostic> fragmentFormatter;
 
-    // Methods for javax.tools.Diagnostic
+    // Methods for jdkx.tools.Diagnostic
 
     @DefinedBy(Api.COMPILER)
     public Diagnostic.Kind getKind() {

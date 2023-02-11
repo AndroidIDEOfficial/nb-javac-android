@@ -1,6 +1,6 @@
 package com.itsaky.androidide.config;
 
-import javax.lang.model.SourceVersion;
+import jdkx.lang.model.SourceVersion;
 import java.lang.reflect.Field;
 
 public class JavacConfigProvider {

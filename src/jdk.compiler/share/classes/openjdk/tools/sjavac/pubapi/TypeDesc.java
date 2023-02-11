@@ -27,16 +27,16 @@ package openjdk.tools.sjavac.pubapi;
 
 import java.io.Serializable;
 
-import javax.lang.model.type.ArrayType;
-import javax.lang.model.type.DeclaredType;
-import javax.lang.model.type.ErrorType;
-import javax.lang.model.type.NoType;
-import javax.lang.model.type.PrimitiveType;
-import javax.lang.model.type.TypeKind;
-import javax.lang.model.type.TypeMirror;
-import javax.lang.model.type.TypeVariable;
-import javax.lang.model.type.TypeVisitor;
-import javax.lang.model.util.SimpleTypeVisitor14;
+import jdkx.lang.model.type.ArrayType;
+import jdkx.lang.model.type.DeclaredType;
+import jdkx.lang.model.type.ErrorType;
+import jdkx.lang.model.type.NoType;
+import jdkx.lang.model.type.PrimitiveType;
+import jdkx.lang.model.type.TypeKind;
+import jdkx.lang.model.type.TypeMirror;
+import jdkx.lang.model.type.TypeVariable;
+import jdkx.lang.model.type.TypeVisitor;
+import jdkx.lang.model.util.SimpleTypeVisitor14;
 
 import openjdk.tools.javac.code.Type.ClassType;
 import openjdk.tools.javac.util.DefinedBy;

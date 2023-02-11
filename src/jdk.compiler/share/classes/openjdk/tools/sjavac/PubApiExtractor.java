@@ -29,8 +29,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
-import javax.tools.JavaCompiler.CompilationTask;
-import javax.tools.JavaFileManager;
+import jdkx.tools.JavaCompiler.CompilationTask;
+import jdkx.tools.JavaFileManager;
 
 import openjdk.tools.javac.api.JavacTool;
 import openjdk.tools.javac.code.ClassFinder;

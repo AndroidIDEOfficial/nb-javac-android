@@ -35,9 +35,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import sun.reflect.annotation.*;
 
-import javax.lang.model.type.MirroredTypeException;
-import javax.lang.model.type.MirroredTypesException;
-import javax.lang.model.type.TypeMirror;
+import jdkx.lang.model.type.MirroredTypeException;
+import jdkx.lang.model.type.MirroredTypesException;
+import jdkx.lang.model.type.TypeMirror;
 
 import openjdk.tools.javac.code.*;
 import openjdk.tools.javac.code.Symbol.*;

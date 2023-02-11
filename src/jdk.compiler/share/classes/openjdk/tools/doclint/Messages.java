@@ -37,7 +37,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import javax.tools.Diagnostic;
+import jdkx.tools.Diagnostic;
 
 import openjdk.source.doctree.DocTree;
 import openjdk.source.tree.Tree;

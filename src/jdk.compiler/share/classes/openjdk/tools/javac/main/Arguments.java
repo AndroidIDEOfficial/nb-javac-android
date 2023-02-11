@@ -43,13 +43,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-import javax.lang.model.SourceVersion;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileManager.Location;
-import javax.tools.JavaFileObject;
-import javax.tools.JavaFileObject.Kind;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.StandardLocation;
+import jdkx.lang.model.SourceVersion;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileManager.Location;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject.Kind;
+import jdkx.tools.StandardJavaFileManager;
+import jdkx.tools.StandardLocation;
 
 import openjdk.tools.doclint.DocLint;
 import openjdk.tools.javac.code.Lint.LintCategory;

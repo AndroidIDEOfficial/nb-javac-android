@@ -41,7 +41,7 @@ public interface DocSourcePositions extends SourcePositions {
     /**
      * Returns the starting position of the tree within the comment within the file.  If tree is not found within
      * file, or if the starting position is not available,
-     * returns {@link javax.tools.Diagnostic#NOPOS}.
+     * returns {@link jdkx.tools.Diagnostic#NOPOS}.
      * The given tree should be under the given comment tree, and the given documentation
      * comment tree should be returned from a {@link DocTrees#getDocCommentTree(openjdk.source.util.TreePath) }
      * for a tree under the given file.
@@ -65,7 +65,7 @@ public interface DocSourcePositions extends SourcePositions {
     /**
      * Returns the ending position of the tree within the comment within the file.  If tree is not found within
      * file, or if the ending position is not available,
-     * returns {@link javax.tools.Diagnostic#NOPOS}.
+     * returns {@link jdkx.tools.Diagnostic#NOPOS}.
      * The given tree should be under the given comment tree, and the given documentation
      * comment tree should be returned from a {@link DocTrees#getDocCommentTree(openjdk.source.util.TreePath) }
      * for a tree under the given file.

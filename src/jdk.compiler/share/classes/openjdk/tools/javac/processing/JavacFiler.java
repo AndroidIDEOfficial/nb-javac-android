@@ -39,17 +39,17 @@ import java.util.*;
 
 import static java.util.Collections.*;
 
-import javax.annotation.processing.*;
-import javax.lang.model.SourceVersion;
-import javax.lang.model.element.NestingKind;
-import javax.lang.model.element.Modifier;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ElementKind;
-import javax.tools.*;
-import javax.tools.JavaFileManager.Location;
+import jdkx.annotation.processing.*;
+import jdkx.lang.model.SourceVersion;
+import jdkx.lang.model.element.NestingKind;
+import jdkx.lang.model.element.Modifier;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.ElementKind;
+import jdkx.tools.*;
+import jdkx.tools.JavaFileManager.Location;
 
-import static javax.tools.StandardLocation.SOURCE_OUTPUT;
-import static javax.tools.StandardLocation.CLASS_OUTPUT;
+import static jdkx.tools.StandardLocation.SOURCE_OUTPUT;
+import static jdkx.tools.StandardLocation.CLASS_OUTPUT;
 
 import openjdk.tools.javac.code.Lint;
 import openjdk.tools.javac.code.Symbol.ClassSymbol;

@@ -27,7 +27,7 @@ package openjdk.tools.javac.api;
 
 import java.util.Locale;
 import java.util.Set;
-import javax.tools.Diagnostic;
+import jdkx.tools.Diagnostic;
 import openjdk.tools.javac.api.DiagnosticFormatter.*;
 
 /**

@@ -27,7 +27,7 @@ package openjdk.tools.sjavac.pubapi;
 
 import java.io.Serializable;
 
-import javax.lang.model.type.TypeKind;
+import jdkx.lang.model.type.TypeKind;
 
 public class TypeVarTypeDesc extends TypeDesc implements Serializable {
 

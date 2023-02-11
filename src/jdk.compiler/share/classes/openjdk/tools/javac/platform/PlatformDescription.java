@@ -30,8 +30,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.processing.Processor;
-import javax.tools.JavaFileManager;
+import jdkx.annotation.processing.Processor;
+import jdkx.tools.JavaFileManager;
 
 import openjdk.source.util.Plugin;
 

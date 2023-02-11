@@ -29,7 +29,7 @@ import java.io.Serializable;
 import java.util.Optional;
 import java.util.Set;
 
-import javax.lang.model.element.Modifier;
+import jdkx.lang.model.element.Modifier;
 
 public class PubVar implements Serializable {
 

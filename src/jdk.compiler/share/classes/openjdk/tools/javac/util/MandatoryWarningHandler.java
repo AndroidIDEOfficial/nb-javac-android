@@ -28,7 +28,7 @@ package openjdk.tools.javac.util;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.code.Lint.LintCategory;
 import openjdk.tools.javac.code.Source;

@@ -46,7 +46,7 @@ import static openjdk.tools.javac.tree.JCTree.Tag.*;
 import static openjdk.tools.javac.tree.JCTree.Tag.BLOCK;
 import static openjdk.tools.javac.tree.JCTree.Tag.SYNCHRONIZED;
 
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 import java.util.function.ToIntFunction;
 

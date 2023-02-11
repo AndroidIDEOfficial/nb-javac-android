@@ -26,7 +26,7 @@
 package openjdk.tools.javac.util;
 
 import java.util.regex.Pattern;
-import javax.lang.model.SourceVersion;
+import jdkx.lang.model.SourceVersion;
 
 /**Utilities to convert an import-like string to a regexp.
  *

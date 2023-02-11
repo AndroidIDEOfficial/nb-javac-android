@@ -25,9 +25,9 @@
 
 package openjdk.tools.sjavac.comp;
 
-import javax.tools.FileObject;
-import javax.tools.ForwardingFileObject;
-import javax.tools.JavaFileManager.Location;
+import jdkx.tools.FileObject;
+import jdkx.tools.ForwardingFileObject;
+import jdkx.tools.JavaFileManager.Location;
 
 import openjdk.tools.javac.api.ClientCodeWrapper.Trusted;
 

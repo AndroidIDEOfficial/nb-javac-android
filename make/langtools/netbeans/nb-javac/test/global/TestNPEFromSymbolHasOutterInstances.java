@@ -33,10 +33,10 @@ import openjdk.tools.javac.tree.JCTree.JCNewClass;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Arrays;
-import javax.tools.JavaCompiler;
-import javax.tools.JavaFileObject;
-import javax.tools.SimpleJavaFileObject;
-import javax.tools.ToolProvider;
+import jdkx.tools.JavaCompiler;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.SimpleJavaFileObject;
+import jdkx.tools.ToolProvider;
 import junit.framework.TestCase;
 
 public class TestNPEFromSymbolHasOutterInstances extends TestCase {

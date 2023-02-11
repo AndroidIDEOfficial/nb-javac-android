@@ -23,23 +23,23 @@
  * questions.
  */
 
-package openjdk.tools.javap; //javax.tools;
+package openjdk.tools.javap; //jdkx.tools;
 
 import java.io.Writer;
 import java.nio.charset.Charset;
 import java.util.Locale;
 import java.util.concurrent.Callable;
-import javax.tools.Diagnostic;
-import javax.tools.DiagnosticListener;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileObject;
-import javax.tools.OptionChecker;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.StandardLocation;
-import javax.tools.Tool;
+import jdkx.tools.Diagnostic;
+import jdkx.tools.DiagnosticListener;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.OptionChecker;
+import jdkx.tools.StandardJavaFileManager;
+import jdkx.tools.StandardLocation;
+import jdkx.tools.Tool;
 
 /**
- * This class is intended to be put in javax.tools.
+ * This class is intended to be put in jdkx.tools.
  *
  * @see DiagnosticListener
  * @see Diagnostic

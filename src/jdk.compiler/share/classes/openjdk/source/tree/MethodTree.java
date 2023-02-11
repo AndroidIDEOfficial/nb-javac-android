@@ -26,7 +26,7 @@
 package openjdk.source.tree;
 
 import java.util.List;
-import javax.lang.model.element.Name;
+import jdkx.lang.model.element.Name;
 
 /**
  * A tree node for a method or annotation type element declaration.

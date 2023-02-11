@@ -38,7 +38,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-import javax.lang.model.element.ElementKind;
+import jdkx.lang.model.element.ElementKind;
 
 /**
  * A database of deprecations (APIs declared to be deprecated),

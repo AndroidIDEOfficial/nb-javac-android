@@ -28,7 +28,7 @@ package openjdk.tools.sjavac.pubapi;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.lang.model.element.Modifier;
+import jdkx.lang.model.element.Modifier;
 
 public class PubType implements Serializable {
 

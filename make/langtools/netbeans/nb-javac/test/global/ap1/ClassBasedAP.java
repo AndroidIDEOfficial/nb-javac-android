@@ -31,14 +31,14 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.processing.AbstractProcessor;
-import javax.annotation.processing.RoundEnvironment;
-import javax.annotation.processing.SupportedSourceVersion;
-import javax.lang.model.SourceVersion;
-import javax.lang.model.element.TypeElement;
-import javax.lang.model.util.ElementFilter;
-import javax.tools.FileObject;
-import javax.tools.StandardLocation;
+import jdkx.annotation.processing.AbstractProcessor;
+import jdkx.annotation.processing.RoundEnvironment;
+import jdkx.annotation.processing.SupportedSourceVersion;
+import jdkx.lang.model.SourceVersion;
+import jdkx.lang.model.element.TypeElement;
+import jdkx.lang.model.util.ElementFilter;
+import jdkx.tools.FileObject;
+import jdkx.tools.StandardLocation;
 
 /**
  *

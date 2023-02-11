@@ -29,9 +29,9 @@ import java.io.*;
 import java.net.URI;
 import java.nio.file.NoSuchFileException;
 
-import javax.lang.model.element.Modifier;
-import javax.lang.model.element.NestingKind;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.Modifier;
+import jdkx.lang.model.element.NestingKind;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.util.DefinedBy;
 import openjdk.tools.javac.util.DefinedBy.Api;

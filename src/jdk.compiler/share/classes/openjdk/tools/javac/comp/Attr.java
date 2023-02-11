@@ -28,8 +28,8 @@ package openjdk.tools.javac.comp;
 import java.util.*;
 import java.util.function.BiConsumer;
 
-import javax.lang.model.element.ElementKind;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.ElementKind;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.source.tree.CaseTree;
 import openjdk.source.tree.IdentifierTree;

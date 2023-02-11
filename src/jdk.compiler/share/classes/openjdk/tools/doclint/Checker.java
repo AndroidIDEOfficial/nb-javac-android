@@ -41,15 +41,15 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ElementKind;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.Name;
-import javax.lang.model.element.VariableElement;
-import javax.lang.model.type.TypeKind;
-import javax.lang.model.type.TypeMirror;
-import javax.tools.Diagnostic.Kind;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.ElementKind;
+import jdkx.lang.model.element.ExecutableElement;
+import jdkx.lang.model.element.Name;
+import jdkx.lang.model.element.VariableElement;
+import jdkx.lang.model.type.TypeKind;
+import jdkx.lang.model.type.TypeMirror;
+import jdkx.tools.Diagnostic.Kind;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.source.doctree.AttributeTree;
 import openjdk.source.doctree.AuthorTree;

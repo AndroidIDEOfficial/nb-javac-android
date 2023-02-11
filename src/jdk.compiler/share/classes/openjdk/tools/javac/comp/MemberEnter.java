@@ -27,8 +27,8 @@ package openjdk.tools.javac.comp;
 
 import java.util.EnumSet;
 import java.util.Set;
-import javax.lang.model.element.ElementKind;
-import javax.lang.model.element.Modifier;
+import jdkx.lang.model.element.ElementKind;
+import jdkx.lang.model.element.Modifier;
 
 import openjdk.tools.javac.code.*;
 import openjdk.tools.javac.code.Scope.WriteableScope;

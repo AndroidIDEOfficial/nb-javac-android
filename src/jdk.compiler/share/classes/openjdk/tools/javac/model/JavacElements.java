@@ -35,12 +35,12 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import javax.lang.model.AnnotatedConstruct;
-import javax.lang.model.SourceVersion;
-import javax.lang.model.element.*;
-import javax.lang.model.type.DeclaredType;
-import javax.lang.model.util.Elements;
-import static javax.lang.model.util.ElementFilter.methodsIn;
+import jdkx.lang.model.AnnotatedConstruct;
+import jdkx.lang.model.SourceVersion;
+import jdkx.lang.model.element.*;
+import jdkx.lang.model.type.DeclaredType;
+import jdkx.lang.model.util.Elements;
+import static jdkx.lang.model.util.ElementFilter.methodsIn;
 
 import openjdk.source.util.JavacTask;
 import openjdk.tools.javac.api.JavacTaskImpl;

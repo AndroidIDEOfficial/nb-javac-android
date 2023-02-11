@@ -27,17 +27,17 @@ package openjdk.source.util;
 
 import java.lang.reflect.Method;
 
-import javax.annotation.processing.ProcessingEnvironment;
-import javax.lang.model.element.AnnotationMirror;
-import javax.lang.model.element.AnnotationValue;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.TypeElement;
-import javax.lang.model.type.DeclaredType;
-import javax.lang.model.type.ErrorType;
-import javax.lang.model.type.TypeMirror;
-import javax.tools.Diagnostic;
-import javax.tools.JavaCompiler.CompilationTask;
+import jdkx.annotation.processing.ProcessingEnvironment;
+import jdkx.lang.model.element.AnnotationMirror;
+import jdkx.lang.model.element.AnnotationValue;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.ExecutableElement;
+import jdkx.lang.model.element.TypeElement;
+import jdkx.lang.model.type.DeclaredType;
+import jdkx.lang.model.type.ErrorType;
+import jdkx.lang.model.type.TypeMirror;
+import jdkx.tools.Diagnostic;
+import jdkx.tools.JavaCompiler.CompilationTask;
 
 import openjdk.source.tree.CatchTree;
 import openjdk.source.tree.ClassTree;

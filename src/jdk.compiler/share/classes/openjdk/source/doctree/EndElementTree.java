@@ -25,7 +25,7 @@
 
 package openjdk.source.doctree;
 
-import javax.lang.model.element.Name;
+import jdkx.lang.model.element.Name;
 
 /**
  * A tree node for the end of an HTML element.

@@ -71,8 +71,8 @@ import static openjdk.tools.javac.code.Kinds.Kind.*;
 import static openjdk.tools.javac.code.TypeTag.*;
 import static openjdk.tools.javac.tree.JCTree.Tag.*;
 
-import javax.lang.model.element.ElementKind;
-import javax.lang.model.type.TypeKind;
+import jdkx.lang.model.element.ElementKind;
+import jdkx.lang.model.type.TypeKind;
 
 import openjdk.tools.javac.main.Option;
 

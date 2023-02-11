@@ -40,11 +40,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import javax.tools.Diagnostic;
-import javax.tools.DiagnosticListener;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileObject;
-import javax.tools.StandardLocation;
+import jdkx.tools.Diagnostic;
+import jdkx.tools.DiagnosticListener;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.StandardLocation;
 
 import openjdk.source.tree.ClassTree;
 import openjdk.source.tree.CompilationUnitTree;
@@ -126,7 +126,7 @@ public class JavacTaskPool {
         this.maxPoolSize = maxPoolSize;
     }
 
-    /**Creates a new task as if by {@link javax.tools.JavaCompiler#getTask} and runs the provided
+    /**Creates a new task as if by {@link jdkx.tools.JavaCompiler#getTask} and runs the provided
      * worker with it. The task is only valid while the worker is running. The internal structures
      * may be reused from some previous compilation.
      *

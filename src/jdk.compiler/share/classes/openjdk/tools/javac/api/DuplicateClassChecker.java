@@ -24,8 +24,8 @@
  */
 package openjdk.tools.javac.api;
 
-import javax.lang.model.element.Name;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.Name;
+import jdkx.tools.JavaFileObject;
 
 /**
  *

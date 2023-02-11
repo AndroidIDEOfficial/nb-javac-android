@@ -29,8 +29,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.lang.model.element.Element;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.Element;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.code.Symbol.ClassSymbol;
 import openjdk.tools.javac.util.Context;

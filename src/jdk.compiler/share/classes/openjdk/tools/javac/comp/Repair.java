@@ -76,8 +76,8 @@ import openjdk.tools.javac.util.Options;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
-import javax.lang.model.element.ElementKind;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.ElementKind;
+import jdkx.tools.JavaFileObject;
 
 
 /**

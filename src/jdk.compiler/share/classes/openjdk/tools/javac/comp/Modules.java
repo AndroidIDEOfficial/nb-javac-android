@@ -44,12 +44,12 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import javax.lang.model.SourceVersion;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileManager.Location;
-import javax.tools.JavaFileObject;
-import javax.tools.JavaFileObject.Kind;
-import javax.tools.StandardLocation;
+import jdkx.lang.model.SourceVersion;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileManager.Location;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject.Kind;
+import jdkx.tools.StandardLocation;
 
 import openjdk.source.tree.ModuleTree.ModuleKind;
 import openjdk.tools.javac.code.ClassFinder;

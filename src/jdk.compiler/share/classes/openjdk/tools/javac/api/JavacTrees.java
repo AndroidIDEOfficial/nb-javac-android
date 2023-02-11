@@ -35,27 +35,27 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.WeakHashMap;
 
-import javax.annotation.processing.ProcessingEnvironment;
-import javax.lang.model.element.AnnotationMirror;
-import javax.lang.model.element.AnnotationValue;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ElementKind;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.Modifier;
-import javax.lang.model.element.NestingKind;
-import javax.lang.model.element.PackageElement;
-import javax.lang.model.element.TypeElement;
-import javax.lang.model.type.DeclaredType;
-import javax.lang.model.type.TypeKind;
-import javax.lang.model.type.TypeMirror;
-import javax.tools.Diagnostic;
-import javax.tools.FileObject;
-import javax.tools.ForwardingFileObject;
-import javax.tools.JavaCompiler;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileObject;
-import javax.tools.JavaFileObject.Kind;
-import javax.tools.StandardLocation;
+import jdkx.annotation.processing.ProcessingEnvironment;
+import jdkx.lang.model.element.AnnotationMirror;
+import jdkx.lang.model.element.AnnotationValue;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.ElementKind;
+import jdkx.lang.model.element.ExecutableElement;
+import jdkx.lang.model.element.Modifier;
+import jdkx.lang.model.element.NestingKind;
+import jdkx.lang.model.element.PackageElement;
+import jdkx.lang.model.element.TypeElement;
+import jdkx.lang.model.type.DeclaredType;
+import jdkx.lang.model.type.TypeKind;
+import jdkx.lang.model.type.TypeMirror;
+import jdkx.tools.Diagnostic;
+import jdkx.tools.FileObject;
+import jdkx.tools.ForwardingFileObject;
+import jdkx.tools.JavaCompiler;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject.Kind;
+import jdkx.tools.StandardLocation;
 
 import openjdk.source.doctree.DocCommentTree;
 import openjdk.source.doctree.DocTree;
@@ -1303,7 +1303,7 @@ public class JavacTrees extends DocTrees {
      *         noType (type.tag == NONE) is returned if there is no original type.
      */
     @Override @DefinedBy(Api.COMPILER_TREE)
-    public TypeMirror getOriginalType(javax.lang.model.type.ErrorType errorType) {
+    public TypeMirror getOriginalType(jdkx.lang.model.type.ErrorType errorType) {
          if (errorType instanceof openjdk.tools.javac.code.Type.ErrorType) {
             return ((openjdk.tools.javac.code.Type.ErrorType)errorType).getOriginalType();
         }

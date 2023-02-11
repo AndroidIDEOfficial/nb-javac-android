@@ -29,9 +29,9 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.*;
 
-import javax.lang.model.element.Modifier;
-import javax.lang.model.type.TypeKind;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.Modifier;
+import jdkx.lang.model.type.TypeKind;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.source.tree.*;
 import openjdk.tools.javac.code.*;
@@ -47,7 +47,7 @@ import openjdk.tools.javac.util.List;
 
 import static openjdk.tools.javac.tree.JCTree.Tag.*;
 
-import javax.tools.JavaFileManager.Location;
+import jdkx.tools.JavaFileManager.Location;
 
 import openjdk.source.tree.ModuleTree.ModuleKind;
 import openjdk.tools.javac.code.Directive.ExportsDirective;

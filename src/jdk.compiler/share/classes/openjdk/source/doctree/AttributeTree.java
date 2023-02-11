@@ -26,7 +26,7 @@
 package openjdk.source.doctree;
 
 import java.util.List;
-import javax.lang.model.element.Name;
+import jdkx.lang.model.element.Name;
 
 /**
  * A tree node for an attribute in an HTML element.

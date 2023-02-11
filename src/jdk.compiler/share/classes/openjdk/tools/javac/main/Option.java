@@ -47,7 +47,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import javax.lang.model.SourceVersion;
+import jdkx.lang.model.SourceVersion;
 
 import openjdk.tools.doclint.DocLint;
 import openjdk.tools.javac.code.Lint;

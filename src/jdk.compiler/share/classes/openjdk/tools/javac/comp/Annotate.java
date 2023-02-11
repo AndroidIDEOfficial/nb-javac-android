@@ -45,7 +45,7 @@ import openjdk.tools.javac.util.*;
 import openjdk.tools.javac.util.JCDiagnostic.DiagnosticPosition;
 import openjdk.tools.javac.util.List;
 
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 import java.util.*;
 

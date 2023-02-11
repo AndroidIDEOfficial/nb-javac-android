@@ -33,12 +33,12 @@ import java.util.Iterator;
 import java.util.ServiceLoader;
 import java.util.Set;
 
-import javax.tools.FileObject;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileManager.Location;
-import javax.tools.JavaFileObject;
-import javax.tools.JavaFileObject.Kind;
-import javax.tools.StandardJavaFileManager;
+import jdkx.tools.FileObject;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileManager.Location;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject.Kind;
+import jdkx.tools.StandardJavaFileManager;
 
 import openjdk.tools.javac.util.Context;
 

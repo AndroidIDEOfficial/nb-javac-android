@@ -25,14 +25,14 @@
 
 package openjdk.tools.sjavac.comp;
 
-import static javax.lang.model.element.Modifier.PRIVATE;
+import static jdkx.lang.model.element.Modifier.PRIVATE;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.lang.model.element.*;
-import javax.lang.model.type.TypeMirror;
-import javax.lang.model.util.ElementScanner14;
+import jdkx.lang.model.element.*;
+import jdkx.lang.model.type.TypeMirror;
+import jdkx.lang.model.util.ElementScanner14;
 
 import openjdk.tools.javac.code.Symbol.ClassSymbol;
 import openjdk.tools.javac.util.DefinedBy;

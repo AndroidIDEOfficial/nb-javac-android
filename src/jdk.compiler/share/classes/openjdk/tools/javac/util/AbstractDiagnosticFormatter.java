@@ -34,7 +34,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.api.DiagnosticFormatter;
 import openjdk.tools.javac.api.DiagnosticFormatter.Configuration.DiagnosticPart;

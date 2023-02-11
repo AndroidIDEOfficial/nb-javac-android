@@ -25,8 +25,8 @@
 
 package openjdk.tools.jdeprscan;
 
-import javax.lang.model.element.ElementKind;
-import javax.lang.model.element.TypeElement;
+import jdkx.lang.model.element.ElementKind;
+import jdkx.lang.model.element.TypeElement;
 
 /**
  * A simple data class that contains language model data (TypeElement, etc.)

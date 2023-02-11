@@ -26,7 +26,7 @@
 package openjdk.source.util;
 
 import java.util.ServiceLoader;
-import javax.tools.StandardLocation;
+import jdkx.tools.StandardLocation;
 
 /**
  * The interface for a javac plug-in.

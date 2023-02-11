@@ -25,7 +25,7 @@
 
 package openjdk.tools.javac.tree;
 
-import javax.tools.Diagnostic;
+import jdkx.tools.Diagnostic;
 
 import openjdk.source.doctree.*;
 import openjdk.tools.javac.code.Symbol;
@@ -42,8 +42,8 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.List;
 
-import javax.lang.model.element.Name;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.Name;
+import jdkx.tools.JavaFileObject;
 
 /**
  * <p><b>This is NOT part of any supported API.

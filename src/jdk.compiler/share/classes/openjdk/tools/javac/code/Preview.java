@@ -40,7 +40,7 @@ import openjdk.tools.javac.util.Log;
 import openjdk.tools.javac.util.MandatoryWarningHandler;
 import openjdk.tools.javac.util.Options;
 
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;

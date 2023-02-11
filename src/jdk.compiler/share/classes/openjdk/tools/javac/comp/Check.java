@@ -29,9 +29,9 @@ import java.util.*;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-import javax.lang.model.element.NestingKind;
-import javax.tools.JavaFileManager;
-import javax.lang.model.element.ElementKind;
+import jdkx.lang.model.element.NestingKind;
+import jdkx.tools.JavaFileManager;
+import jdkx.lang.model.element.ElementKind;
 
 import openjdk.source.tree.CaseTree;
 import openjdk.tools.javac.code.*;
@@ -2875,7 +2875,7 @@ public class Check {
     private boolean belongsToRestrictedPackage(Symbol sym) {
         String fullName = sym.packge().fullname.toString();
         return fullName.startsWith("java.") ||
-                fullName.startsWith("javax.") ||
+                fullName.startsWith("jdkx.") ||
                 fullName.startsWith("sun.") ||
                 fullName.contains(".internal.");
     }

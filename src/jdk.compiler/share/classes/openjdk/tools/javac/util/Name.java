@@ -39,7 +39,7 @@ import openjdk.tools.javac.model.LazyTreeLoader;
  *  This code and its internal interfaces are subject to change or
  *  deletion without notice.</b>
  */
-public abstract class Name implements javax.lang.model.element.Name, PoolConstant {
+public abstract class Name implements jdkx.lang.model.element.Name, PoolConstant {
 
     public final Table table;
 

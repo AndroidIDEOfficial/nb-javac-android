@@ -30,12 +30,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.TypeElement;
-import javax.lang.model.element.VariableElement;
-import javax.lang.model.util.ElementScanner14;
-import javax.tools.JavaFileObject;
-import javax.tools.JavaFileManager;
+import jdkx.lang.model.element.ExecutableElement;
+import jdkx.lang.model.element.TypeElement;
+import jdkx.lang.model.element.VariableElement;
+import jdkx.lang.model.util.ElementScanner14;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.JavaFileManager;
 
 import openjdk.tools.javac.api.DuplicateClassChecker;
 import openjdk.tools.javac.code.*;

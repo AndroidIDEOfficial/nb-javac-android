@@ -49,15 +49,15 @@ import java.util.Objects;
 import java.util.ServiceLoader;
 import java.util.Set;
 
-import javax.lang.model.element.Modifier;
-import javax.lang.model.element.NestingKind;
-import javax.tools.Diagnostic;
-import javax.tools.DiagnosticListener;
-import javax.tools.FileObject;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileObject;
-import javax.tools.JavaFileObject.Kind;
-import javax.tools.StandardJavaFileManager;
+import jdkx.lang.model.element.Modifier;
+import jdkx.lang.model.element.NestingKind;
+import jdkx.tools.Diagnostic;
+import jdkx.tools.DiagnosticListener;
+import jdkx.tools.FileObject;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject.Kind;
+import jdkx.tools.StandardJavaFileManager;
 
 import openjdk.source.util.TaskEvent;
 import openjdk.source.util.TaskListener;

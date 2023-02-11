@@ -52,15 +52,15 @@ import java.util.stream.StreamSupport;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import javax.tools.Diagnostic;
-import javax.tools.DiagnosticListener;
-import javax.tools.JavaCompiler;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileObject;
-import javax.tools.JavaFileObject.Kind;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.StandardLocation;
-import javax.tools.ToolProvider;
+import jdkx.tools.Diagnostic;
+import jdkx.tools.DiagnosticListener;
+import jdkx.tools.JavaCompiler;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject.Kind;
+import jdkx.tools.StandardJavaFileManager;
+import jdkx.tools.StandardLocation;
+import jdkx.tools.ToolProvider;
 
 import com.itsaky.androidide.config.JavacConfigProvider;
 import openjdk.tools.javac.file.JavacFileManager;
@@ -70,8 +70,8 @@ import openjdk.tools.jdeprscan.scan.Scan;
 
 import static java.util.stream.Collectors.*;
 
-import javax.lang.model.element.PackageElement;
-import javax.lang.model.element.TypeElement;
+import jdkx.lang.model.element.PackageElement;
+import jdkx.lang.model.element.TypeElement;
 
 /**
  * Deprecation Scanner tool. Loads API deprecation information from the

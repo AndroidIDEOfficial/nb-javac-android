@@ -28,7 +28,7 @@ package openjdk.tools.sjavac.comp;
 import openjdk.tools.sjavac.Log;
 
 import java.io.*;
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 /**
  * The SmartWriter will cache the written data and when the writer is closed,

@@ -45,7 +45,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.Set;
 
-import javax.tools.FileObject;
+import jdkx.tools.FileObject;
 
 import com.itsaky.androidide.config.JavacConfigProvider;
 import com.itsaky.androidide.zipfs2.AndroidFsProvider;

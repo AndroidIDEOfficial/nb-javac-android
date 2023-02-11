@@ -30,8 +30,8 @@ import java.util.EnumSet;
 import java.util.Locale;
 import java.util.Set;
 
-import javax.lang.model.element.ModuleElement;
-import javax.lang.model.element.ModuleElement.DirectiveVisitor;
+import jdkx.lang.model.element.ModuleElement;
+import jdkx.lang.model.element.ModuleElement.DirectiveVisitor;
 
 import openjdk.tools.javac.api.Messages;
 import openjdk.tools.javac.code.Symbol.ClassSymbol;

@@ -37,8 +37,8 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.lang.model.SourceVersion;
-import javax.tools.*;
+import jdkx.lang.model.SourceVersion;
+import jdkx.tools.*;
 
 import com.itsaky.androidide.config.JavacConfigProvider;
 import openjdk.source.util.JavacTask;
@@ -71,8 +71,8 @@ public final class JavacTool implements JavaCompiler {
      * Constructor used by service provider mechanism.  The recommended way to
      * obtain an instance of this class is by using {@link #create} or the
      * service provider mechanism.
-     * @see javax.tools.JavaCompiler
-     * @see javax.tools.ToolProvider
+     * @see jdkx.tools.JavaCompiler
+     * @see jdkx.tools.ToolProvider
      * @see #create
      */
     @Deprecated

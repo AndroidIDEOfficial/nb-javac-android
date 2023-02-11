@@ -27,7 +27,7 @@ package openjdk.tools.javac.code;
 
 import openjdk.source.tree.Tree.Kind;
 
-import javax.lang.model.type.TypeKind;
+import jdkx.lang.model.type.TypeKind;
 
 import static openjdk.tools.javac.code.TypeTag.NumericClasses.*;
 

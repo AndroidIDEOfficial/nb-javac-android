@@ -31,7 +31,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import javax.lang.model.element.Name;
+import jdkx.lang.model.element.Name;
 
 import openjdk.tools.javac.util.StringUtils;
 

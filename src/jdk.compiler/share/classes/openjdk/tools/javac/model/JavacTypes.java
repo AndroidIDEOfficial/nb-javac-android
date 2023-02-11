@@ -33,8 +33,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import javax.lang.model.element.*;
-import javax.lang.model.type.*;
+import jdkx.lang.model.element.*;
+import jdkx.lang.model.type.*;
 
 import openjdk.tools.javac.code.*;
 import openjdk.tools.javac.code.Symbol.*;
@@ -52,7 +52,7 @@ import static openjdk.tools.javac.code.Kinds.Kind.*;
  * risk.  This code and its internal interfaces are subject to change
  * or deletion without notice.</b></p>
  */
-public class JavacTypes implements javax.lang.model.util.Types {
+public class JavacTypes implements jdkx.lang.model.util.Types {
 
     private final Symtab syms;
     private final Types types;

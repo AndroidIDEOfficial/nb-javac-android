@@ -67,16 +67,16 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import javax.lang.model.SourceVersion;
-import javax.lang.model.element.NestingKind;
-import javax.lang.model.element.TypeElement;
-import javax.tools.FileObject;
-import javax.tools.ForwardingJavaFileManager;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileObject;
-import javax.tools.SimpleJavaFileObject;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.StandardLocation;
+import jdkx.lang.model.SourceVersion;
+import jdkx.lang.model.element.NestingKind;
+import jdkx.lang.model.element.TypeElement;
+import jdkx.tools.FileObject;
+import jdkx.tools.ForwardingJavaFileManager;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.SimpleJavaFileObject;
+import jdkx.tools.StandardJavaFileManager;
+import jdkx.tools.StandardLocation;
 
 import openjdk.source.util.JavacTask;
 import openjdk.source.util.TaskEvent;
@@ -88,7 +88,7 @@ import openjdk.tools.javac.util.JCDiagnostic.Error;
 
 import jdk.internal.misc.VM;
 
-import static javax.tools.JavaFileObject.Kind.SOURCE;
+import static jdkx.tools.JavaFileObject.Kind.SOURCE;
 
 /**
  * Compiles a source file, and executes the main method it contains.

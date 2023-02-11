@@ -35,8 +35,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import javax.tools.*;
-import javax.tools.JavaFileObject.Kind;
+import jdkx.tools.*;
+import jdkx.tools.JavaFileObject.Kind;
 
 import openjdk.tools.javac.file.JavacFileManager;
 import openjdk.tools.javac.util.DefinedBy;

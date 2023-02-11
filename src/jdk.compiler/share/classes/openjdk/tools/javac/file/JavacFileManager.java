@@ -62,11 +62,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import javax.lang.model.SourceVersion;
-import javax.tools.FileObject;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileObject;
-import javax.tools.StandardJavaFileManager;
+import jdkx.lang.model.SourceVersion;
+import jdkx.tools.FileObject;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.StandardJavaFileManager;
 
 import openjdk.tools.javac.file.RelativePath.RelativeDirectory;
 import openjdk.tools.javac.file.RelativePath.RelativeFile;
@@ -85,7 +85,7 @@ import java.io.StringWriter;
 import static java.nio.file.FileVisitOption.FOLLOW_LINKS;
 import java.util.Optional;
 
-import static javax.tools.StandardLocation.*;
+import static jdkx.tools.StandardLocation.*;
 
 /**
  * This class provides access to the source, class and other files used by the
@@ -1346,7 +1346,7 @@ public class JavacFileManager extends BaseFileManager implements StandardJavaFil
      * @return a relative URI
      * @throws IllegalArgumentException if the file name is not relative
      * according to the definition given in {@link
-     * javax.tools.JavaFileManager#getFileForInput}
+     * jdkx.tools.JavaFileManager#getFileForInput}
      */
     public static String getRelativeName(File file) {
         if (!file.isAbsolute()) {

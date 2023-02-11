@@ -39,16 +39,16 @@ import java.util.function.Predicate;
 import java.util.regex.*;
 import java.util.stream.Collectors;
 
-import javax.annotation.processing.*;
-import javax.lang.model.SourceVersion;
-import javax.lang.model.element.*;
-import javax.lang.model.util.*;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileObject;
-import javax.tools.JavaFileObject.Kind;
-import javax.tools.StandardJavaFileManager;
+import jdkx.annotation.processing.*;
+import jdkx.lang.model.SourceVersion;
+import jdkx.lang.model.element.*;
+import jdkx.lang.model.util.*;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject.Kind;
+import jdkx.tools.StandardJavaFileManager;
 
-import static javax.tools.StandardLocation.*;
+import static jdkx.tools.StandardLocation.*;
 
 import openjdk.source.util.TaskEvent;
 import openjdk.tools.javac.api.MultiTaskListener;

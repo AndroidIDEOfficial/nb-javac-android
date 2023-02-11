@@ -31,25 +31,25 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import javax.annotation.processing.AbstractProcessor;
-import javax.annotation.processing.Messager;
-import javax.annotation.processing.ProcessingEnvironment;
-import javax.annotation.processing.RoundEnvironment;
-import javax.annotation.processing.SupportedAnnotationTypes;
-import javax.annotation.processing.SupportedSourceVersion;
+import jdkx.annotation.processing.AbstractProcessor;
+import jdkx.annotation.processing.Messager;
+import jdkx.annotation.processing.ProcessingEnvironment;
+import jdkx.annotation.processing.RoundEnvironment;
+import jdkx.annotation.processing.SupportedAnnotationTypes;
+import jdkx.annotation.processing.SupportedSourceVersion;
 
-import javax.lang.model.SourceVersion;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ElementKind;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.TypeElement;
-import javax.lang.model.type.ArrayType;
-import javax.lang.model.type.DeclaredType;
-import javax.lang.model.type.ExecutableType;
-import javax.lang.model.type.TypeMirror;
-import javax.lang.model.util.Elements;
+import jdkx.lang.model.SourceVersion;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.ElementKind;
+import jdkx.lang.model.element.ExecutableElement;
+import jdkx.lang.model.element.TypeElement;
+import jdkx.lang.model.type.ArrayType;
+import jdkx.lang.model.type.DeclaredType;
+import jdkx.lang.model.type.ExecutableType;
+import jdkx.lang.model.type.TypeMirror;
+import jdkx.lang.model.util.Elements;
 
-import javax.tools.Diagnostic;
+import jdkx.tools.Diagnostic;
 
 /**
  * Annotation processor for the Deprecation Scanner tool.

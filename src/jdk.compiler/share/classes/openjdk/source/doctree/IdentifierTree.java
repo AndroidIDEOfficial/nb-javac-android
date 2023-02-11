@@ -25,7 +25,7 @@
 
 package openjdk.source.doctree;
 
-import javax.lang.model.element.Name;
+import jdkx.lang.model.element.Name;
 
 /**
  * An identifier in a documentation comment.

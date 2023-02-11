@@ -27,7 +27,7 @@ package openjdk.tools.javac.util;
 
 import openjdk.source.tree.Tree;
 import openjdk.tools.javac.code.Symbol.ClassSymbol;
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 /**
  *

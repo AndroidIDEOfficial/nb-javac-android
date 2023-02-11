@@ -71,7 +71,7 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-import javax.lang.model.element.ElementVisitor;
+import jdkx.lang.model.element.ElementVisitor;
 
 import static openjdk.tools.javac.code.Flags.*;
 import static openjdk.tools.javac.code.Flags.BLOCK;

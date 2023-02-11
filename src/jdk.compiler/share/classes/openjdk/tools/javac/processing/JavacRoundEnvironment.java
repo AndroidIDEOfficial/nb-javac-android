@@ -26,9 +26,9 @@
 package openjdk.tools.javac.processing;
 
 import java.lang.annotation.Annotation;
-import javax.annotation.processing.*;
-import javax.lang.model.element.*;
-import javax.lang.model.util.*;
+import jdkx.annotation.processing.*;
+import jdkx.lang.model.element.*;
+import jdkx.lang.model.util.*;
 import java.util.*;
 
 import openjdk.tools.javac.code.Source.Feature;

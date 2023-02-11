@@ -25,7 +25,7 @@
 
 package openjdk.tools.javac.api;
 
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 /**
  * <p><b>This is NOT part of any API supported by Sun Microsystems.

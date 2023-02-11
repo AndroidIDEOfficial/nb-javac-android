@@ -39,14 +39,14 @@ import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.function.Function;
 
-import javax.annotation.processing.Processor;
-import javax.lang.model.SourceVersion;
-import javax.lang.model.element.ElementVisitor;
-import javax.tools.DiagnosticListener;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileObject;
-import javax.tools.JavaFileObject.Kind;
-import javax.tools.StandardLocation;
+import jdkx.annotation.processing.Processor;
+import jdkx.lang.model.SourceVersion;
+import jdkx.lang.model.element.ElementVisitor;
+import jdkx.tools.DiagnosticListener;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject.Kind;
+import jdkx.tools.StandardLocation;
 
 import openjdk.source.util.TaskEvent;
 import openjdk.tools.javac.api.DuplicateClassChecker;
@@ -92,7 +92,7 @@ import static openjdk.tools.javac.main.Option.*;
 import static openjdk.tools.javac.util.JCDiagnostic.DiagnosticFlag.*;
 import java.util.Iterator;
 
-import static javax.tools.StandardLocation.CLASS_OUTPUT;
+import static jdkx.tools.StandardLocation.CLASS_OUTPUT;
 
 import openjdk.tools.javac.tree.JCTree.JCModuleDecl;
 

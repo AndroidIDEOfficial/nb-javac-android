@@ -48,9 +48,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileObject;
-import javax.tools.JavaFileObject.Kind;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject.Kind;
 
 import openjdk.tools.javac.main.Option;
 import openjdk.tools.javac.main.OptionHelper;
@@ -92,7 +92,7 @@ public abstract class BaseFileManager implements JavaFileManager {
         // This is to accommodate clients which save references to Symbols created for use
         // within doclets or annotation processors, and which then attempt to use those
         // references after the tool exits, having closed any internally managed file manager.
-        // Ideally, such clients should run the tool via the javax.tools API, providing their
+        // Ideally, such clients should run the tool via the jdkx.tools API, providing their
         // own file manager, which can be closed by the client when all use of that file
         // manager is complete.
         // If the option has a numeric value, it will be interpreted as the duration,
@@ -119,7 +119,7 @@ public abstract class BaseFileManager implements JavaFileManager {
     public Log log;
 
     /**
-     * User provided charset (through javax.tools).
+     * User provided charset (through jdkx.tools).
      */
     protected Charset charset;
 

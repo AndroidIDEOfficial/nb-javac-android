@@ -43,15 +43,15 @@ module java.compiler {
     exports javac.internal.jimage.decompressor;
     exports javac.internal.jmod;
     exports javac.internal.jrtfs;
-    exports javax.annotation.processing;
-    exports javax.lang.model;
-    exports javax.lang.model.element;
-    exports javax.lang.model.type;
-    exports javax.lang.model.util;
-    exports javax.tools;
+    exports jdkx.annotation.processing;
+    exports jdkx.lang.model;
+    exports jdkx.lang.model.element;
+    exports jdkx.lang.model.type;
+    exports jdkx.lang.model.util;
+    exports jdkx.tools;
 
-    uses javax.tools.DocumentationTool;
-    uses javax.tools.JavaCompiler;
+    uses jdkx.tools.DocumentationTool;
+    uses jdkx.tools.JavaCompiler;
 
     opens com.itsaky.androidide.config to jdk.compiler,jdk.jdeps;
 }

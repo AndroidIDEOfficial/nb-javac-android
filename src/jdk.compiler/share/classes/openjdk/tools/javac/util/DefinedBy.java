@@ -42,10 +42,10 @@ public @interface DefinedBy {
     Api value();
 
     public enum Api {
-        ANNOTATION_PROCESSING("javax.annotation.processing"),
-        COMPILER("javax.tools"),
+        ANNOTATION_PROCESSING("jdkx.annotation.processing"),
+        COMPILER("jdkx.tools"),
         COMPILER_TREE("openjdk.source"),
-        LANGUAGE_MODEL("javax.lang.model");
+        LANGUAGE_MODEL("jdkx.lang.model");
 
         /**The package under which all interfaces/classes of this API belong.
          */

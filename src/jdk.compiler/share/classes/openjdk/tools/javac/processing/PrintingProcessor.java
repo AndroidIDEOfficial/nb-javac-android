@@ -25,14 +25,14 @@
 
 package openjdk.tools.javac.processing;
 
-import javax.annotation.processing.*;
-import javax.lang.model.*;
-import javax.lang.model.element.*;
-import static javax.lang.model.element.ElementKind.*;
-import static javax.lang.model.element.NestingKind.*;
-import static javax.lang.model.element.ModuleElement.*;
-import javax.lang.model.type.*;
-import javax.lang.model.util.*;
+import jdkx.annotation.processing.*;
+import jdkx.lang.model.*;
+import jdkx.lang.model.element.*;
+import static jdkx.lang.model.element.ElementKind.*;
+import static jdkx.lang.model.element.NestingKind.*;
+import static jdkx.lang.model.element.ModuleElement.*;
+import jdkx.lang.model.type.*;
+import jdkx.lang.model.util.*;
 
 import java.io.PrintWriter;
 import java.io.Writer;

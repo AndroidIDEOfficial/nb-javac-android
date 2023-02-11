@@ -31,7 +31,7 @@ import java.nio.file.Path;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import javax.tools.JavaFileObject;
+import jdkx.tools.JavaFileObject;
 
 /**
  * Used to represent a platform-neutral path within a platform-specific

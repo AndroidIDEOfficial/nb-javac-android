@@ -35,10 +35,10 @@ import openjdk.tools.javac.util.JCDiagnostic.DiagnosticFlag;
 import openjdk.tools.javac.tree.JCTree;
 import openjdk.tools.javac.tree.JCTree.*;
 import java.util.Set;
-import javax.lang.model.element.*;
-import javax.tools.JavaFileObject;
-import javax.tools.Diagnostic;
-import javax.annotation.processing.*;
+import jdkx.lang.model.element.*;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.Diagnostic;
+import jdkx.annotation.processing.*;
 
 /**
  * An implementation of the Messager built on top of log.

@@ -34,9 +34,9 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
 
-import javax.lang.model.element.Name;
-import javax.tools.Diagnostic;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.Name;
+import jdkx.tools.Diagnostic;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.source.doctree.AttributeTree.ValueKind;
 import openjdk.source.doctree.DocTree;

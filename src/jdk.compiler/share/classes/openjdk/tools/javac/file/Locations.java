@@ -69,13 +69,13 @@ import java.util.stream.Stream;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 
-import javax.lang.model.SourceVersion;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileManager.Location;
-import javax.tools.JavaFileObject;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.StandardJavaFileManager.PathFactory;
-import javax.tools.StandardLocation;
+import jdkx.lang.model.SourceVersion;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileManager.Location;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.StandardJavaFileManager;
+import jdkx.tools.StandardJavaFileManager.PathFactory;
+import jdkx.tools.StandardLocation;
 
 import com.itsaky.androidide.config.JavacConfigProvider;
 
@@ -94,8 +94,8 @@ import openjdk.tools.javac.util.Iterators;
 import openjdk.tools.javac.util.Pair;
 import openjdk.tools.javac.util.StringUtils;
 
-import static javax.tools.StandardLocation.SYSTEM_MODULES;
-import static javax.tools.StandardLocation.PLATFORM_CLASS_PATH;
+import static jdkx.tools.StandardLocation.SYSTEM_MODULES;
+import static jdkx.tools.StandardLocation.PLATFORM_CLASS_PATH;
 
 import static openjdk.tools.javac.main.Option.BOOT_CLASS_PATH;
 import static openjdk.tools.javac.main.Option.ENDORSEDDIRS;

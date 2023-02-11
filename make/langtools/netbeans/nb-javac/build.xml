@@ -100,9 +100,9 @@
                 <include name="openjdk/**/*" />
                 <include name="java/lang/**/*" />
                 <include name="javac/internal/**/*"/>
-                <include name="javax/annotation/**/*" />
-                <include name="javax/lang/**/*" />
-                <include name="javax/tools/*" />
+                <include name="jdkx/annotation/**/*" />
+                <include name="jdkx/lang/**/*" />
+                <include name="jdkx/tools/*" />
                 <include name="jdk/internal/PreviewFeature*" />
                 <include name="jdk/internal/shellsupport/**/*" />
                 <include name="jdk/internal/jrtfs/**/*" />

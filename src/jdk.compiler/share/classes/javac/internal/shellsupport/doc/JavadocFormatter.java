@@ -38,10 +38,10 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
-import javax.lang.model.element.Name;
-import javax.tools.JavaFileObject.Kind;
-import javax.tools.SimpleJavaFileObject;
-import javax.tools.ToolProvider;
+import jdkx.lang.model.element.Name;
+import jdkx.tools.JavaFileObject.Kind;
+import jdkx.tools.SimpleJavaFileObject;
+import jdkx.tools.ToolProvider;
 
 import openjdk.source.doctree.AttributeTree;
 import openjdk.source.doctree.DocCommentTree;

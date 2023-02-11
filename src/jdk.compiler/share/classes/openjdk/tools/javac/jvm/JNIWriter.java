@@ -31,10 +31,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.tools.FileObject;
-import javax.tools.JavaFileManager;
-import javax.tools.JavaFileManager.Location;
-import javax.tools.StandardLocation;
+import jdkx.tools.FileObject;
+import jdkx.tools.JavaFileManager;
+import jdkx.tools.JavaFileManager.Location;
+import jdkx.tools.StandardLocation;
 
 import openjdk.tools.javac.code.Attribute;
 import openjdk.tools.javac.code.Flags;

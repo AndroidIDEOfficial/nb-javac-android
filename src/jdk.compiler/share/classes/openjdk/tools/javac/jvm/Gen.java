@@ -1914,8 +1914,8 @@ public class Gen extends JCTree.Visitor {
 
     private void setTypeAnnotationPositions(int treePos) {
         MethodSymbol meth = code.meth;
-        boolean initOrClinit = code.meth.getKind() == javax.lang.model.element.ElementKind.CONSTRUCTOR
-                || code.meth.getKind() == javax.lang.model.element.ElementKind.STATIC_INIT;
+        boolean initOrClinit = code.meth.getKind() == jdkx.lang.model.element.ElementKind.CONSTRUCTOR
+                || code.meth.getKind() == jdkx.lang.model.element.ElementKind.STATIC_INIT;
 
         for (Attribute.TypeCompound ta : meth.getRawTypeAttributes()) {
             if (ta.hasUnknownPosition())

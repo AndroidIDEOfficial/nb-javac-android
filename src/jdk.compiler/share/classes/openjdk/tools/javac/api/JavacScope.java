@@ -26,9 +26,9 @@
 package openjdk.tools.javac.api;
 
 import java.util.function.Predicate;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.TypeElement;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.ExecutableElement;
+import jdkx.lang.model.element.TypeElement;
 
 import openjdk.tools.javac.code.Kinds.Kind;
 import openjdk.tools.javac.code.Scope.CompoundScope;

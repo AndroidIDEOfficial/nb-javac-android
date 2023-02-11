@@ -25,7 +25,7 @@
 
 /**
  * Defines the implementation of the
- * {@linkplain javax.tools.ToolProvider#getSystemJavaCompiler system Java compiler}
+ * {@linkplain jdkx.tools.ToolProvider#getSystemJavaCompiler system Java compiler}
  * and its command line equivalent, <em>{@index javac javac tool}</em>.
  *
  * <h2 style="font-family:'DejaVu Sans Mono', monospace; font-style:italic">javac</h2>
@@ -33,8 +33,8 @@
  * <p>
  * This module provides the equivalent of command-line access to <em>javac</em>
  * via the {@link java.util.spi.ToolProvider ToolProvider} and
- * {@link javax.tools.Tool} service provider interfaces (SPIs),
- * and more flexible access via the {@link javax.tools.JavaCompiler JavaCompiler}
+ * {@link jdkx.tools.Tool} service provider interfaces (SPIs),
+ * and more flexible access via the {@link jdkx.tools.JavaCompiler JavaCompiler}
  * SPI.</p>
  *
  * <p> Instances of the tools can be obtained by calling
@@ -43,8 +43,8 @@
  * {@code "javac"}.
  *
  * <p>
- * In addition, instances of {@link javax.tools.JavaCompiler.CompilationTask}
- * obtained from {@linkplain javax.tools.JavaCompiler JavaCompiler} can be
+ * In addition, instances of {@link jdkx.tools.JavaCompiler.CompilationTask}
+ * obtained from {@linkplain jdkx.tools.JavaCompiler JavaCompiler} can be
  * downcast to {@link openjdk.source.util.JavacTask JavacTask} for access to
  * lower level aspects of <em>javac</em>, such as the
  * {@link openjdk.source.tree Abstract Syntax Tree} (AST).</p>
@@ -59,10 +59,10 @@
  *
  * @provides java.util.spi.ToolProvider
  * @provides openjdk.tools.javac.platform.PlatformProvider
- * @provides javax.tools.JavaCompiler
- * @provides javax.tools.Tool
+ * @provides jdkx.tools.JavaCompiler
+ * @provides jdkx.tools.Tool
  *
- * @uses javax.annotation.processing.Processor
+ * @uses jdkx.annotation.processing.Processor
  * @uses openjdk.source.util.Plugin
  * @uses openjdk.tools.javac.platform.PlatformProvider
  *
@@ -117,7 +117,7 @@ module jdk.compiler {
     exports jdk.internal.shellsupport.doc to
         jdk.jshell;
 
-    uses javax.annotation.processing.Processor;
+    uses jdkx.annotation.processing.Processor;
     uses openjdk.source.util.Plugin;
     uses openjdk.tools.doclint.DocLint;
     uses openjdk.tools.javac.platform.PlatformProvider;
@@ -128,10 +128,10 @@ module jdk.compiler {
     provides openjdk.tools.javac.platform.PlatformProvider with
         openjdk.tools.javac.platform.JDKPlatformProvider;
 
-    provides javax.tools.JavaCompiler with
+    provides jdkx.tools.JavaCompiler with
         openjdk.tools.javac.api.JavacTool;
 
-    provides javax.tools.Tool with
+    provides jdkx.tools.Tool with
         openjdk.tools.javac.api.JavacTool;
 }
 

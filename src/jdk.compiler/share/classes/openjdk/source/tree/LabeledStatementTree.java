@@ -25,7 +25,7 @@
 
 package openjdk.source.tree;
 
-import javax.lang.model.element.Name;
+import jdkx.lang.model.element.Name;
 
 /**
  * A tree node for a labeled statement.

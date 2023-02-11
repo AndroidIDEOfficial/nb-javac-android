@@ -35,10 +35,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import javax.tools.JavaFileObject;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.StandardLocation;
-import javax.tools.ToolProvider;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.StandardJavaFileManager;
+import jdkx.tools.StandardLocation;
+import jdkx.tools.ToolProvider;
 
 import openjdk.tools.javac.api.JavacTaskImpl;
 import openjdk.tools.javac.api.JavacTool;

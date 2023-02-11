@@ -27,13 +27,13 @@ package openjdk.source.util;
 
 import java.io.IOException;
 
-import javax.lang.model.element.Element;
-import javax.lang.model.element.VariableElement;
-import javax.lang.model.type.TypeMirror;
-import javax.lang.model.util.Elements;
-import javax.lang.model.util.Types;
-import javax.tools.JavaCompiler.CompilationTask;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.VariableElement;
+import jdkx.lang.model.type.TypeMirror;
+import jdkx.lang.model.util.Elements;
+import jdkx.lang.model.util.Types;
+import jdkx.tools.JavaCompiler.CompilationTask;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.source.tree.CompilationUnitTree;
 import openjdk.source.tree.Tree;
@@ -130,7 +130,7 @@ public abstract class JavacTask implements CompilationTask {
      * {@code ParameterNameProvider}, which won't be queried any more.
      *
      * When no {@code ParameterNameProvider} is set, or when it returns null from
-     * {@link ParameterNameProvider#getParameterName(javax.lang.model.element.VariableElement)},
+     * {@link ParameterNameProvider#getParameterName(jdkx.lang.model.element.VariableElement)},
      * an automatically synthesized name is returned from {@code VariableElement.getSimpleName()}.
      *
      * @implSpec The default implementation of this method does nothing.

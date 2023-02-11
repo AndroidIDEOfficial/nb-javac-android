@@ -27,10 +27,10 @@ package openjdk.tools.javac.code;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import javax.lang.model.element.AnnotationMirror;
-import javax.lang.model.element.AnnotationValue;
-import javax.lang.model.element.AnnotationValueVisitor;
-import javax.lang.model.type.DeclaredType;
+import jdkx.lang.model.element.AnnotationMirror;
+import jdkx.lang.model.element.AnnotationValue;
+import jdkx.lang.model.element.AnnotationValueVisitor;
+import jdkx.lang.model.type.DeclaredType;
 import openjdk.tools.javac.code.Symbol.*;
 import openjdk.tools.javac.util.*;
 import openjdk.tools.javac.util.DefinedBy.Api;

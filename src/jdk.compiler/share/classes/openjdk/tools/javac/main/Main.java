@@ -45,7 +45,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.tools.JavaFileManager;
+import jdkx.tools.JavaFileManager;
 
 import openjdk.tools.javac.api.BasicJavacTask;
 import openjdk.tools.javac.file.CacheFSInfo;

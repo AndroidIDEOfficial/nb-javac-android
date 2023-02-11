@@ -36,13 +36,13 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.LinkedList;
-import javax.lang.model.type.DeclaredType;
-import javax.lang.model.type.TypeMirror;
-import javax.lang.model.util.Types;
-import javax.tools.JavaCompiler;
-import javax.tools.JavaFileObject;
-import javax.tools.SimpleJavaFileObject;
-import javax.tools.ToolProvider;
+import jdkx.lang.model.type.DeclaredType;
+import jdkx.lang.model.type.TypeMirror;
+import jdkx.lang.model.util.Types;
+import jdkx.tools.JavaCompiler;
+import jdkx.tools.JavaFileObject;
+import jdkx.tools.SimpleJavaFileObject;
+import jdkx.tools.ToolProvider;
 import junit.framework.TestCase;
 
 /**

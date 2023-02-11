@@ -31,10 +31,10 @@ import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import javax.annotation.processing.Processor;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.TypeElement;
-import javax.tools.*;
+import jdkx.annotation.processing.Processor;
+import jdkx.lang.model.element.Element;
+import jdkx.lang.model.element.TypeElement;
+import jdkx.tools.*;
 
 import openjdk.source.tree.*;
 import openjdk.source.util.SourcePositions;
@@ -180,8 +180,8 @@ public class JavacTaskImpl extends BasicJavacTask {
             // to forward errors thrown from an annotation processor
             // ClientCodeException is thrown from ClientCodeWrapper,
             // to forward errors thrown from user-supplied code for Compiler API
-            // as specified by javax.tools.JavaCompiler#getTask
-            // and javax.tools.JavaCompiler.CompilationTask#call
+            // as specified by jdkx.tools.JavaCompiler#getTask
+            // and jdkx.tools.JavaCompiler.CompilationTask#call
             throw new RuntimeException(e.getCause());
         } catch (PropagatedException e) {
             throw e.getCause();

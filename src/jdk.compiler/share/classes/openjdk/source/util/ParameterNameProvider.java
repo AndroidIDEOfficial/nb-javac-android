@@ -25,7 +25,7 @@
 
 package openjdk.source.util;
 
-import javax.lang.model.element.VariableElement;
+import jdkx.lang.model.element.VariableElement;
 
 /**
  * A provider for parameter names when the parameter names are not determined from

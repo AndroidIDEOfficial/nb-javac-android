@@ -45,10 +45,10 @@ import java.nio.file.Path;
 import java.text.Normalizer;
 import java.util.Objects;
 
-import javax.lang.model.element.Modifier;
-import javax.lang.model.element.NestingKind;
-import javax.tools.FileObject;
-import javax.tools.JavaFileObject;
+import jdkx.lang.model.element.Modifier;
+import jdkx.lang.model.element.NestingKind;
+import jdkx.tools.FileObject;
+import jdkx.tools.JavaFileObject;
 
 import openjdk.tools.javac.file.RelativePath.RelativeFile;
 import openjdk.tools.javac.util.DefinedBy;
